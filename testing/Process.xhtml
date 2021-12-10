@@ -52,23 +52,45 @@
 <p>
 
 <div class="index"><div class="wrapFloat"><div class="inFloat">
-<div class="rotate90"> Index of Content</div>
+<div class="rotate90">Index of Content</div>
 </div><div class="inFloat">
 <ol>
- <li><a href="#ChapterTitleHere"> Chapter Title Here </a></li>
+ <li><a href="#Process"> The process library </a></li>
 
 </ol>
 </div></div><div class="finishFloat"></div></div>
- 
 
-</p><p id="ChapterTitleHere">
-</p><div style="break-after:page"></div><h1> Chapter Title Here </h1> <p>
-</p><h2> (1/5) Sub title </h2> <p>
-some text
+</p><p id="Process">
+</p><div style="break-after:page"></div><h1> The process library </h1> <p>
+</p><h2> Importing process and example usage </h2> <p>
+
+The process library allows to run processes from AdamsTowel.
+<it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Process.Real.#$of(..)]]></span><it style="font-style: bold; color:green;">&#187;</it> creates a capability object permanently connected with a specific
+command and option, but the standard input of the program can be specified by the capability user.
+<pre class="l42Big"><![CDATA[
+Process = Load:{reuse[L42.is/Process]}
+..
+  (
+  Process pLinux=Process.Real.#$of(\[S"ls";S"-l"])
+  res=pLinux.start(input=S"")
+  Debug(res.out())
+  Debug(res.err())
+  catch Process.Fail f Debug(S"oh no!")
+  )
+]]></pre>
+
+</p><h2> Overview under AdamsTowel </h2> <p>
 <pre class="l42Big"><![CDATA[
 interface
-#$of(that)                         class method mut This #$of(S.List that)
-start(input)                       mut method Result start(S input)[Fail]
+start(input)                       @{
+  Capability method
+  Starts the process with the provided input.
+  It waits until the process is completed.
+  returns a @Result.
+  Note that a @Fail exception would raise if the process can not start,
+  but if the process ends with errors (on the standard error stream),
+  they would just be part of the result.
+  }mut method Result start(S input)[Fail]
 Fail={
   [Message, HasToS, Message.Guard]
   #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
@@ -84,23 +106,40 @@ Fail={
   }
 Real={
   [This1]
-  #$of(that)                         @Public class method mut This #$of(S.List that)=(..)
-  that()                             @Public read method S.List that()=(..)
-  start(input)                       @Public mut method Result start(S input)[Fail]=(..)
+  #$of(that)                         @{
+    Capability factory
+    Makes a @This capability object that can only run the provided process
+    with the provided parameters    
+    }@Public class method mut This #$of(S.List that)=(..)
+  that()                             @{
+    The process ready to run
+    }@Public read method S.List that()=(..)
+  start(input)                       @{
+    Capability method
+    Starts the process with the provided input.
+    It waits until the process is completed.
+    returns a @Result.
+    Note that a @Fail exception would raise if the process can not start,
+    but if the process ends with errors (on the standard error stream),
+    they would just be part of the result.
+    }@Public mut method Result start(S input)[Fail]=(..)
   }
 Result={
   [HasToS]
   #apply(out, err)                   class method This #apply(fwd imm S out, fwd imm S err)=(..)
-  #apply(that)                       class method This #apply(S that)=(..)
   #immK(out, err)                    class method This #immK(S out, S err)=(..)
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   norm()                             method This norm()=(..)
   with(err)                          method This with(S err)=(..)
   with(out)                          method This with(S out)=(..)
-  err()                              read method S err()=(..)
+  err()                              @{
+    the standard error of the process
+    }read method S err()=(..)
   immClone()                         read method This immClone()=(..)
-  out()                              read method S out()=(..)
+  out()                              @{
+    the standard output of the process
+    }read method S out()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
