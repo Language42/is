@@ -55,21 +55,35 @@
 <div class="rotate90"> Index of Content</div>
 </div><div class="inFloat">
 <ol>
- <li><a href="#ChapterTitleHere"> Chapter Title Here </a></li>
-
+ <li><a href="#Json"> Json </a></li>
 </ol>
 </div></div><div class="finishFloat"></div></div>
- 
 
-</p><p id="ChapterTitleHere">
-</p><div style="break-after:page"></div><h1> Chapter Title Here </h1> <p>
-</p><h2> (1/5) Sub title </h2> <p>
-some text
+</p><p id="Json">
+</p><div style="break-after:page"></div><h1> Json </h1> <p>
+</p><h2> Importing Json and example usage </h2> <p>
+
+The Json module allows for creation and handling of Json objects. 
+The standard datatypes are supported. Result is immutable
 <pre class="l42Big"><![CDATA[
-#from(stringLiteral)               class method Value #from(S.StringBuilder stringLiteral)=(..)
-Array={
+reuse [L42.is/AdamsTowel]
+Json = Load:{reuse[L42.is/Json]}
+Main=(
+  Json.Value v=Json"""
+    |[{ "a":1, "b":true, "c":["Hello","World"]}]
+    """
+  Debug(v)
+  )
+]]></pre>
+
+</p><h2> Overview under AdamsTowel </h2> <p>
+
+<pre class="l42Big"><![CDATA[
+#apply(string)                     @Public class method Value #apply(S string)=(..)
+#from(stringLiteral)               @Public class method Value #from(S.StringBuilder stringLiteral)=(..)
+@Public Array={
   [Value, HasToS]
-  #apply()                           class method mut This #apply()
+  #apply()                           class method mut This #apply()=(..)
   #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
   #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
   #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
@@ -221,25 +235,25 @@ Array={
   right(that)                        mut method Void right(Value that)=(..)
   set(that, val)                     mut method Void set(I that, Value val)native{..}=(..)
   Iterator={
-    #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+    #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
     #elem#default(that)                read method Value #elem#default(I that)=(..)
     #elem#imm(that)                    read method Value #elem#imm(I that)=(..)
     #elem#read(that)                   read method read Value #elem#read(I that)=(..)
     #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
     #iterator()                        read method read This #iterator()=(..)
     #startIndex()                      read method I #startIndex()=(..)
-    end()                              read method I end()
-    list()                             read method read This1 list()
-    start()                            read method I start()
+    end()                              read method I end()=(..)
+    list()                             read method read This1 list()=(..)
+    start()                            read method I start()=(..)
     #elem#mut(that)                    mut method mut Value #elem#mut(I that)=(..)
-    #list()                            mut method mut This1 #list()
+    #list()                            mut method mut This1 #list()=(..)
     #update#default(that, val)         mut method Value #update#default(I that, Value val)=(..)
     #update#imm(that, val)             mut method Value #update#imm(I that, Value val)=(..)
     #update#mut(that, val)             mut method mut Value #update#mut(I that, mut Value val)=(..)
     #varIterator()                     mut method mut This #varIterator()=(..)
     }
   }
-Bool={
+@Public Bool={
   interface[HasToS, Value]
   #bangequal0(that)                  method Bool #bangequal0(This that)
   #equalequal0(that)                 method Bool #equalequal0(This that)
@@ -248,7 +262,7 @@ Bool={
   toS()                              read method S toS()
   False={
     [This1, HasToS, Value]
-    #apply()                           class method This #apply()
+    #apply()                           class method This #apply()=(..)
     #bangequal0(that)                  method Bool #bangequal0(This1 that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This1 that)=(..)
     immClone()                         read method This immClone()=(..)
@@ -257,7 +271,7 @@ Bool={
     }
   List={
     [HasToS]
-    #apply()                           class method mut This #apply()
+    #apply()                           class method mut This #apply()=(..)
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
@@ -409,18 +423,18 @@ Bool={
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
-      #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
       #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
       #iterator()                        read method read This #iterator()=(..)
       #startIndex()                      read method I #startIndex()=(..)
-      end()                              read method I end()
-      list()                             read method read This1 list()
-      start()                            read method I start()
+      end()                              read method I end()=(..)
+      list()                             read method read This1 list()=(..)
+      start()                            read method I start()=(..)
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
-      #list()                            mut method mut This1 #list()
+      #list()                            mut method mut This1 #list()=(..)
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
       #update#imm(that, val)             mut method This2 #update#imm(I that, This2 val)=(..)
       #update#mut(that, val)             mut method mut This2 #update#mut(I that, mut This2 val)=(..)
@@ -507,7 +521,7 @@ Bool={
     }
   True={
     [This1, HasToS, Value]
-    #apply()                           class method This #apply()
+    #apply()                           class method This #apply()=(..)
     #bangequal0(that)                  method Bool #bangequal0(This1 that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This1 that)=(..)
     immClone()                         read method This immClone()=(..)
@@ -529,33 +543,7 @@ Bool={
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     }
   }
-JsonBase={
-  [Trait.Lifted]
-  #apply()                           class method Trait #apply()=(..)
-  #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
-  #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
-  #plus1(lib)                        class method Trait #plus1(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
-  code()                             class method Library code()=(..)
-  info()                             class method Info info()=(..)
-  resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
-  ClassOperators={
-    #apply()                           class method Trait #apply()=(..)
-    }
-  }
-JsonSeal={
-  [Trait.Lifted]
-  #apply()                           class method Trait #apply()=(..)
-  #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
-  #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
-  #plus1(lib)                        class method Trait #plus1(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
-  code()                             class method Library code()=(..)
-  info()                             class method Info info()=(..)
-  resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
-  ClassOperators={
-    #apply()                           class method Trait #apply()=(..)
-    }
-  }
-Null={
+@Public Null={
   [HasToS, Value]
   #apply()                           class method This #apply()=(..)
   #immK()                            class method This #immK()=(..)
@@ -567,7 +555,7 @@ Null={
   toS()                              read method S toS()=(..)
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   }
-Number={
+@Public Number={
   [HasToS, Value]
   #apply(string)                     class method This #apply(S string)=(..)
   #apply(that)                       class method This #apply(S that)=(..)
@@ -583,7 +571,7 @@ Number={
   toS()                              read method S toS()=(..)
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   }
-Object={
+@Public Object={
   [Value, HasToS]
   #apply()                           @Public class method mut This #apply()=(..)
   #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
@@ -661,36 +649,7 @@ Object={
     #val()                             mut method mut Value #val()native{..}=(..)
     }
   }
-Parse={
-  [Trait.Lifted]
-  #apply()                           class method Trait #apply()=(..)
-  #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
-  #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
-  #plus1(lib)                        class method Trait #plus1(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
-  code()                             class method Library code()=(..)
-  info()                             class method Info info()=(..)
-  resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
-  ClassOperators={
-    #apply()                           class method Trait #apply()=(..)
-    }
-  }
-ParseJson={
-  #apply(that)                       @Public class method Value #apply(S that)=(..)
-  @Public Fail={
-    [Message, HasToS, Message.Guard]
-    #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
-    #apply(that)                       class method mut This #apply(S that)=(..)
-    #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
-    #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
-    with(cause)                        method This with(Message cause)=(..)
-    cause()                            read method Message.OptMessage cause()=(..)
-    text()                             read method S text()=(..)
-    toS()                              read method S toS()=(..)
-    cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
-    text(that)                         mut method Void text(S that)=(..)
-    }
-  }
-String={
+@Public String={
   [HasToS, Value]
   #apply(string)                     class method This #apply(S string)=(..)
   #apply(that)                       class method This #apply(S that)=(..)
@@ -706,25 +665,12 @@ String={
   toS()                              read method S toS()=(..)
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   }
-ToJson={
-  [Trait.Lifted]
-  #apply()                           class method Trait #apply()=(..)
-  #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
-  #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
-  #plus1(lib)                        class method Trait #plus1(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
-  code()                             class method Library code()=(..)
-  info()                             class method Info info()=(..)
-  resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
-  ClassOperators={
-    #apply()                           class method Trait #apply()=(..)
-    }
-  }
-Value={
+@Public Value={
   interface[HasToS]
   toS()                              read method S toS()
   }
 ]]></pre>
-more text
+
         </p>
         </div>
       </div>
