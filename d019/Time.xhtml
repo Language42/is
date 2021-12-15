@@ -55,55 +55,31 @@
 <div class="rotate90"> Index of Content</div>
 </div><div class="inFloat">
 <ol>
- <li><a href="#ChapterTitleHere"> Chapter Title Here </a></li>
-
+ <li><a href="#Time"> Time </a></li>
 </ol>
 </div></div><div class="finishFloat"></div></div>
- 
 
-</p><p id="ChapterTitleHere">
-</p><div style="break-after:page"></div><h1> Chapter Title Here </h1> <p>
-</p><h2> (1/5) Sub title </h2> <p>
-some text
+</p><p id="Time">
+</p><div style="break-after:page"></div><h1> Time </h1> <p>
+</p><h2> Importing time and example usage </h2> <p>
+The time module enables retrieval of the unix universal time and automatic conversion of
+that time into a timezone with a preferred format.
+<pre class="l42Big"><![CDATA[
+reuse [L42.is/AdamsTowel]
+Time = Load:{reuse[L42.is/Time]}
+Main=(
+  t = Time.Real.#$of()
+  current = t.currentTime()
+  date = t.dateTime(zoneId=S"Australia/Sydney",pattern=S"yyyy/MM/dd HH:mm:ss OOOO")
+  Debug(current)
+  Debug(date)
+  )
+]]></pre>
+</p><h2> Overview under AdamsTowel </h2> <p>
 <pre class="l42Big"><![CDATA[
 interface
-currentTime()                      @{
-  unix universal time
-  }mut method Math.Long currentTime()[Fail]
-dateTime(zoneId, pattern)          @{
-  This method returns a string following a format pattern and a zoneId.
-  The method accepts as zoneIds at least the following constants:
-    {
-    Australia/Darwin
-    Australia/Sydney
-    America/Argentina/Buenos_Aires
-    Africa/Cairo
-    America/Anchorage
-    America/Sao_Paulo
-    Asia/Dhaka
-    Africa/Harare
-    America/St_Johns
-    America/Chicago
-    Asia/Shanghai
-    Africa/Addis_Ababa
-    Europe/Paris
-    America/Indiana/Indianapolis
-    Asia/Kolkata
-    Asia/Tokyo
-    Pacific/Apia
-    Asia/Yerevan
-    Pacific/Auckland
-    Asia/Karachi
-    America/Phoenix
-    America/Puerto_Rico
-    America/Los_Angeles
-    Pacific/Guadalcanal
-    Asia/Ho_Chi_Minh
-    }
-    
-  However, other constants, like Europe/Rome may be available
-  An example of an accepted pattern is "yyyy/MM/dd HH:mm:ss OOOO"
-  }mut method S dateTime(S zoneId, S pattern)[Fail]
+currentTime()                      mut method Math.Long currentTime()[Fail]
+dateTime(zoneId, pattern)          mut method S dateTime(S zoneId, S pattern)[Fail]
 Fail={
   [Message, HasToS, Message.Guard]
   #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
@@ -119,12 +95,51 @@ Fail={
   }
 Real={
   [This1]
-  #$of()                             @Public class method mut This #$of()=(..)
-  currentTime()                      @Public mut method Math.Long currentTime()[Fail]=(..)
-  dateTime(zoneId, pattern)          @Public mut method S dateTime(S zoneId, S pattern)[Fail]=(..)
+  #$of()                             @{
+     Capability factory.
+    Provides an object to call the function methods on
+    }@Public class method mut This #$of()=(..)
+  currentTime()                      @{
+     Capability method. 
+    returns unix universal time
+    }@Public mut method Math.Long currentTime()[Fail]=(..)
+  dateTime(zoneId, pattern)          @{
+     Capability method.
+    This method returns a string following a format pattern and a zoneId.
+    The method accepts as zoneIds at least the following constants:
+      {
+      Australia/Darwin
+      Australia/Sydney
+      America/Argentina/Buenos_Aires
+      Africa/Cairo
+      America/Anchorage
+      America/Sao_Paulo
+      Asia/Dhaka
+      Africa/Harare
+      America/St_Johns
+      America/Chicago
+      Asia/Shanghai
+      Africa/Addis_Ababa
+      Europe/Paris
+      America/Indiana/Indianapolis
+      Asia/Kolkata
+      Asia/Tokyo
+      Pacific/Apia
+      Asia/Yerevan
+      Pacific/Auckland
+      Asia/Karachi
+      America/Phoenix
+      America/Puerto_Rico
+      America/Los_Angeles
+      Pacific/Guadalcanal
+      Asia/Ho_Chi_Minh
+      }
+      
+    However, other constants, like Europe/Rome may be available
+    An example of an accepted pattern is "yyyy/MM/dd HH:mm:ss OOOO"
+    }@Public mut method S dateTime(S zoneId, S pattern)[Fail]=(..)
   }
 ]]></pre>
-more text
         </p>
         </div>
       </div>
@@ -143,5 +158,4 @@ more text
 	
   </body>
 </html>
-
 
