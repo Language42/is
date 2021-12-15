@@ -66,7 +66,7 @@
 
 <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[AdamsTowel]]></span><it style="font-style: bold; color:green;">&#187;</it> is the most developed 42 towel, and it is a good starting point for varius 
 forms of towel staining and embroidery.
-Refer to the <a href="tutorial_01Basics.xhtml">tutorial</a>
+Refer to the <a href="../tutorial_01Basics.xhtml">tutorial</a>
 for more informations.
 </p><h2> Importing process and example usage </h2> <p>
 <pre class="l42Big"><![CDATA[
@@ -3965,8 +3965,8 @@ Main = Debug(S"Hello world")
 </p><p id="Collection">
 </p><div style="break-after:page"></div><h1> Collection </h1> <p>
 <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Collection]]></span><it style="font-style: bold; color:green;">&#187;</it> allows to create many kinds of collections.
-Here you can see examples of collections of <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Person]]></span><it style="font-style: bold; color:green;">&#187;</it>.  
-
+Here you can see examples of collections of <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Person]]></span><it style="font-style: bold; color:green;">&#187;</it>.
+The following code: 
 <pre class="l42Big"><![CDATA[
 Point = Data:{Num x, Num y}
 Person = Data:{S name var Point location}
@@ -3978,7 +3978,7 @@ OptPerson  = Collection.optional(Person)
 MatrixPerson  = Collection.matrix(ListPerson, row=10I, col=20I)
 LinkeListPerson = Collection.linkedList(Person)
 ]]></pre>
-
+Would produce the following:
 <pre class="l42BigFolded"><![CDATA[
 LinkeListPerson={
   interface
@@ -4407,15 +4407,13 @@ SetPerson={
 <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Message]]></span><it style="font-style: bold; color:green;">&#187;</it> allows to create many kinds of messages.
 Here you can see an example of a custom message, with an extra method and 
 additionally implementing <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Message.Guard]]></span><it style="font-style: bold; color:green;">&#187;</it>.
-
+The following code:
 <pre class="l42Big"><![CDATA[
-MessageExample={
-  KindInformation = Message:{[Message.Guard]
-    method S extra()=S"Wow that was a great explanation!"
-    }
+KindInformation = Message:{[Message.Guard]
+  method S extra()=S"Wow that was a great explanation!"
   }
 ]]></pre>
-
+Would produce the following:
 <pre class="l42BigFolded"><![CDATA[
 KindInformation={
   [Message, HasToS, Message.Guard]
