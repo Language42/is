@@ -55,31 +55,27 @@
 <div class="rotate90">Index of Content</div>
 </div><div class="inFloat">
 <ol>
- <li><a href="#Process"> The process library </a></li>
-
+ <li><a href="#AdamsTowel"> AdamsTowel </a></li>
+ <li><a href="#Collection"> Collection </a></li>
+ <li><a href="#Message"> Message </a></li>
 </ol>
 </div></div><div class="finishFloat"></div></div>
 
-</p><p id="Process">
-</p><div style="break-after:page"></div><h1> The process library </h1> <p>
-</p><h2> Importing process and example usage </h2> <p>
+</p><p id="AdamsTowel">
+</p><div style="break-after:page"></div><h1> AdamsTowel </h1> <p>
 
-The process library allows to run processes from AdamsTowel.
-<it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Process.Real.#$of(..)]]></span><it style="font-style: bold; color:green;">&#187;</it> creates a capability object permanently connected with a specific
-command and option, but the standard input of the program can be specified by the capability user.
+<it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[AdamsTowel]]></span><it style="font-style: bold; color:green;">&#187;</it> is the most developed 42 towel, and it is a good starting point for varius 
+forms of towel staining and embroidery.
+Refer to the <a href="tutorial_01Basics.xhtml">tutorial</a>
+for more informations.
+</p><h2> Importing process and example usage </h2> <p>
 <pre class="l42Big"><![CDATA[
-Process = Load:{reuse[L42.is/Process]}
+reuse[L42.is/AdamsTowel]
 ..
-  (
-  Process pLinux=Process.Real.#$of(\[S"ls";S"-l"])
-  res=pLinux.start(input=S"")
-  Debug(res.out())
-  Debug(res.err())
-  catch Process.Fail f Debug(S"oh no!")
-  )
+Main = Debug(S"Hello world")
 ]]></pre>
 
-</p><h2> Overview under AdamsTowel </h2> <p>
+</p><h2> Overview </h2> <p>
 <pre class="l42BigFolded"><![CDATA[
 @Public AbstractTowel={
   }
@@ -3965,6 +3961,478 @@ Process = Load:{reuse[L42.is/Process]}
     }
   }
 ]]></pre>
+
+</p><p id="Collection">
+</p><div style="break-after:page"></div><h1> Collection </h1> <p>
+<it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Collection]]></span><it style="font-style: bold; color:green;">&#187;</it> allows to create many kinds of collections.
+Here you can see examples of collections of <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Person]]></span><it style="font-style: bold; color:green;">&#187;</it>.  
+
+<pre class="l42Big"><![CDATA[
+Point = Data:{Num x, Num y}
+Person = Data:{S name var Point location}
+
+ListPerson = Collection.list(Person)
+SetPerson  = Collection.set(Person)
+MapSPerson = Collection.map(key=S val=Person)
+OptPerson  = Collection.optional(Person)
+MatrixPerson  = Collection.matrix(ListPerson, row=10I, col=20I)
+LinkeListPerson = Collection.linkedList(Person)
+]]></pre>
+
+<pre class="l42BigFolded"><![CDATA[
+LinkeListPerson={
+  interface
+  #iterator()                        @Public read method Iterator #iterator()
+  #plusplus0(that)                   @Public read method read This #plusplus0(read This that)
+  #startIndex()                      @Public read method read This #startIndex()
+  #succ()                            @Public read method read This #succ()
+  isEmpty()                          @Public read method Bool isEmpty()
+  pop()                              @Public read method read This pop()
+  push(that)                         @Public read method read This push(read Person that)
+  top()                              @Public read method read Person top()
+  @Public Empty={
+    [This1]
+    #apply()                           @Public class method read This1 #apply()=(..)
+    #iterator()                        read method Iterator #iterator()=(..)
+    #plusplus0(that)                   read method read This1 #plusplus0(read This1 that)=(..)
+    #startIndex()                      read method read This1 #startIndex()=(..)
+    #succ()                            read method read This1 #succ()=(..)
+    isEmpty()                          read method Bool isEmpty()=(..)
+    pop()                              read method read This1 pop()=(..)
+    push(that)                         read method read This1 push(read Person that)=(..)
+    top()                              read method read Person top()=(..)
+    }
+  @Public Iterator={
+    #elem#default(that)                @Public method read Person #elem#default(read This1 that)=(..)
+    #hasElem(that)                     @Public read method Collection.IteratorCompose #hasElem(read This1 that)=(..)
+    }
+  }
+ListPerson={
+  [HasToS]
+  #apply()                           class method mut This #apply()
+  #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
+  #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
+  #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
+  #squareBuilder()                   class method mut This #squareBuilder()=(..)
+  equals(a, b)                       class method Bool equals(read Person a, read Person b)=(..)
+  #bangequal0(that)                  @{
+    Predicate
+    Delegates to 'System.immEquality'.
+    Look at 'allEq' for more flexible equivalence checks.
+    }method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 @{
+    Predicate
+    Delegates to 'System.immEquality'.
+    Look at 'allEq' for more flexible equivalence checks.
+    }method Bool #equalequal0(This that)=(..)
+  #minus0(right)                     @{
+    Wither
+    Returns the receiver but without all the elements equal to 'right'
+    }method This #minus0(Person right)=(..)
+  #minusminus0(right)                @{
+    Wither
+    Returns the receiver but without all the elements contained in the list 'right'
+    }method This #minusminus0(This right)=(..)
+  #plus0(right)                      method This #plus0(Person right)=(..)
+  #plus1(left)                       method This #plus1(Person left)=(..)
+  #plusplus0(right)                  method This #plusplus0(This right)=(..)
+  immNorm()                          method This immNorm()=(..)
+  with(left)                         method This with(Person left)=(..)
+  with(right)                        method This with(Person right)=(..)
+  with(that, val)                    method This with(I that, Person val)=(..)
+  withAlso(left)                     method This withAlso(Person left)=(..)
+  withAlso(right)                    method This withAlso(Person right)=(..)
+  withAlso(that, val)                method This withAlso(I that, Person val)=(..)
+  without(left)                      @{
+    Wither
+    Returns the receiver but without the leftmost element equal to 'val'
+    }method This without(read Person left)=(..)
+  without(right)                     @{
+    Wither
+    Returns the receiver but without the rightmost element equal to 'val'
+    }method This without(read Person right)=(..)
+  without(that)                      method This without(I that)=(..)
+  withoutAll(val)                    @{
+    Wither
+    Returns the receiver but without all the elements equal to 'val'
+    }method This withoutAll(read Person val)=(..)
+  withoutLeft()                      method This withoutLeft()=(..)
+  withoutRight()                     method This withoutRight()=(..)
+  #elem#default(that)                read method Person #elem#default(I that)=(..)
+  #elem#imm(that)                    read method Person #elem#imm(I that)=(..)
+  #elem#read(that)                   read method read Person #elem#read(I that)=(..)
+  #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+  #in1(that)                         @{
+    Predicate
+    True if the element is contained in the List.
+    }read method Bool #in1(read Person that)=(..)
+  #iterator()                        read method read This #iterator()=(..)
+  #startIndex()                      read method I #startIndex()=(..)
+  allEq(that)                        @{
+    Predicate
+    returns true if all the elements in 'this' are individually 
+    This.equals(a,b) to the corresponding element in 'that'.
+    This can be different from '==' or 'readEquality': they just use system equality.
+    If the elements have a 'readEquality' method, that is used
+    On default This.equals(a,b) will use an available equality predicate visible on the element; 
+    prioritizing in the following order:
+    'allEq', 'readEquality' and '=='.
+    If none is present, 'System.immEquality' is used instead.
+    }read method Bool allEq(read This that)=(..)
+  clone()                            read method capsule This clone()=(..)
+  contains(that)                     @{
+    Predicate
+    True if the element is contained in the List.
+    }read method Bool contains(read Person that)=(..)
+  indexOf(left)                      @{
+    Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+    The result is the index of the leftmost occurrence
+    of 'left' in the list according to 'This.equals(a,b)'
+    }read method I indexOf(read Person left)=(..)
+  indexOf(right)                     @{
+    Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+    The result is the index of the rightmost occurrence
+    of 'right' in the list according to 'This.equals(a,b)'
+    }read method I indexOf(read Person right)=(..)
+  isEmpty()                          read method Bool isEmpty()native{..}=(..)
+  isMutVal(that)                     read method Bool isMutVal(I that)native{..}=(..)
+  left()                             read method Person left()=(..)
+  readEquality(that)                 @{
+    Predicate
+    Delegates to 'System.immEquality'.
+    Look at 'allEq' for more flexible equivalence checks.
+    }read method Bool readEquality(read This that)=(..)
+  readLeft()                         read method read Person readLeft()=(..)
+  readRight()                        read method read Person readRight()=(..)
+  readVal(that)                      read method read Person readVal(I that)native{..}=(..)
+  right()                            read method Person right()=(..)
+  size()                             read method I size()native{..}=(..)
+  toS()                              read method S toS()=(..)
+  val(that)                          read method Person val(I that)native{..}=(..)
+  vals()                             read method read This vals()=(..)
+  vals(that)                         read method read Iterator vals(I that)=(..)
+  vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
+  vals(to)                           read method read Iterator vals(I to)=(..)
+  #add(left)                         mut method Void #add(mut Person left)=(..)
+  #add(right)                        mut method Void #add(mut Person right)=(..)
+  #add(that, val)                    mut method Void #add(I that, mut Person val)native{..}=(..)
+  #apply(that)                       mut method mut This #apply(Void that)=(..)
+  #elem#mut(that)                    mut method mut Person #elem#mut(I that)=(..)
+  #left()                            mut method mut Person #left()=(..)
+  #left(that)                        mut method Void #left(mut Person that)=(..)
+  #right()                           mut method mut Person #right()=(..)
+  #right(that)                       mut method Void #right(mut Person that)=(..)
+  #set(that, val)                    mut method Void #set(I that, mut Person val)native{..}=(..)
+  #squareAdd(mutVal)                 mut method Void #squareAdd(mut Person mutVal)=(..)
+  #squareAdd(that)                   mut method Void #squareAdd(Person that)=(..)
+  #update#default(that, val)         mut method Person #update#default(I that, Person val)=(..)
+  #update#imm(that, val)             mut method Person #update#imm(I that, Person val)=(..)
+  #update#mut(that, val)             mut method mut Person #update#mut(I that, mut Person val)=(..)
+  #val(that)                         mut method mut Person #val(I that)native{..}=(..)
+  #vals()                            mut method mut This #vals()=(..)
+  #vals(that)                        mut method mut Iterator #vals(I that)=(..)
+  #vals(that, to)                    mut method mut Iterator #vals(I that, I to)=(..)
+  #vals(to)                          mut method mut Iterator #vals(I to)=(..)
+  #varIterator()                     mut method mut This #varIterator()=(..)
+  add(left)                          mut method Void add(Person left)=(..)
+  add(right)                         mut method Void add(Person right)=(..)
+  add(that)                          mut method Void add(Person that)=(..)
+  add(that, val)                     mut method Void add(I that, Person val)native{..}=(..)
+  clear()                            mut method Void clear()=(..)
+  left(that)                         mut method Void left(Person that)=(..)
+  remove(left)                       @{
+    Mutator 
+    Removes from the list the leftmost element equal to 'left'.
+    It relies on 'This.equals(a,b)' through 'this.indexOf(left)'  
+    }mut method Void remove(read Person left)=(..)
+  remove(right)                      @{
+    Mutator 
+    Removes from the list the rightmost element equal to 'right'.
+    It relies on 'This.equals(a,b)' through 'this.indexOf(right)'  
+    }mut method Void remove(read Person right)=(..)
+  remove(that)                       mut method Void remove(I that)native{..}=(..)
+  removeAll(val)                     @{
+    Mutator 
+    Removes from the list all the elements equal to 'val'.
+    It relies on 'This.equals(a,b)'  
+    }mut method Void removeAll(read Person val)=(..)
+  removeLeft()                       mut method Void removeLeft()=(..)
+  removeRight()                      mut method Void removeRight()=(..)
+  right(that)                        mut method Void right(Person that)=(..)
+  set(that, val)                     mut method Void set(I that, Person val)native{..}=(..)
+  Iterator={
+    #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+    #elem#default(that)                read method Person #elem#default(I that)=(..)
+    #elem#imm(that)                    read method Person #elem#imm(I that)=(..)
+    #elem#read(that)                   read method read Person #elem#read(I that)=(..)
+    #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+    #iterator()                        read method read This #iterator()=(..)
+    #startIndex()                      read method I #startIndex()=(..)
+    end()                              read method I end()
+    list()                             read method read This1 list()
+    start()                            read method I start()
+    #elem#mut(that)                    mut method mut Person #elem#mut(I that)=(..)
+    #list()                            mut method mut This1 #list()
+    #update#default(that, val)         mut method Person #update#default(I that, Person val)=(..)
+    #update#imm(that, val)             mut method Person #update#imm(I that, Person val)=(..)
+    #update#mut(that, val)             mut method mut Person #update#mut(I that, mut Person val)=(..)
+    #varIterator()                     mut method mut This #varIterator()=(..)
+    }
+  }
+MapSPerson={
+  [HasToS]
+  #apply()                           @Public class method mut This #apply()=(..)
+  #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
+  #shortCircutSquare()               @Public class method Bool #shortCircutSquare()=(..)
+  #squareBuilder()                   @Public class method mut This #squareBuilder()=(..)
+  empty()                            @Public class method mut This empty()=(..)
+  #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
+  immNorm()                          @Public method This immNorm()=(..)
+  #elem#default(that)                @Public read method Entry #elem#default(I that)=(..)
+  #elem#imm(that)                    @Public read method Entry #elem#imm(I that)=(..)
+  #elem#read(that)                   @Public read method read Entry #elem#read(I that)=(..)
+  #hasElem(that)                     @Public read method Collection.IteratorCompose #hasElem(I that)=(..)
+  #iterator()                        @Public read method read This #iterator()=(..)
+  #startIndex()                      @Public read method I #startIndex()=(..)
+  entry(that)                        @Public read method read Entry entry(I that)=(..)
+  immEntry(that)                     @Public read method Entry immEntry(I that)=(..)
+  isEmpty()                          @Public read method Bool isEmpty()=(..)
+  isMutVal(that)                     @Public read method Bool isMutVal(I that)=(..)
+  key(that)                          @Public read method S key(I that)=(..)
+  readEquality(that)                 @Public read method Bool readEquality(read This that)=(..)
+  readVal(key)                       @Public read method read OVal readVal(S key)=(..)
+  readVal(that)                      @Public read method read Person readVal(I that)=(..)
+  size()                             @Public read method I size()=(..)
+  toS()                              @Public read method S toS()=(..)
+  val(key)                           @Public read method OVal val(S key)=(..)
+  val(that)                          @Public read method Person val(I that)=(..)
+  vals()                             @Public read method read This vals()=(..)
+  #apply(that)                       @Public mut method mut This #apply(Void that)=(..)
+  #elem#mut(that)                    @Public mut method mut Entry #elem#mut(I that)=(..)
+  #entry(that)                       @Public mut method mut Entry #entry(I that)=(..)
+  #put(key, val)                     @Public mut method Void #put(S key, mut Person val)=(..)
+  #squareAdd(key, mutVal)            @Public mut method Void #squareAdd(S key, mut Person mutVal)=(..)
+  #squareAdd(key, val)               @Public mut method Void #squareAdd(S key, Person val)=(..)
+  #val(key)                          @Public mut method mut OVal #val(S key)=(..)
+  #val(that)                         @Public mut method mut Person #val(I that)=(..)
+  #vals()                            @Public mut method mut This #vals()=(..)
+  #varIterator()                     @Public mut method mut This #varIterator()=(..)
+  put(key, val)                      @Public mut method Void put(S key, Person val)=(..)
+  remove(key)                        @Public mut method Void remove(S key)=(..)
+  @Public Entry={
+    [HasToS]
+    #apply(key, val)                   class method mut This #apply(fwd imm S key, fwd mut Person val)=(..)
+    #immK(key, val)                    class method This #immK(S key, Person val)=(..)
+    readEntry(key, val)                class method read This readEntry(S key, read Person val)=(..)
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    norm()                             method This norm()=(..)
+    with(key)                          method This with(S key)=(..)
+    with(val)                          method This with(Person val)=(..)
+    immClone()                         read method This immClone()=(..)
+    key()                              read method S key()=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    toS()                              read method S toS()=(..)
+    val()                              read method read Person val()=(..)
+    #val()                             mut method mut Person #val()=(..)
+    capsuleClone()                     mut method capsule This capsuleClone()=(..)
+    }
+  @Public OVal={
+    [HasToS]
+    #apply()                           class method mut This #apply()=(..)
+    #apply(that)                       class method mut This #apply(fwd mut Person that)native{..}=(..)
+    equals(a, b)                       class method Bool equals(read Person a, read Person b)=(..)
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    #bang0()                           read method Bool #bang0()=(..)
+    #if()                              read method Bool #if()native{..}=(..)
+    #in1(that)                         read method Bool #in1(read Person that)=(..)
+    allEq(that)                        read method Bool allEq(read This that)=(..)
+    contains(that)                     read method Bool contains(read Person that)=(..)
+    isPresent()                        read method Bool isPresent()=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    toS()                              read method S toS()=(..)
+    val()                              read method read Person val()native{..}=(..)
+    #val()                             mut method mut Person #val()native{..}=(..)
+    }
+  }
+MatrixPerson={
+  [HasToS]
+  #apply(that)                       @Public class method mut This #apply(mut ListPerson that)=(..)
+  #immK(that)                        @Public class method This #immK(ListPerson that)=(..)
+  dimensions()                       @Public@Cache.Lazy class method Collection.Dimensions dimensions()=(..)
+  elemToS(row, col, val)             @Public class method S elemToS(I row, I col, read Person val)=(..)
+  #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
+  with(row, col, val)                @Public method This with(I row, I col, Person val)=(..)
+  with(that, val)                    @Public method This with(Coord that, Person val)=(..)
+  #elem#default(that)                @Public read method Person #elem#default(I that)=(..)
+  #elem#imm(that)                    @Public read method Person #elem#imm(I that)=(..)
+  #elem#read(that)                   @Public read method read Person #elem#read(I that)=(..)
+  #hasElem(that)                     @Public read method Collection.IteratorCompose #hasElem(I that)=(..)
+  #iterator()                        @Public read method read This #iterator()=(..)
+  #startIndex()                      @Public read method I #startIndex()=(..)
+  allEq(that)                        @Public read method Bool allEq(read This that)=(..)
+  asList()                           @Public read method read ListPerson asList()=(..)
+  coords()                           @Public read method Iterator coords()=(..)
+  readEquality(that)                 @Public read method Bool readEquality(read This that)=(..)
+  readVal(row, col)                  @Public read method read Person readVal(I row, I col)=(..)
+  readVal(that)                      @Public read method read Person readVal(Coord that)=(..)
+  toS()                              read method S toS()=(..)
+  val(row, col)                      @Public read method Person val(I row, I col)=(..)
+  val(that)                          @Public read method Person val(Coord that)=(..)
+  vals()                             @Public read method read This vals()=(..)
+  #elem#mut(that)                    @Public mut method mut Person #elem#mut(I that)=(..)
+  #set(row, col, val)                @Public mut method Void #set(I row, I col, mut Person val)=(..)
+  #set(that, val)                    @Public mut method Void #set(Coord that, mut Person val)=(..)
+  #update#default(that, val)         @Public mut method Person #update#default(I that, Person val)=(..)
+  #update#imm(that, val)             @Public mut method Person #update#imm(I that, Person val)=(..)
+  #update#mut(that, val)             @Public mut method mut Person #update#mut(I that, mut Person val)=(..)
+  #val(row, col)                     @Public mut method mut Person #val(I row, I col)=(..)
+  #val(that)                         @Public mut method mut Person #val(Coord that)=(..)
+  #vals()                            @Public mut method mut This #vals()=(..)
+  #varIterator()                     @Public mut method mut This #varIterator()=(..)
+  set(row, col, val)                 @Public mut method Void set(I row, I col, Person val)=(..)
+  set(that, val)                     @Public mut method Void set(Coord that, Person val)=(..)
+  @Public Coord={
+    [HasToS]
+    #apply(index)                      class method This #apply(I index)=(..)
+    #apply(row, col)                   class method This #apply(I row, I col)=(..)
+    #immK(row, col)                    class method This #immK(I row, I col)=(..)
+    invariant(row, col)                class method Void invariant(I row, I col)=(..)
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    index()                            method I index()=(..)
+    norm()                             method This norm()=(..)
+    with(col)                          method This with(I col)=(..)
+    with(row)                          method This with(I row)=(..)
+    col()                              read method I col()=(..)
+    immClone()                         read method This immClone()=(..)
+    invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    row()                              read method I row()=(..)
+    toS()                              read method S toS()=(..)
+    capsuleClone()                     mut method capsule This capsuleClone()=(..)
+    }
+  @Public Iterator={
+    #apply()                           class method This #apply()=(..)
+    #elem#default(that)                method Coord #elem#default(I that)=(..)
+    #hasElem(that)                     method Collection.IteratorCompose #hasElem(I that)=(..)
+    #iterator()                        method This #iterator()=(..)
+    #startIndex()                      method I #startIndex()=(..)
+    }
+  }
+OptPerson={
+  [HasToS]
+  #apply()                           class method mut This #apply()
+  #apply(that)                       class method mut This #apply(fwd mut Person that)native{..}=(..)
+  equals(a, b)                       class method Bool equals(read Person a, read Person b)=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  #bang0()                           read method Bool #bang0()=(..)
+  #if()                              read method Bool #if()native{..}=(..)
+  #in1(that)                         read method Bool #in1(read Person that)=(..)
+  allEq(that)                        read method Bool allEq(read This that)=(..)
+  contains(that)                     read method Bool contains(read Person that)=(..)
+  isPresent()                        read method Bool isPresent()=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  val()                              read method read Person val()native{..}=(..)
+  #val()                             mut method mut Person #val()native{..}=(..)
+  }
+Person={
+  [HasToS]
+  #apply(name, location)             class method mut This #apply(fwd imm S name, fwd imm Point location)=(..)
+  #immK(name, location)              class method This #immK(S name, Point location)=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  norm()                             method This norm()=(..)
+  with(location)                     method This with(Point location)=(..)
+  with(name)                         method This with(S name)=(..)
+  immClone()                         read method This immClone()=(..)
+  location()                         read method Point location()=(..)
+  name()                             read method S name()=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  capsuleClone()                     mut method capsule This capsuleClone()=(..)
+  location(that)                     mut method Void location(Point that)=(..)
+  }
+Point={
+  [HasToS]
+  #apply(x, y)                       class method This #apply(fwd imm Num x, fwd imm Num y)=(..)
+  #immK(x, y)                        class method This #immK(Num x, Num y)=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  norm()                             method This norm()=(..)
+  with(x)                            method This with(Num x)=(..)
+  with(y)                            method This with(Num y)=(..)
+  immClone()                         read method This immClone()=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  x()                                read method Num x()=(..)
+  y()                                read method Num y()=(..)
+  capsuleClone()                     mut method capsule This capsuleClone()=(..)
+  }
+SetPerson={
+  [HasToS]
+  #apply()                           @Public class method mut This #apply()=(..)
+  #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
+  #shortCircutSquare()               @Public class method Bool #shortCircutSquare()=(..)
+  #squareBuilder()                   @Public class method mut This #squareBuilder()=(..)
+  empty()                            @Public class method mut This empty()=(..)
+  #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
+  #elem#default(that)                @Public read method Person #elem#default(I that)=(..)
+  #elem#imm(that)                    @Public read method Person #elem#imm(I that)=(..)
+  #elem#read(that)                   @Public read method Person #elem#read(I that)=(..)
+  #hasElem(that)                     @Public read method Collection.IteratorCompose #hasElem(I that)=(..)
+  #iterator()                        @Public read method read This #iterator()=(..)
+  #startIndex()                      @Public read method I #startIndex()=(..)
+  isEmpty()                          @Public read method Bool isEmpty()=(..)
+  readEquality(that)                 @Public read method Bool readEquality(read This that)=(..)
+  size()                             @Public read method I size()=(..)
+  toS()                              @Public read method S toS()=(..)
+  val(that)                          @Public read method Person val(I that)=(..)
+  vals()                             @Public read method read This vals()=(..)
+  #squareAdd(that)                   @Public mut method Void #squareAdd(Person that)=(..)
+  #vals()                            @Public mut method mut This #vals()=(..)
+  add(that)                          @Public mut method Void add(Person that)=(..)
+  remove(that)                       @Public mut method Void remove(Person that)=(..)
+  }
+]]></pre>
+
+</p><p id="Message">
+</p><div style="break-after:page"></div><h1> Message </h1> <p>
+<it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Message]]></span><it style="font-style: bold; color:green;">&#187;</it> allows to create many kinds of messages.
+Here you can see an example of a custom message, with an extra method and 
+additionally implementing <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Message.Guard]]></span><it style="font-style: bold; color:green;">&#187;</it>.
+
+<pre class="l42Big"><![CDATA[
+MessageExample={
+  KindInformation = Message:{[Message.Guard]
+    method S extra()=S"Wow that was a great explanation!"
+    }
+  }
+]]></pre>
+
+<pre class="l42BigFolded"><![CDATA[
+KindInformation={
+  [Message, HasToS, Message.Guard]
+  #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
+  #apply(that)                       class method mut This #apply(S that)=(..)
+  #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+  #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
+  extra()                            method S extra()=(..)
+  with(cause)                        method This with(Message cause)=(..)
+  cause()                            read method Message.OptMessage cause()
+  text()                             read method S text()
+  toS()                              read method S toS()=(..)
+  cause(that)                        mut method Void cause(Message.OptMessage that)
+  text(that)                         mut method Void text(S that)
+  }
+]]></pre>
+
         </p>
         </div>
       </div>
@@ -3983,5 +4451,3 @@ Process = Load:{reuse[L42.is/Process]}
 	
   </body>
 </html>
-
-
