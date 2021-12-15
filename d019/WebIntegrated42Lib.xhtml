@@ -157,27 +157,61 @@ Fs={
     }
   Real={
     [This1]
-    #$of()                             @Public class method mut This #$of()=(..)
-    delete(that)                       @Public mut method Void delete(Url that)[Fail]=(..)
-    makeDirs(that)                     @Public mut method Void makeDirs(Url that)[Fail]=(..)
-    read(that)                         @Public mut method S read(Url that)[Fail]=(..)
-    readBase64(that)                   @Public mut method S readBase64(Url that)[Fail]=(..)
-    write(on, content)                 @Public mut method Void write(Url on, S content)[Fail]=(..)
-    write(on, contentBase64)           @Public mut method Void write(Url on, S contentBase64)[Fail]=(..)
+    #$of()                             @{
+      Capability factory.  
+      Creates an object connected with the real file system.
+      }@Public class method mut This #$of()=(..)
+    delete(that)                       @{
+      Capability method.
+      Deletes the file or directory denoted by the @Url 'that'.
+      If it denotes a directory, then the directory must be empty in order to be deleted.
+      }@Public mut method Void delete(Url that)[Fail]=(..)
+    makeDirs(that)                     @{
+      Capability method.
+      Creates the directory named by the @Url 'that', 
+      including any necessary but nonexistent parent directories.
+      Note that if this operation fails it may have succeeded in
+      creating some of the necessary parent directories.
+      }@Public mut method Void makeDirs(Url that)[Fail]=(..)
+    read(that)                         @{
+      Capability method.
+      Reads all the content from the @Url 'that' into the resulting string @S
+      Any part of the input that is not directly representable as a character in @S
+      is trimmed away.
+      }@Public mut method S read(Url that)[Fail]=(..)
+    readBase64(that)                   @{
+      Capability method.
+      Reads all the binary content from the @Url 'that' into the resulting string @S
+      The content is encoded as Base64.
+      }@Public mut method S readBase64(Url that)[Fail]=(..)
+    write(on, content)                 @{
+      Capability method.
+      It opens the file for writing, creating the file if it doesn't exist,
+      or initially truncating an existing regular-file to a size of 0.
+      The full @S 'content' is wrote to the file.
+      The method ensures that the file is closed after this operation is completed.
+      If an error occurs it may do so after the file has been created or truncated,
+      or after some bytes have been written to the file.
+      }@Public mut method Void write(Url on, S content)[Fail]=(..)
+    write(on, contentBase64)           @{
+      Capability method.
+      Similar to 'write(that content)', but it takes in input binary data 
+      represented as a Base64 string, and writes them on the file in binary form. 
+      }@Public mut method Void write(Url on, S contentBase64)[Fail]=(..)
     }
   @{
-    Url as for WHATWG URL Standard, where relative urls are allowed
+    Url as for the WhatWG URL Standard, where relative urls are allowed
     In particular, if the provided url is relative,
-    it is resolved against the current location
+    it is resolved against the current location.
     For example
     "https://google.com/bla/foo" is absolute so is left untouched
     "bla/foo" becomes something like "file:/C:/Users/--/Desktop/--/--/bla/foo"
         Note that "./bla/foo" would resolve exactly as "bla/foo"  
     "/C:/bla/foo" becomes "file:///C:/bla/foo"
-        Note that "C:/bla/foo" would not be allowed
+        Note that "C:/bla/foo" would not be allowed.
     "/bla/foo" becomes "file:///bla/foo"; that is, starting from the root
     names with spaces or other special characters must be percent encoded, so for example 
-    "myFolder/bla%20foo.txt" will point to the file "bla foo.txt" inside "myFolder"
+    "myFolder/bla%20foo.txt" will point to the file "bla foo.txt" inside "myFolder".
     }
   }
 GW={
