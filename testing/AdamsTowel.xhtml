@@ -511,11 +511,11 @@ Main = Debug(S"Hello world")
     #itAdd(that)                       method This #itAdd(This that)=(..)
     #lt0(that)                         method Bool #lt0(This that)native{..}=(..)
     #minus0(that)                      method This #minus0(This that)native{..}=(..)
-    #pred()                            method This #pred()native{..}=(..)
-    #succ()                            method This #succ()native{..}=(..)
     #times0(that)                      method This #times0(This that)native{..}=(..)
     isZero()                           method Bool isZero()=(..)
+    pred()                             method This pred()native{..}=(..)
     signum()                           method This signum()native{..}=(..)
+    succ()                             method This succ()native{..}=(..)
     readEquality(that)                 read method Bool readEquality(read This that)native{..}=(..)
     }
   @Public NoElementInOpt={
@@ -782,14 +782,6 @@ Main = Debug(S"Hello world")
   #ltequal0(that)                    method Bool #ltequal0(This that)native{..}=(..)
   #minus0(that)                      method This #minus0(This that)native{..}=(..)
   #plus0(that)                       method This #plus0(This that)native{..}=(..)
-  #pred()                            @{
-    Meta-programming friendly method.
-    The predecessor operation. Simply subtracts 1
-    }method This #pred()native{..}=(..)
-  #succ()                            @{
-    Meta-programming friendly method.
-    The successor operation. Simply adds 1
-    }method This #succ()native{..}=(..)
   #times0(that)                      method This #times0(This that)native{..}=(..)
   acc()                              method mut Acc acc()=(..)
   atan2(that)                        method This atan2(This that)native{..}=(..)
@@ -803,9 +795,17 @@ Main = Debug(S"Hello world")
   max(that)                          method This max(This that)=(..)
   min(that)                          method This min(This that)=(..)
   pow(exp)                           method This pow(This exp)native{..}=(..)
+  pred()                             @{
+    Meta-programming friendly method.
+    The predecessor operation. Simply subtracts 1
+    }method This pred()native{..}=(..)
   round()                            method I round()native{..}=(..)
   roundLong()                        method Math.Long roundLong()native{..}=(..)
   sin()                              method This sin()native{..}=(..)
+  succ()                             @{
+    Meta-programming friendly method.
+    The successor operation. Simply adds 1
+    }method This succ()native{..}=(..)
   tan()                              method This tan()native{..}=(..)
   toDouble()                         method This toDouble()=(..)
   toI()                              method I toI()native{..}=(..)
@@ -1064,14 +1064,6 @@ Main = Debug(S"Hello world")
     Optimized Signed Modular Arithmetic Operation.
     Signed Int32 addition, beware of overflows/underflows.
     }method This #plus0(This that)native{..}=(..)
-  #pred()                            @{
-    Meta-programming friendly method.
-    The predecessor operation.
-    }method This #pred()native{..}=(..)
-  #succ()                            @{
-    Meta-programming friendly method.
-    The successor operation.
-    }method This #succ()native{..}=(..)
   #times0(that)                      @{
     Optimized Signed Modular Arithmetic Operation.
     Signed Int32 multiplication, beware of overflows/underflows.
@@ -1094,6 +1086,10 @@ Main = Debug(S"Hello world")
     Optimized Signed Modular Arithmetic Operation.
     Signed Int32 integer reminder. a - ((a/b)*b) = a.mod(b)
     }method This mod(This that)native{..}=(..)
+  pred()                             @{
+    Meta-programming friendly method.
+    The predecessor operation.
+    }method This pred()native{..}=(..)
   round()                            @{
     Meta-programming friendly method.
     For this class it just returns the receiver.
@@ -1102,6 +1098,10 @@ Main = Debug(S"Hello world")
     Optimized Signed Modular Arithmetic Operation.
     This operation returns -1, 0 or 1 if the receiver is negative, zero or positive, respectivelly.
     }method This signum()native{..}=(..)
+  succ()                             @{
+    Meta-programming friendly method.
+    The successor operation.
+    }method This succ()native{..}=(..)
   toDouble()                         @{
     Conversion method.
     Turns the receiver into its nearest double representation.
@@ -2192,8 +2192,6 @@ Main = Debug(S"Hello world")
     #ltequal0(that)                    method Bool #ltequal0(This that)native{..}=(..)
     #minus0(that)                      method This #minus0(This that)native{..}=(..)
     #plus0(that)                       method This #plus0(This that)native{..}=(..)
-    #pred()                            method This #pred()native{..}=(..)
-    #succ()                            method This #succ()native{..}=(..)
     #times0(that)                      method This #times0(This that)native{..}=(..)
     acc()                              method mut Acc acc()=(..)
     ceil()                             method I ceil()native{..}=(..)
@@ -2204,8 +2202,10 @@ Main = Debug(S"Hello world")
     max(that)                          method This max(This that)=(..)
     min(that)                          method This min(This that)=(..)
     mod(that)                          method This mod(This that)native{..}=(..)
+    pred()                             method This pred()native{..}=(..)
     round()                            method I round()native{..}=(..)
     signum()                           method I signum()native{..}=(..)
+    succ()                             method This succ()native{..}=(..)
     toDouble()                         method Double toDouble()native{..}=(..)
     toI()                              method I toI()native{..}=(..)
     toLong()                           method This toLong()=(..)
@@ -2543,14 +2543,6 @@ Main = Debug(S"Hello world")
   #ltequal0(that)                    method Bool #ltequal0(This that)native{..}=(..)
   #minus0(that)                      method This #minus0(This that)native{..}=(..)
   #plus0(that)                       method This #plus0(This that)native{..}=(..)
-  #pred()                            @{
-    Meta-programming friendly method.
-    The predecessor operation. Simply subtracts 1
-    }method This #pred()native{..}=(..)
-  #succ()                            @{
-    Meta-programming friendly method.
-    The successor operation. Simply adds 1
-    }method This #succ()native{..}=(..)
   #times0(that)                      method This #times0(This that)native{..}=(..)
   acc()                              method mut Acc acc()=(..)
   ceil()                             method I ceil()=(..)
@@ -2559,7 +2551,15 @@ Main = Debug(S"Hello world")
   isInRange(that, to)                method Bool isInRange(This that, This to)=(..)
   max(that)                          method This max(This that)=(..)
   min(that)                          method This min(This that)=(..)
+  pred()                             @{
+    Meta-programming friendly method.
+    The predecessor operation. Simply subtracts 1
+    }method This pred()native{..}=(..)
   round()                            method I round()=(..)
+  succ()                             @{
+    Meta-programming friendly method.
+    The successor operation. Simply adds 1
+    }method This succ()native{..}=(..)
   toDouble()                         method Double toDouble()=(..)
   toI()                              method I toI()=(..)
   toLong()                           method Math.Long toLong()=(..)
@@ -3012,9 +3012,9 @@ Main = Debug(S"Hello world")
     #if()                              @Public read method Bool #if()=(..)
     #startIndex()                      @Public read method I #startIndex()=(..)
     toS()                              read method This1 toS()=(..)
+    #iterator()                        @Public lent method lent This #iterator()=(..)
     #apply()                           @Public mut method This1 #apply()=(..)
     #hasElem(that)                     @Public mut method Collection.IteratorCompose #hasElem(I that)=(..)
-    #iterator()                        @Public mut method mut This #iterator()=(..)
     }
   @Public List={
     [HasToS]
@@ -3314,9 +3314,9 @@ Main = Debug(S"Hello world")
     #if()                              @Public read method Bool #if()=(..)
     #startIndex()                      @Public read method I #startIndex()=(..)
     toS()                              read method This1 toS()=(..)
+    #iterator()                        @Public lent method lent This #iterator()=(..)
     #apply()                           @Public mut method This1 #apply()=(..)
     #hasElem(that)                     @Public mut method Collection.IteratorCompose #hasElem(I that)=(..)
-    #iterator()                        @Public mut method mut This #iterator()=(..)
     }
   @Public StringBuilder={
     [HasToS]
@@ -4005,10 +4005,10 @@ LinkeListPerson={
   #iterator()                        @Public read method Iterator #iterator()
   #plusplus0(that)                   @Public read method read This #plusplus0(read This that)
   #startIndex()                      @Public read method read This #startIndex()
-  #succ()                            @Public read method read This #succ()
   isEmpty()                          @Public read method Bool isEmpty()
   pop()                              @Public read method read This pop()
   push(that)                         @Public read method read This push(read Person that)
+  succ()                             @Public read method read This succ()
   top()                              @Public read method read Person top()
   @Public Empty={
     [This1]
@@ -4016,10 +4016,10 @@ LinkeListPerson={
     #iterator()                        read method Iterator #iterator()=(..)
     #plusplus0(that)                   read method read This1 #plusplus0(read This1 that)=(..)
     #startIndex()                      read method read This1 #startIndex()=(..)
-    #succ()                            read method read This1 #succ()=(..)
     isEmpty()                          read method Bool isEmpty()=(..)
     pop()                              read method read This1 pop()=(..)
     push(that)                         read method read This1 push(read Person that)=(..)
+    succ()                             read method read This1 succ()=(..)
     top()                              read method read Person top()=(..)
     }
   @Public Iterator={
