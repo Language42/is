@@ -1,0 +1,2019 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <link rel="stylesheet" type="text/css" href="https://l42.is/css/style.css" media="all"/>
+    <script src="https://l42.is/js/ace.js"></script>
+    <script src="https://l42.is/js/utils.js"></script>
+    <link rel="shortcut icon" href="https://l42.is/css/favicon.ico"/>
+    <title>42 - Metaprogramming as default</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-M0E4M0XH2Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M0E4M0XH2Z');
+    </script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-212820693-1">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-212820693-1');
+    </script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=AW-10810288706"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-10810288706');
+    </script>
+  </head>
+  <body onload='doOnLoad();'>
+    <div id="wrapper">
+      <div id="headerwrap">
+        <div id="header">
+          <img style='float:left;'
+            src='https://l42.is/css/logoBlue.png' alt='42' width='120' height='120'/>
+          <h3 style='float:left;'>
+            <p style='font-size:150%; color:rgb(250,250,250);'>42 - The definitive answer to design, code and everything</p>
+            <p style='font-size:100%; color:rgb(250,250,250);'> --But you are not going to like it</p>
+          </h3>
+        </div>
+      </div>
+      <div id="contentwrap">
+        <div id="content">
+<p>
+
+<div class="index"><div class="wrapFloat"><div class="inFloat">
+<div class="rotate90">Index of Content</div>
+</div><div class="inFloat">
+<ol>
+ <li><a href="#Process"> The process library </a></li>
+
+</ol>
+</div></div><div class="finishFloat"></div></div>
+
+</p><p id="Process">
+</p><div style="break-after:page"></div><h1> The process library </h1> <p>
+</p><h2> Importing process and example usage </h2> <p>
+
+The process library allows to run processes from AdamsTowel.
+<it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Process.Real.#$of(..)]]></span><it style="font-style: bold; color:green;">&#187;</it> creates a capability object permanently connected with a specific
+command and option, but the standard input of the program can be specified by the capability user.
+<pre class="l42Big"><![CDATA[
+Process = Load:{reuse[L42.is/Process]}
+..
+  (
+  Process pLinux=Process.Real.#$of(\[S"ls";S"-l"])
+  res=pLinux.start(input=S"")
+  Debug(res.out())
+  Debug(res.err())
+  catch Process.Fail f Debug(S"oh no!")
+  )
+]]></pre>
+
+</p><h2> Overview under AdamsTowel </h2> <p>
+<pre class="l42BigFolded"><![CDATA[
+[Trait.Lifted]
+#apply()                           class method Trait #apply()=(..)
+#apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
+#plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
+#plus1(lib)                        class method Trait #plus1(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
+code()                             class method Library code()=(..)
+info()                             class method Info info()=(..)
+resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
+ClassOperators={
+  #apply()                           class method Trait #apply()=(..)
+  }
+]]></pre>
+Exmaple instantiation
+<pre class="l42BigFolded"><![CDATA[
+deltaM()                           class method Double deltaM()=(..)
+deltaP()                           class method Double deltaP()=(..)
+layerSize()                        class method I layerSize()=(..)
+map2D(that)                        class method Trait map2D(class Any that)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
+map3D(that)                        class method Trait map3D(class Any that)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
+maxX()                             class method I maxX()=(..)
+maxY()                             class method I maxY()=(..)
+maxZ()                             class method I maxZ()=(..)
+Cell2D={
+  [HasToS]
+  #apply(x, y)                       class method This #apply(I x, I y)=(..)
+  #immK(x, y)                        class method This #immK(I x, I y)=(..)
+  invariant(x, y)                    class method Void invariant(I x, I y)=(..)
+  random(r)                          class method This random(mut Math.Random r)=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  isBorder()                         method Bool isBorder()=(..)
+  norm()                             method This norm()=(..)
+  to3D(z)                            method Cell3D to3D(I z)=(..)
+  toPoint()                          method Point2D toPoint()=(..)
+  with(x)                            method This with(I x)=(..)
+  with(y)                            method This with(I y)=(..)
+  immClone()                         read method This immClone()=(..)
+  invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  x()                                read method I x()=(..)
+  y()                                read method I y()=(..)
+  capsuleClone()                     mut method capsule This capsuleClone()=(..)
+  List={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
+    #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
+    #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
+    #squareBuilder()                   class method mut This #squareBuilder()=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #equalequal0(This that)=(..)
+    #minus0(right)                     @{
+      Wither
+      Returns the receiver but without all the elements equal to 'right'
+      }method This #minus0(This1 right)=(..)
+    #minusminus0(right)                @{
+      Wither
+      Returns the receiver but without all the elements contained in the list 'right'
+      }method This #minusminus0(This right)=(..)
+    #plus0(right)                      method This #plus0(This1 right)=(..)
+    #plus1(left)                       method This #plus1(This1 left)=(..)
+    #plusplus0(right)                  method This #plusplus0(This right)=(..)
+    immNorm()                          method This immNorm()=(..)
+    with(left)                         method This with(This1 left)=(..)
+    with(right)                        method This with(This1 right)=(..)
+    with(that, val)                    method This with(I that, This1 val)=(..)
+    withAlso(left)                     method This withAlso(This1 left)=(..)
+    withAlso(right)                    method This withAlso(This1 right)=(..)
+    withAlso(that, val)                method This withAlso(I that, This1 val)=(..)
+    without(left)                      @{
+      Wither
+      Returns the receiver but without the leftmost element equal to 'val'
+      }method This without(read This1 left)=(..)
+    without(right)                     @{
+      Wither
+      Returns the receiver but without the rightmost element equal to 'val'
+      }method This without(read This1 right)=(..)
+    without(that)                      method This without(I that)=(..)
+    withoutAll(val)                    @{
+      Wither
+      Returns the receiver but without all the elements equal to 'val'
+      }method This withoutAll(read This1 val)=(..)
+    withoutLeft()                      method This withoutLeft()=(..)
+    withoutRight()                     method This withoutRight()=(..)
+    #elem#default(that)                read method This1 #elem#default(I that)=(..)
+    #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
+    #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
+    #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+    #in1(that)                         @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool #in1(read This1 that)=(..)
+    #iterator()                        read method read This #iterator()=(..)
+    #startIndex()                      read method I #startIndex()=(..)
+    allEq(that)                        @{
+      Predicate
+      returns true if all the elements in 'this' are individually 
+      This.equals(a,b) to the corresponding element in 'that'.
+      This can be different from '==' or 'readEquality': they just use system equality.
+      If the elements have a 'readEquality' method, that is used
+      On default This.equals(a,b) will use an available equality predicate visible on the element; 
+      prioritizing in the following order:
+      'allEq', 'readEquality' and '=='.
+      If none is present, 'System.immEquality' is used instead.
+      }read method Bool allEq(read This that)=(..)
+    clone()                            read method capsule This clone()=(..)
+    contains(that)                     @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool contains(read This1 that)=(..)
+    indexOf(left)                      @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the leftmost occurrence
+      of 'left' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 left)=(..)
+    indexOf(right)                     @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the rightmost occurrence
+      of 'right' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 right)=(..)
+    isEmpty()                          read method Bool isEmpty()native{..}=(..)
+    isMutVal(that)                     read method Bool isMutVal(I that)native{..}=(..)
+    left()                             read method This1 left()=(..)
+    readEquality(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }read method Bool readEquality(read This that)=(..)
+    readLeft()                         read method read This1 readLeft()=(..)
+    readRight()                        read method read This1 readRight()=(..)
+    readVal(that)                      read method read This1 readVal(I that)native{..}=(..)
+    right()                            read method This1 right()=(..)
+    size()                             read method I size()native{..}=(..)
+    toS()                              read method S toS()=(..)
+    val(that)                          read method This1 val(I that)native{..}=(..)
+    vals()                             read method read This vals()=(..)
+    vals(that)                         read method read Iterator vals(I that)=(..)
+    vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
+    vals(to)                           read method read Iterator vals(I to)=(..)
+    #add(left)                         mut method Void #add(mut This1 left)=(..)
+    #add(right)                        mut method Void #add(mut This1 right)=(..)
+    #add(that)                         mut method Void #add(mut This1 that)=(..)
+    #add(that, val)                    mut method Void #add(I that, mut This1 val)native{..}=(..)
+    #apply(that)                       mut method mut This #apply(Void that)=(..)
+    #elem#mut(that)                    mut method mut This1 #elem#mut(I that)=(..)
+    #left()                            mut method mut This1 #left()=(..)
+    #left(that)                        mut method Void #left(mut This1 that)=(..)
+    #right()                           mut method mut This1 #right()=(..)
+    #right(that)                       mut method Void #right(mut This1 that)=(..)
+    #set(that, val)                    mut method Void #set(I that, mut This1 val)native{..}=(..)
+    #squareAdd(mutVal)                 mut method Void #squareAdd(mut This1 mutVal)=(..)
+    #squareAdd(that)                   mut method Void #squareAdd(This1 that)=(..)
+    #update#default(that, val)         mut method This1 #update#default(I that, This1 val)=(..)
+    #update#imm(that, val)             mut method This1 #update#imm(I that, This1 val)=(..)
+    #update#mut(that, val)             mut method mut This1 #update#mut(I that, mut This1 val)=(..)
+    #val(that)                         mut method mut This1 #val(I that)native{..}=(..)
+    #vals()                            mut method mut This #vals()=(..)
+    #vals(that)                        mut method mut Iterator #vals(I that)=(..)
+    #vals(that, to)                    mut method mut Iterator #vals(I that, I to)=(..)
+    #vals(to)                          mut method mut Iterator #vals(I to)=(..)
+    #varIterator()                     mut method mut This #varIterator()=(..)
+    add(left)                          mut method Void add(This1 left)=(..)
+    add(right)                         mut method Void add(This1 right)=(..)
+    add(that)                          mut method Void add(This1 that)=(..)
+    add(that, val)                     mut method Void add(I that, This1 val)native{..}=(..)
+    clear()                            mut method Void clear()=(..)
+    left(that)                         mut method Void left(This1 that)=(..)
+    remove(left)                       @{
+      Mutator 
+      Removes from the list the leftmost element equal to 'left'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(left)'  
+      }mut method Void remove(read This1 left)=(..)
+    remove(right)                      @{
+      Mutator 
+      Removes from the list the rightmost element equal to 'right'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(right)'  
+      }mut method Void remove(read This1 right)=(..)
+    remove(that)                       mut method Void remove(I that)native{..}=(..)
+    removeAll(val)                     @{
+      Mutator 
+      Removes from the list all the elements equal to 'val'.
+      It relies on 'This.equals(a,b)'  
+      }mut method Void removeAll(read This1 val)=(..)
+    removeLeft()                       mut method Void removeLeft()=(..)
+    removeRight()                      mut method Void removeRight()=(..)
+    right(that)                        mut method Void right(This1 that)=(..)
+    set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
+    Iterator={
+      #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      #elem#default(that)                read method This2 #elem#default(I that)=(..)
+      #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
+      #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
+      #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+      #iterator()                        read method read This #iterator()=(..)
+      #startIndex()                      read method I #startIndex()=(..)
+      end()                              read method I end()
+      list()                             read method read This1 list()
+      start()                            read method I start()
+      #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
+      #list()                            mut method mut This1 #list()
+      #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
+      #update#imm(that, val)             mut method This2 #update#imm(I that, This2 val)=(..)
+      #update#mut(that, val)             mut method mut This2 #update#mut(I that, mut This2 val)=(..)
+      #varIterator()                     mut method mut This #varIterator()=(..)
+      }
+    }
+  Opt={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    #bang0()                           read method Bool #bang0()=(..)
+    #if()                              read method Bool #if()native{..}=(..)
+    #in1(that)                         read method Bool #in1(read This1 that)=(..)
+    allEq(that)                        read method Bool allEq(read This that)=(..)
+    contains(that)                     read method Bool contains(read This1 that)=(..)
+    isPresent()                        read method Bool isPresent()=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    toS()                              read method S toS()=(..)
+    val()                              read method read This1 val()native{..}=(..)
+    val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    #val()                             mut method mut This1 #val()native{..}=(..)
+    #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
+    }
+  }
+Cell3D={
+  [HasToS]
+  #apply(x, y, z)                    class method This #apply(I x, I y, I z)=(..)
+  #immK(x, y, z)                     class method This #immK(I x, I y, I z)=(..)
+  invariant(x, y, z)                 class method Void invariant(I x, I y, I z)=(..)
+  random(r)                          class method This random(mut Math.Random r)=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  isBorder()                         method Bool isBorder()=(..)
+  norm()                             method This norm()=(..)
+  to2D()                             method Cell2D to2D()=(..)
+  toPoint()                          method Point3D toPoint()=(..)
+  with(x)                            method This with(I x)=(..)
+  with(y)                            method This with(I y)=(..)
+  with(z)                            method This with(I z)=(..)
+  immClone()                         read method This immClone()=(..)
+  invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  x()                                read method I x()=(..)
+  y()                                read method I y()=(..)
+  z()                                read method I z()=(..)
+  capsuleClone()                     mut method capsule This capsuleClone()=(..)
+  List={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
+    #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
+    #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
+    #squareBuilder()                   class method mut This #squareBuilder()=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #equalequal0(This that)=(..)
+    #minus0(right)                     @{
+      Wither
+      Returns the receiver but without all the elements equal to 'right'
+      }method This #minus0(This1 right)=(..)
+    #minusminus0(right)                @{
+      Wither
+      Returns the receiver but without all the elements contained in the list 'right'
+      }method This #minusminus0(This right)=(..)
+    #plus0(right)                      method This #plus0(This1 right)=(..)
+    #plus1(left)                       method This #plus1(This1 left)=(..)
+    #plusplus0(right)                  method This #plusplus0(This right)=(..)
+    immNorm()                          method This immNorm()=(..)
+    with(left)                         method This with(This1 left)=(..)
+    with(right)                        method This with(This1 right)=(..)
+    with(that, val)                    method This with(I that, This1 val)=(..)
+    withAlso(left)                     method This withAlso(This1 left)=(..)
+    withAlso(right)                    method This withAlso(This1 right)=(..)
+    withAlso(that, val)                method This withAlso(I that, This1 val)=(..)
+    without(left)                      @{
+      Wither
+      Returns the receiver but without the leftmost element equal to 'val'
+      }method This without(read This1 left)=(..)
+    without(right)                     @{
+      Wither
+      Returns the receiver but without the rightmost element equal to 'val'
+      }method This without(read This1 right)=(..)
+    without(that)                      method This without(I that)=(..)
+    withoutAll(val)                    @{
+      Wither
+      Returns the receiver but without all the elements equal to 'val'
+      }method This withoutAll(read This1 val)=(..)
+    withoutLeft()                      method This withoutLeft()=(..)
+    withoutRight()                     method This withoutRight()=(..)
+    #elem#default(that)                read method This1 #elem#default(I that)=(..)
+    #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
+    #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
+    #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+    #in1(that)                         @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool #in1(read This1 that)=(..)
+    #iterator()                        read method read This #iterator()=(..)
+    #startIndex()                      read method I #startIndex()=(..)
+    allEq(that)                        @{
+      Predicate
+      returns true if all the elements in 'this' are individually 
+      This.equals(a,b) to the corresponding element in 'that'.
+      This can be different from '==' or 'readEquality': they just use system equality.
+      If the elements have a 'readEquality' method, that is used
+      On default This.equals(a,b) will use an available equality predicate visible on the element; 
+      prioritizing in the following order:
+      'allEq', 'readEquality' and '=='.
+      If none is present, 'System.immEquality' is used instead.
+      }read method Bool allEq(read This that)=(..)
+    clone()                            read method capsule This clone()=(..)
+    contains(that)                     @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool contains(read This1 that)=(..)
+    indexOf(left)                      @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the leftmost occurrence
+      of 'left' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 left)=(..)
+    indexOf(right)                     @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the rightmost occurrence
+      of 'right' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 right)=(..)
+    isEmpty()                          read method Bool isEmpty()native{..}=(..)
+    isMutVal(that)                     read method Bool isMutVal(I that)native{..}=(..)
+    left()                             read method This1 left()=(..)
+    readEquality(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }read method Bool readEquality(read This that)=(..)
+    readLeft()                         read method read This1 readLeft()=(..)
+    readRight()                        read method read This1 readRight()=(..)
+    readVal(that)                      read method read This1 readVal(I that)native{..}=(..)
+    right()                            read method This1 right()=(..)
+    size()                             read method I size()native{..}=(..)
+    toS()                              read method S toS()=(..)
+    val(that)                          read method This1 val(I that)native{..}=(..)
+    vals()                             read method read This vals()=(..)
+    vals(that)                         read method read Iterator vals(I that)=(..)
+    vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
+    vals(to)                           read method read Iterator vals(I to)=(..)
+    #add(left)                         mut method Void #add(mut This1 left)=(..)
+    #add(right)                        mut method Void #add(mut This1 right)=(..)
+    #add(that)                         mut method Void #add(mut This1 that)=(..)
+    #add(that, val)                    mut method Void #add(I that, mut This1 val)native{..}=(..)
+    #apply(that)                       mut method mut This #apply(Void that)=(..)
+    #elem#mut(that)                    mut method mut This1 #elem#mut(I that)=(..)
+    #left()                            mut method mut This1 #left()=(..)
+    #left(that)                        mut method Void #left(mut This1 that)=(..)
+    #right()                           mut method mut This1 #right()=(..)
+    #right(that)                       mut method Void #right(mut This1 that)=(..)
+    #set(that, val)                    mut method Void #set(I that, mut This1 val)native{..}=(..)
+    #squareAdd(mutVal)                 mut method Void #squareAdd(mut This1 mutVal)=(..)
+    #squareAdd(that)                   mut method Void #squareAdd(This1 that)=(..)
+    #update#default(that, val)         mut method This1 #update#default(I that, This1 val)=(..)
+    #update#imm(that, val)             mut method This1 #update#imm(I that, This1 val)=(..)
+    #update#mut(that, val)             mut method mut This1 #update#mut(I that, mut This1 val)=(..)
+    #val(that)                         mut method mut This1 #val(I that)native{..}=(..)
+    #vals()                            mut method mut This #vals()=(..)
+    #vals(that)                        mut method mut Iterator #vals(I that)=(..)
+    #vals(that, to)                    mut method mut Iterator #vals(I that, I to)=(..)
+    #vals(to)                          mut method mut Iterator #vals(I to)=(..)
+    #varIterator()                     mut method mut This #varIterator()=(..)
+    add(left)                          mut method Void add(This1 left)=(..)
+    add(right)                         mut method Void add(This1 right)=(..)
+    add(that)                          mut method Void add(This1 that)=(..)
+    add(that, val)                     mut method Void add(I that, This1 val)native{..}=(..)
+    clear()                            mut method Void clear()=(..)
+    left(that)                         mut method Void left(This1 that)=(..)
+    remove(left)                       @{
+      Mutator 
+      Removes from the list the leftmost element equal to 'left'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(left)'  
+      }mut method Void remove(read This1 left)=(..)
+    remove(right)                      @{
+      Mutator 
+      Removes from the list the rightmost element equal to 'right'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(right)'  
+      }mut method Void remove(read This1 right)=(..)
+    remove(that)                       mut method Void remove(I that)native{..}=(..)
+    removeAll(val)                     @{
+      Mutator 
+      Removes from the list all the elements equal to 'val'.
+      It relies on 'This.equals(a,b)'  
+      }mut method Void removeAll(read This1 val)=(..)
+    removeLeft()                       mut method Void removeLeft()=(..)
+    removeRight()                      mut method Void removeRight()=(..)
+    right(that)                        mut method Void right(This1 that)=(..)
+    set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
+    Iterator={
+      #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      #elem#default(that)                read method This2 #elem#default(I that)=(..)
+      #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
+      #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
+      #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+      #iterator()                        read method read This #iterator()=(..)
+      #startIndex()                      read method I #startIndex()=(..)
+      end()                              read method I end()
+      list()                             read method read This1 list()
+      start()                            read method I start()
+      #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
+      #list()                            mut method mut This1 #list()
+      #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
+      #update#imm(that, val)             mut method This2 #update#imm(I that, This2 val)=(..)
+      #update#mut(that, val)             mut method mut This2 #update#mut(I that, mut This2 val)=(..)
+      #varIterator()                     mut method mut This #varIterator()=(..)
+      }
+    }
+  Opt={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    #bang0()                           read method Bool #bang0()=(..)
+    #if()                              read method Bool #if()native{..}=(..)
+    #in1(that)                         read method Bool #in1(read This1 that)=(..)
+    allEq(that)                        read method Bool allEq(read This that)=(..)
+    contains(that)                     read method Bool contains(read This1 that)=(..)
+    isPresent()                        read method Bool isPresent()=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    toS()                              read method S toS()=(..)
+    val()                              read method read This1 val()native{..}=(..)
+    val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    #val()                             mut method mut This1 #val()native{..}=(..)
+    #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
+    }
+  }
+CellBoundingBox={
+  [HasToS]
+  #apply(lowCorner, highCorner)      class method This #apply(Cell3D lowCorner, Cell3D highCorner)=(..)
+  #immK(lowCorner, highCorner)       class method This #immK(Cell3D lowCorner, Cell3D highCorner)=(..)
+  invariant(lowCorner, highCorner)     class method Void invariant(Cell3D lowCorner, Cell3D highCorner)=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  expand(that)                       method This expand(I that)=(..)
+  norm()                             method This norm()=(..)
+  vals2D()                           method Cell2D.List vals2D()=(..)
+  vals3D()                           method Cell3D.List vals3D()=(..)
+  with(highCorner)                   method This with(Cell3D highCorner)=(..)
+  with(lowCorner)                    method This with(Cell3D lowCorner)=(..)
+  highCorner()                       read method Cell3D highCorner()=(..)
+  immClone()                         read method This immClone()=(..)
+  invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
+  lowCorner()                        read method Cell3D lowCorner()=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  capsuleClone()                     mut method capsule This capsuleClone()=(..)
+  }
+Cilinder={
+  [HasToS]
+  #apply(bottomCenter, radius, height)     class method This #apply(Point3D bottomCenter, Double radius, Double height)=(..)
+  #immK(bottomCenter, radius, height)     class method This #immK(Point3D bottomCenter, Double radius, Double height)=(..)
+  box(bottomCenter, radius, height)     class method CellBoundingBox box(Point3D bottomCenter, Double radius, Double height)=(..)
+  impactCircle(p1, r1, p2, r2)       class method Bool impactCircle(Point3D p1, Double r1, Point3D p2, Double r2)=(..)
+  impactZ(l1, h1, l2, h2)            class method Bool impactZ(Double l1, Double h1, Double l2, Double h2)=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  high()                             method Double high()=(..)
+  impact(cilinder)                   method Bool impact(This cilinder)=(..)
+  low()                              method Double low()=(..)
+  norm()                             method This norm()=(..)
+  with(bottomCenter)                 method This with(Point3D bottomCenter)=(..)
+  with(height)                       method This with(Double height)=(..)
+  with(radius)                       method This with(Double radius)=(..)
+  bottomCenter()                     read method Point3D bottomCenter()=(..)
+  box()                              @Cache.Now read method CellBoundingBox box()native{..}=(..)
+  height()                           read method Double height()=(..)
+  immClone()                         read method This immClone()=(..)
+  radius()                           read method Double radius()=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  capsuleClone()                     mut method capsule This capsuleClone()=(..)
+  }
+Coords={
+  #apply(x, y)                       class method I #apply(I x, I y)=(..)
+  #apply(x, y, z)                    class method I #apply(I x, I y, I z)=(..)
+  x2(that)                           class method I x2(I that)=(..)
+  x3(that)                           class method I x3(I that)=(..)
+  y2(that)                           class method I y2(I that)=(..)
+  y3(that)                           class method I y3(I that)=(..)
+  z3(that)                           class method I z3(I that)=(..)
+  }
+Delta2D={
+  [HasToS]
+  #apply(x, y)                       class method This #apply(fwd imm I x, fwd imm I y)=(..)
+  #immK(x, y)                        class method This #immK(I x, I y)=(..)
+  adjacent4()                        @Cache.Lazy class method List adjacent4()=(..)
+  adjacent8()                        @Cache.Lazy class method List adjacent8()=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  #plus0(cell)                       method Cell2D #plus0(Cell2D cell)=(..)
+  #plus0(that)                       method This #plus0(This that)=(..)
+  #plus1(cell)                       method Cell2D #plus1(Cell2D cell)=(..)
+  #times0(that)                      method This #times0(I that)=(..)
+  #times1(that)                      method This #times1(I that)=(..)
+  norm()                             method This norm()=(..)
+  to3D(z)                            method Cell3D to3D(I z)=(..)
+  toVector()                         method Vector2D toVector()=(..)
+  with(x)                            method This with(I x)=(..)
+  with(y)                            method This with(I y)=(..)
+  immClone()                         read method This immClone()=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  x()                                read method I x()=(..)
+  y()                                read method I y()=(..)
+  capsuleClone()                     mut method capsule This capsuleClone()=(..)
+  List={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
+    #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
+    #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
+    #squareBuilder()                   class method mut This #squareBuilder()=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #equalequal0(This that)=(..)
+    #minus0(right)                     @{
+      Wither
+      Returns the receiver but without all the elements equal to 'right'
+      }method This #minus0(This1 right)=(..)
+    #minusminus0(right)                @{
+      Wither
+      Returns the receiver but without all the elements contained in the list 'right'
+      }method This #minusminus0(This right)=(..)
+    #plus0(right)                      method This #plus0(This1 right)=(..)
+    #plus1(left)                       method This #plus1(This1 left)=(..)
+    #plusplus0(right)                  method This #plusplus0(This right)=(..)
+    immNorm()                          method This immNorm()=(..)
+    with(left)                         method This with(This1 left)=(..)
+    with(right)                        method This with(This1 right)=(..)
+    with(that, val)                    method This with(I that, This1 val)=(..)
+    withAlso(left)                     method This withAlso(This1 left)=(..)
+    withAlso(right)                    method This withAlso(This1 right)=(..)
+    withAlso(that, val)                method This withAlso(I that, This1 val)=(..)
+    without(left)                      @{
+      Wither
+      Returns the receiver but without the leftmost element equal to 'val'
+      }method This without(read This1 left)=(..)
+    without(right)                     @{
+      Wither
+      Returns the receiver but without the rightmost element equal to 'val'
+      }method This without(read This1 right)=(..)
+    without(that)                      method This without(I that)=(..)
+    withoutAll(val)                    @{
+      Wither
+      Returns the receiver but without all the elements equal to 'val'
+      }method This withoutAll(read This1 val)=(..)
+    withoutLeft()                      method This withoutLeft()=(..)
+    withoutRight()                     method This withoutRight()=(..)
+    #elem#default(that)                read method This1 #elem#default(I that)=(..)
+    #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
+    #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
+    #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+    #in1(that)                         @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool #in1(read This1 that)=(..)
+    #iterator()                        read method read This #iterator()=(..)
+    #startIndex()                      read method I #startIndex()=(..)
+    allEq(that)                        @{
+      Predicate
+      returns true if all the elements in 'this' are individually 
+      This.equals(a,b) to the corresponding element in 'that'.
+      This can be different from '==' or 'readEquality': they just use system equality.
+      If the elements have a 'readEquality' method, that is used
+      On default This.equals(a,b) will use an available equality predicate visible on the element; 
+      prioritizing in the following order:
+      'allEq', 'readEquality' and '=='.
+      If none is present, 'System.immEquality' is used instead.
+      }read method Bool allEq(read This that)=(..)
+    clone()                            read method capsule This clone()=(..)
+    contains(that)                     @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool contains(read This1 that)=(..)
+    indexOf(left)                      @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the leftmost occurrence
+      of 'left' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 left)=(..)
+    indexOf(right)                     @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the rightmost occurrence
+      of 'right' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 right)=(..)
+    isEmpty()                          read method Bool isEmpty()native{..}=(..)
+    isMutVal(that)                     read method Bool isMutVal(I that)native{..}=(..)
+    left()                             read method This1 left()=(..)
+    readEquality(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }read method Bool readEquality(read This that)=(..)
+    readLeft()                         read method read This1 readLeft()=(..)
+    readRight()                        read method read This1 readRight()=(..)
+    readVal(that)                      read method read This1 readVal(I that)native{..}=(..)
+    right()                            read method This1 right()=(..)
+    size()                             read method I size()native{..}=(..)
+    toS()                              read method S toS()=(..)
+    val(that)                          read method This1 val(I that)native{..}=(..)
+    vals()                             read method read This vals()=(..)
+    vals(that)                         read method read Iterator vals(I that)=(..)
+    vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
+    vals(to)                           read method read Iterator vals(I to)=(..)
+    #add(left)                         mut method Void #add(mut This1 left)=(..)
+    #add(right)                        mut method Void #add(mut This1 right)=(..)
+    #add(that)                         mut method Void #add(mut This1 that)=(..)
+    #add(that, val)                    mut method Void #add(I that, mut This1 val)native{..}=(..)
+    #apply(that)                       mut method mut This #apply(Void that)=(..)
+    #elem#mut(that)                    mut method mut This1 #elem#mut(I that)=(..)
+    #left()                            mut method mut This1 #left()=(..)
+    #left(that)                        mut method Void #left(mut This1 that)=(..)
+    #right()                           mut method mut This1 #right()=(..)
+    #right(that)                       mut method Void #right(mut This1 that)=(..)
+    #set(that, val)                    mut method Void #set(I that, mut This1 val)native{..}=(..)
+    #squareAdd(mutVal)                 mut method Void #squareAdd(mut This1 mutVal)=(..)
+    #squareAdd(that)                   mut method Void #squareAdd(This1 that)=(..)
+    #update#default(that, val)         mut method This1 #update#default(I that, This1 val)=(..)
+    #update#imm(that, val)             mut method This1 #update#imm(I that, This1 val)=(..)
+    #update#mut(that, val)             mut method mut This1 #update#mut(I that, mut This1 val)=(..)
+    #val(that)                         mut method mut This1 #val(I that)native{..}=(..)
+    #vals()                            mut method mut This #vals()=(..)
+    #vals(that)                        mut method mut Iterator #vals(I that)=(..)
+    #vals(that, to)                    mut method mut Iterator #vals(I that, I to)=(..)
+    #vals(to)                          mut method mut Iterator #vals(I to)=(..)
+    #varIterator()                     mut method mut This #varIterator()=(..)
+    add(left)                          mut method Void add(This1 left)=(..)
+    add(right)                         mut method Void add(This1 right)=(..)
+    add(that)                          mut method Void add(This1 that)=(..)
+    add(that, val)                     mut method Void add(I that, This1 val)native{..}=(..)
+    clear()                            mut method Void clear()=(..)
+    left(that)                         mut method Void left(This1 that)=(..)
+    remove(left)                       @{
+      Mutator 
+      Removes from the list the leftmost element equal to 'left'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(left)'  
+      }mut method Void remove(read This1 left)=(..)
+    remove(right)                      @{
+      Mutator 
+      Removes from the list the rightmost element equal to 'right'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(right)'  
+      }mut method Void remove(read This1 right)=(..)
+    remove(that)                       mut method Void remove(I that)native{..}=(..)
+    removeAll(val)                     @{
+      Mutator 
+      Removes from the list all the elements equal to 'val'.
+      It relies on 'This.equals(a,b)'  
+      }mut method Void removeAll(read This1 val)=(..)
+    removeLeft()                       mut method Void removeLeft()=(..)
+    removeRight()                      mut method Void removeRight()=(..)
+    right(that)                        mut method Void right(This1 that)=(..)
+    set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
+    Iterator={
+      #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      #elem#default(that)                read method This2 #elem#default(I that)=(..)
+      #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
+      #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
+      #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+      #iterator()                        read method read This #iterator()=(..)
+      #startIndex()                      read method I #startIndex()=(..)
+      end()                              read method I end()
+      list()                             read method read This1 list()
+      start()                            read method I start()
+      #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
+      #list()                            mut method mut This1 #list()
+      #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
+      #update#imm(that, val)             mut method This2 #update#imm(I that, This2 val)=(..)
+      #update#mut(that, val)             mut method mut This2 #update#mut(I that, mut This2 val)=(..)
+      #varIterator()                     mut method mut This #varIterator()=(..)
+      }
+    }
+  Opt={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    #bang0()                           read method Bool #bang0()=(..)
+    #if()                              read method Bool #if()native{..}=(..)
+    #in1(that)                         read method Bool #in1(read This1 that)=(..)
+    allEq(that)                        read method Bool allEq(read This that)=(..)
+    contains(that)                     read method Bool contains(read This1 that)=(..)
+    isPresent()                        read method Bool isPresent()=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    toS()                              read method S toS()=(..)
+    val()                              read method read This1 val()native{..}=(..)
+    val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    #val()                             mut method mut This1 #val()native{..}=(..)
+    #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
+    }
+  }
+Delta3D={
+  [HasToS]
+  #apply(x, y, z)                    class method This #apply(fwd imm I x, fwd imm I y, fwd imm I z)=(..)
+  #immK(x, y, z)                     class method This #immK(I x, I y, I z)=(..)
+  adjacent26()                       @Cache.Lazy class method List adjacent26()=(..)
+  adjacent6()                        @Cache.Lazy class method List adjacent6()=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  #plus0(cell)                       method Cell3D #plus0(Cell3D cell)=(..)
+  #plus0(that)                       method This #plus0(This that)=(..)
+  #plus1(cell)                       method Cell3D #plus1(Cell3D cell)=(..)
+  #times0(that)                      method This #times0(I that)=(..)
+  #times1(that)                      method This #times1(I that)=(..)
+  norm()                             method This norm()=(..)
+  to2D()                             method Cell2D to2D()=(..)
+  toVector()                         method Vector3D toVector()=(..)
+  with(x)                            method This with(I x)=(..)
+  with(y)                            method This with(I y)=(..)
+  with(z)                            method This with(I z)=(..)
+  immClone()                         read method This immClone()=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  x()                                read method I x()=(..)
+  y()                                read method I y()=(..)
+  z()                                read method I z()=(..)
+  capsuleClone()                     mut method capsule This capsuleClone()=(..)
+  List={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
+    #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
+    #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
+    #squareBuilder()                   class method mut This #squareBuilder()=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #equalequal0(This that)=(..)
+    #minus0(right)                     @{
+      Wither
+      Returns the receiver but without all the elements equal to 'right'
+      }method This #minus0(This1 right)=(..)
+    #minusminus0(right)                @{
+      Wither
+      Returns the receiver but without all the elements contained in the list 'right'
+      }method This #minusminus0(This right)=(..)
+    #plus0(right)                      method This #plus0(This1 right)=(..)
+    #plus1(left)                       method This #plus1(This1 left)=(..)
+    #plusplus0(right)                  method This #plusplus0(This right)=(..)
+    immNorm()                          method This immNorm()=(..)
+    with(left)                         method This with(This1 left)=(..)
+    with(right)                        method This with(This1 right)=(..)
+    with(that, val)                    method This with(I that, This1 val)=(..)
+    withAlso(left)                     method This withAlso(This1 left)=(..)
+    withAlso(right)                    method This withAlso(This1 right)=(..)
+    withAlso(that, val)                method This withAlso(I that, This1 val)=(..)
+    without(left)                      @{
+      Wither
+      Returns the receiver but without the leftmost element equal to 'val'
+      }method This without(read This1 left)=(..)
+    without(right)                     @{
+      Wither
+      Returns the receiver but without the rightmost element equal to 'val'
+      }method This without(read This1 right)=(..)
+    without(that)                      method This without(I that)=(..)
+    withoutAll(val)                    @{
+      Wither
+      Returns the receiver but without all the elements equal to 'val'
+      }method This withoutAll(read This1 val)=(..)
+    withoutLeft()                      method This withoutLeft()=(..)
+    withoutRight()                     method This withoutRight()=(..)
+    #elem#default(that)                read method This1 #elem#default(I that)=(..)
+    #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
+    #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
+    #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+    #in1(that)                         @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool #in1(read This1 that)=(..)
+    #iterator()                        read method read This #iterator()=(..)
+    #startIndex()                      read method I #startIndex()=(..)
+    allEq(that)                        @{
+      Predicate
+      returns true if all the elements in 'this' are individually 
+      This.equals(a,b) to the corresponding element in 'that'.
+      This can be different from '==' or 'readEquality': they just use system equality.
+      If the elements have a 'readEquality' method, that is used
+      On default This.equals(a,b) will use an available equality predicate visible on the element; 
+      prioritizing in the following order:
+      'allEq', 'readEquality' and '=='.
+      If none is present, 'System.immEquality' is used instead.
+      }read method Bool allEq(read This that)=(..)
+    clone()                            read method capsule This clone()=(..)
+    contains(that)                     @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool contains(read This1 that)=(..)
+    indexOf(left)                      @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the leftmost occurrence
+      of 'left' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 left)=(..)
+    indexOf(right)                     @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the rightmost occurrence
+      of 'right' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 right)=(..)
+    isEmpty()                          read method Bool isEmpty()native{..}=(..)
+    isMutVal(that)                     read method Bool isMutVal(I that)native{..}=(..)
+    left()                             read method This1 left()=(..)
+    readEquality(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }read method Bool readEquality(read This that)=(..)
+    readLeft()                         read method read This1 readLeft()=(..)
+    readRight()                        read method read This1 readRight()=(..)
+    readVal(that)                      read method read This1 readVal(I that)native{..}=(..)
+    right()                            read method This1 right()=(..)
+    size()                             read method I size()native{..}=(..)
+    toS()                              read method S toS()=(..)
+    val(that)                          read method This1 val(I that)native{..}=(..)
+    vals()                             read method read This vals()=(..)
+    vals(that)                         read method read Iterator vals(I that)=(..)
+    vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
+    vals(to)                           read method read Iterator vals(I to)=(..)
+    #add(left)                         mut method Void #add(mut This1 left)=(..)
+    #add(right)                        mut method Void #add(mut This1 right)=(..)
+    #add(that)                         mut method Void #add(mut This1 that)=(..)
+    #add(that, val)                    mut method Void #add(I that, mut This1 val)native{..}=(..)
+    #apply(that)                       mut method mut This #apply(Void that)=(..)
+    #elem#mut(that)                    mut method mut This1 #elem#mut(I that)=(..)
+    #left()                            mut method mut This1 #left()=(..)
+    #left(that)                        mut method Void #left(mut This1 that)=(..)
+    #right()                           mut method mut This1 #right()=(..)
+    #right(that)                       mut method Void #right(mut This1 that)=(..)
+    #set(that, val)                    mut method Void #set(I that, mut This1 val)native{..}=(..)
+    #squareAdd(mutVal)                 mut method Void #squareAdd(mut This1 mutVal)=(..)
+    #squareAdd(that)                   mut method Void #squareAdd(This1 that)=(..)
+    #update#default(that, val)         mut method This1 #update#default(I that, This1 val)=(..)
+    #update#imm(that, val)             mut method This1 #update#imm(I that, This1 val)=(..)
+    #update#mut(that, val)             mut method mut This1 #update#mut(I that, mut This1 val)=(..)
+    #val(that)                         mut method mut This1 #val(I that)native{..}=(..)
+    #vals()                            mut method mut This #vals()=(..)
+    #vals(that)                        mut method mut Iterator #vals(I that)=(..)
+    #vals(that, to)                    mut method mut Iterator #vals(I that, I to)=(..)
+    #vals(to)                          mut method mut Iterator #vals(I to)=(..)
+    #varIterator()                     mut method mut This #varIterator()=(..)
+    add(left)                          mut method Void add(This1 left)=(..)
+    add(right)                         mut method Void add(This1 right)=(..)
+    add(that)                          mut method Void add(This1 that)=(..)
+    add(that, val)                     mut method Void add(I that, This1 val)native{..}=(..)
+    clear()                            mut method Void clear()=(..)
+    left(that)                         mut method Void left(This1 that)=(..)
+    remove(left)                       @{
+      Mutator 
+      Removes from the list the leftmost element equal to 'left'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(left)'  
+      }mut method Void remove(read This1 left)=(..)
+    remove(right)                      @{
+      Mutator 
+      Removes from the list the rightmost element equal to 'right'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(right)'  
+      }mut method Void remove(read This1 right)=(..)
+    remove(that)                       mut method Void remove(I that)native{..}=(..)
+    removeAll(val)                     @{
+      Mutator 
+      Removes from the list all the elements equal to 'val'.
+      It relies on 'This.equals(a,b)'  
+      }mut method Void removeAll(read This1 val)=(..)
+    removeLeft()                       mut method Void removeLeft()=(..)
+    removeRight()                      mut method Void removeRight()=(..)
+    right(that)                        mut method Void right(This1 that)=(..)
+    set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
+    Iterator={
+      #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      #elem#default(that)                read method This2 #elem#default(I that)=(..)
+      #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
+      #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
+      #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+      #iterator()                        read method read This #iterator()=(..)
+      #startIndex()                      read method I #startIndex()=(..)
+      end()                              read method I end()
+      list()                             read method read This1 list()
+      start()                            read method I start()
+      #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
+      #list()                            mut method mut This1 #list()
+      #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
+      #update#imm(that, val)             mut method This2 #update#imm(I that, This2 val)=(..)
+      #update#mut(that, val)             mut method mut This2 #update#mut(I that, mut This2 val)=(..)
+      #varIterator()                     mut method mut This #varIterator()=(..)
+      }
+    }
+  Opt={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    #bang0()                           read method Bool #bang0()=(..)
+    #if()                              read method Bool #if()native{..}=(..)
+    #in1(that)                         read method Bool #in1(read This1 that)=(..)
+    allEq(that)                        read method Bool allEq(read This that)=(..)
+    contains(that)                     read method Bool contains(read This1 that)=(..)
+    isPresent()                        read method Bool isPresent()=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    toS()                              read method S toS()=(..)
+    val()                              read method read This1 val()native{..}=(..)
+    val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    #val()                             mut method mut This1 #val()native{..}=(..)
+    #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
+    }
+  }
+InRangeCell={
+  #apply(x)                          class method Bool #apply(I x)=(..)
+  #apply(x, y)                       class method Bool #apply(I x, I y)=(..)
+  #apply(x, y, z)                    class method Bool #apply(I x, I y, I z)=(..)
+  #apply(y)                          class method Bool #apply(I y)=(..)
+  #apply(z)                          class method Bool #apply(I z)=(..)
+  bound(that, to)                    class method I bound(I that, I to)=(..)
+  bound(x)                           class method I bound(I x)=(..)
+  bound(y)                           class method I bound(I y)=(..)
+  bound(z)                           class method I bound(I z)=(..)
+  errorOutOfRange(that, x, y)        class method Void errorOutOfRange(class Any that, I x, I y)=(..)
+  errorOutOfRange(that, x, y, z)     class method Void errorOutOfRange(class Any that, I x, I y, I z)=(..)
+  inRange(that, to)                  class method Bool inRange(I that, I to)=(..)
+  }
+InRangeDouble={
+  #apply(x)                          class method Bool #apply(Double x)=(..)
+  #apply(x, y)                       class method Bool #apply(Double x, Double y)=(..)
+  #apply(x, y, z)                    class method Bool #apply(Double x, Double y, Double z)=(..)
+  #apply(y)                          class method Bool #apply(Double y)=(..)
+  #apply(z)                          class method Bool #apply(Double z)=(..)
+  bound(that, to)                    class method Double bound(Double that, I to)=(..)
+  bound(x)                           class method Double bound(Double x)=(..)
+  bound(y)                           class method Double bound(Double y)=(..)
+  bound(z)                           class method Double bound(Double z)=(..)
+  errorOutOfRange(that, x, y)        class method Void errorOutOfRange(class Any that, Double x, Double y)=(..)
+  errorOutOfRange(that, x, y, z)     class method Void errorOutOfRange(class Any that, Double x, Double y, Double z)=(..)
+  inRange(that, to)                  class method Bool inRange(Double that, I to)=(..)
+  }
+InRangeTrait={
+  [Trait.Lifted]
+  #apply()                           class method Trait #apply()=(..)
+  #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
+  #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
+  #plus1(lib)                        class method Trait #plus1(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
+  code()                             class method Library code()=(..)
+  info()                             class method Info info()=(..)
+  resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
+  ClassOperators={
+    #apply()                           class method Trait #apply()=(..)
+    }
+  }
+Iterator2D={
+  #apply()                           class method This #apply()
+  #elem#default(that)                method Cell2D #elem#default(I that)=(..)
+  #hasElem(that)                     method Collection.IteratorCompose #hasElem(I that)=(..)
+  #startIndex()                      method I #startIndex()=(..)
+  }
+Iterator3D={
+  #apply()                           class method This #apply()
+  #elem#default(that)                method Cell3D #elem#default(I that)=(..)
+  #hasElem(that)                     method Collection.IteratorCompose #hasElem(I that)=(..)
+  }
+Map2DTrait={
+  [Trait.Lifted]
+  #apply()                           class method Trait #apply()=(..)
+  #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
+  #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
+  #plus1(lib)                        class method Trait #plus1(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
+  code()                             class method Library code()=(..)
+  info()                             class method Info info()=(..)
+  resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
+  ClassOperators={
+    #apply()                           class method Trait #apply()=(..)
+    }
+  }
+Map3DTrait={
+  [Trait.Lifted]
+  #apply()                           class method Trait #apply()=(..)
+  #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
+  #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
+  #plus1(lib)                        class method Trait #plus1(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
+  code()                             class method Library code()=(..)
+  info()                             class method Info info()=(..)
+  resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
+  ClassOperators={
+    #apply()                           class method Trait #apply()=(..)
+    }
+  }
+Physics={
+  [Trait.Lifted]
+  #apply()                           class method Trait #apply()=(..)
+  #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
+  #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
+  #plus1(lib)                        class method Trait #plus1(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
+  code()                             class method Library code()=(..)
+  info()                             class method Info info()=(..)
+  resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
+  ClassOperators={
+    #apply()                           class method Trait #apply()=(..)
+    }
+  }
+Point2D={
+  [HasToS]
+  #apply(x, y)                       class method This #apply(Double x, Double y)=(..)
+  #immK(x, y)                        class method This #immK(Double x, Double y)=(..)
+  invariant(x, y)                    class method Void invariant(Double x, Double y)=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  distance(other)                    method Double distance(This other)=(..)
+  distance2(other)                   method Double distance2(This other)=(..)
+  norm()                             method This norm()=(..)
+  random(r)                          method This random(mut Math.Random r)=(..)
+  to3D(z)                            method Point3D to3D(Double z)=(..)
+  toCell()                           method Cell2D toCell()=(..)
+  with(x)                            method This with(Double x)=(..)
+  with(y)                            method This with(Double y)=(..)
+  immClone()                         read method This immClone()=(..)
+  invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  x()                                read method Double x()=(..)
+  y()                                read method Double y()=(..)
+  capsuleClone()                     mut method capsule This capsuleClone()=(..)
+  List={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
+    #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
+    #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
+    #squareBuilder()                   class method mut This #squareBuilder()=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #equalequal0(This that)=(..)
+    #minus0(right)                     @{
+      Wither
+      Returns the receiver but without all the elements equal to 'right'
+      }method This #minus0(This1 right)=(..)
+    #minusminus0(right)                @{
+      Wither
+      Returns the receiver but without all the elements contained in the list 'right'
+      }method This #minusminus0(This right)=(..)
+    #plus0(right)                      method This #plus0(This1 right)=(..)
+    #plus1(left)                       method This #plus1(This1 left)=(..)
+    #plusplus0(right)                  method This #plusplus0(This right)=(..)
+    immNorm()                          method This immNorm()=(..)
+    with(left)                         method This with(This1 left)=(..)
+    with(right)                        method This with(This1 right)=(..)
+    with(that, val)                    method This with(I that, This1 val)=(..)
+    withAlso(left)                     method This withAlso(This1 left)=(..)
+    withAlso(right)                    method This withAlso(This1 right)=(..)
+    withAlso(that, val)                method This withAlso(I that, This1 val)=(..)
+    without(left)                      @{
+      Wither
+      Returns the receiver but without the leftmost element equal to 'val'
+      }method This without(read This1 left)=(..)
+    without(right)                     @{
+      Wither
+      Returns the receiver but without the rightmost element equal to 'val'
+      }method This without(read This1 right)=(..)
+    without(that)                      method This without(I that)=(..)
+    withoutAll(val)                    @{
+      Wither
+      Returns the receiver but without all the elements equal to 'val'
+      }method This withoutAll(read This1 val)=(..)
+    withoutLeft()                      method This withoutLeft()=(..)
+    withoutRight()                     method This withoutRight()=(..)
+    #elem#default(that)                read method This1 #elem#default(I that)=(..)
+    #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
+    #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
+    #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+    #in1(that)                         @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool #in1(read This1 that)=(..)
+    #iterator()                        read method read This #iterator()=(..)
+    #startIndex()                      read method I #startIndex()=(..)
+    allEq(that)                        @{
+      Predicate
+      returns true if all the elements in 'this' are individually 
+      This.equals(a,b) to the corresponding element in 'that'.
+      This can be different from '==' or 'readEquality': they just use system equality.
+      If the elements have a 'readEquality' method, that is used
+      On default This.equals(a,b) will use an available equality predicate visible on the element; 
+      prioritizing in the following order:
+      'allEq', 'readEquality' and '=='.
+      If none is present, 'System.immEquality' is used instead.
+      }read method Bool allEq(read This that)=(..)
+    clone()                            read method capsule This clone()=(..)
+    contains(that)                     @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool contains(read This1 that)=(..)
+    indexOf(left)                      @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the leftmost occurrence
+      of 'left' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 left)=(..)
+    indexOf(right)                     @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the rightmost occurrence
+      of 'right' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 right)=(..)
+    isEmpty()                          read method Bool isEmpty()native{..}=(..)
+    isMutVal(that)                     read method Bool isMutVal(I that)native{..}=(..)
+    left()                             read method This1 left()=(..)
+    readEquality(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }read method Bool readEquality(read This that)=(..)
+    readLeft()                         read method read This1 readLeft()=(..)
+    readRight()                        read method read This1 readRight()=(..)
+    readVal(that)                      read method read This1 readVal(I that)native{..}=(..)
+    right()                            read method This1 right()=(..)
+    size()                             read method I size()native{..}=(..)
+    toS()                              read method S toS()=(..)
+    val(that)                          read method This1 val(I that)native{..}=(..)
+    vals()                             read method read This vals()=(..)
+    vals(that)                         read method read Iterator vals(I that)=(..)
+    vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
+    vals(to)                           read method read Iterator vals(I to)=(..)
+    #add(left)                         mut method Void #add(mut This1 left)=(..)
+    #add(right)                        mut method Void #add(mut This1 right)=(..)
+    #add(that)                         mut method Void #add(mut This1 that)=(..)
+    #add(that, val)                    mut method Void #add(I that, mut This1 val)native{..}=(..)
+    #apply(that)                       mut method mut This #apply(Void that)=(..)
+    #elem#mut(that)                    mut method mut This1 #elem#mut(I that)=(..)
+    #left()                            mut method mut This1 #left()=(..)
+    #left(that)                        mut method Void #left(mut This1 that)=(..)
+    #right()                           mut method mut This1 #right()=(..)
+    #right(that)                       mut method Void #right(mut This1 that)=(..)
+    #set(that, val)                    mut method Void #set(I that, mut This1 val)native{..}=(..)
+    #squareAdd(mutVal)                 mut method Void #squareAdd(mut This1 mutVal)=(..)
+    #squareAdd(that)                   mut method Void #squareAdd(This1 that)=(..)
+    #update#default(that, val)         mut method This1 #update#default(I that, This1 val)=(..)
+    #update#imm(that, val)             mut method This1 #update#imm(I that, This1 val)=(..)
+    #update#mut(that, val)             mut method mut This1 #update#mut(I that, mut This1 val)=(..)
+    #val(that)                         mut method mut This1 #val(I that)native{..}=(..)
+    #vals()                            mut method mut This #vals()=(..)
+    #vals(that)                        mut method mut Iterator #vals(I that)=(..)
+    #vals(that, to)                    mut method mut Iterator #vals(I that, I to)=(..)
+    #vals(to)                          mut method mut Iterator #vals(I to)=(..)
+    #varIterator()                     mut method mut This #varIterator()=(..)
+    add(left)                          mut method Void add(This1 left)=(..)
+    add(right)                         mut method Void add(This1 right)=(..)
+    add(that)                          mut method Void add(This1 that)=(..)
+    add(that, val)                     mut method Void add(I that, This1 val)native{..}=(..)
+    clear()                            mut method Void clear()=(..)
+    left(that)                         mut method Void left(This1 that)=(..)
+    remove(left)                       @{
+      Mutator 
+      Removes from the list the leftmost element equal to 'left'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(left)'  
+      }mut method Void remove(read This1 left)=(..)
+    remove(right)                      @{
+      Mutator 
+      Removes from the list the rightmost element equal to 'right'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(right)'  
+      }mut method Void remove(read This1 right)=(..)
+    remove(that)                       mut method Void remove(I that)native{..}=(..)
+    removeAll(val)                     @{
+      Mutator 
+      Removes from the list all the elements equal to 'val'.
+      It relies on 'This.equals(a,b)'  
+      }mut method Void removeAll(read This1 val)=(..)
+    removeLeft()                       mut method Void removeLeft()=(..)
+    removeRight()                      mut method Void removeRight()=(..)
+    right(that)                        mut method Void right(This1 that)=(..)
+    set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
+    Iterator={
+      #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      #elem#default(that)                read method This2 #elem#default(I that)=(..)
+      #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
+      #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
+      #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+      #iterator()                        read method read This #iterator()=(..)
+      #startIndex()                      read method I #startIndex()=(..)
+      end()                              read method I end()
+      list()                             read method read This1 list()
+      start()                            read method I start()
+      #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
+      #list()                            mut method mut This1 #list()
+      #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
+      #update#imm(that, val)             mut method This2 #update#imm(I that, This2 val)=(..)
+      #update#mut(that, val)             mut method mut This2 #update#mut(I that, mut This2 val)=(..)
+      #varIterator()                     mut method mut This #varIterator()=(..)
+      }
+    }
+  Opt={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    #bang0()                           read method Bool #bang0()=(..)
+    #if()                              read method Bool #if()native{..}=(..)
+    #in1(that)                         read method Bool #in1(read This1 that)=(..)
+    allEq(that)                        read method Bool allEq(read This that)=(..)
+    contains(that)                     read method Bool contains(read This1 that)=(..)
+    isPresent()                        read method Bool isPresent()=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    toS()                              read method S toS()=(..)
+    val()                              read method read This1 val()native{..}=(..)
+    val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    #val()                             mut method mut This1 #val()native{..}=(..)
+    #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
+    }
+  }
+Point3D={
+  [HasToS]
+  #apply(x, y, z)                    class method This #apply(Double x, Double y, Double z)=(..)
+  #immK(x, y, z)                     class method This #immK(Double x, Double y, Double z)=(..)
+  invariant(x, y, z)                 class method Void invariant(Double x, Double y, Double z)=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  distance(other)                    method Double distance(This other)=(..)
+  distance2(other)                   method Double distance2(This other)=(..)
+  distanceXY2(other)                 method Double distanceXY2(This other)=(..)
+  norm()                             method This norm()=(..)
+  random(r)                          method This random(mut Math.Random r)=(..)
+  to2D()                             method Point2D to2D()=(..)
+  toCell()                           method Cell3D toCell()=(..)
+  with(x)                            method This with(Double x)=(..)
+  with(y)                            method This with(Double y)=(..)
+  with(z)                            method This with(Double z)=(..)
+  immClone()                         read method This immClone()=(..)
+  invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  x()                                read method Double x()=(..)
+  y()                                read method Double y()=(..)
+  z()                                read method Double z()=(..)
+  capsuleClone()                     mut method capsule This capsuleClone()=(..)
+  List={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
+    #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
+    #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
+    #squareBuilder()                   class method mut This #squareBuilder()=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #equalequal0(This that)=(..)
+    #minus0(right)                     @{
+      Wither
+      Returns the receiver but without all the elements equal to 'right'
+      }method This #minus0(This1 right)=(..)
+    #minusminus0(right)                @{
+      Wither
+      Returns the receiver but without all the elements contained in the list 'right'
+      }method This #minusminus0(This right)=(..)
+    #plus0(right)                      method This #plus0(This1 right)=(..)
+    #plus1(left)                       method This #plus1(This1 left)=(..)
+    #plusplus0(right)                  method This #plusplus0(This right)=(..)
+    immNorm()                          method This immNorm()=(..)
+    with(left)                         method This with(This1 left)=(..)
+    with(right)                        method This with(This1 right)=(..)
+    with(that, val)                    method This with(I that, This1 val)=(..)
+    withAlso(left)                     method This withAlso(This1 left)=(..)
+    withAlso(right)                    method This withAlso(This1 right)=(..)
+    withAlso(that, val)                method This withAlso(I that, This1 val)=(..)
+    without(left)                      @{
+      Wither
+      Returns the receiver but without the leftmost element equal to 'val'
+      }method This without(read This1 left)=(..)
+    without(right)                     @{
+      Wither
+      Returns the receiver but without the rightmost element equal to 'val'
+      }method This without(read This1 right)=(..)
+    without(that)                      method This without(I that)=(..)
+    withoutAll(val)                    @{
+      Wither
+      Returns the receiver but without all the elements equal to 'val'
+      }method This withoutAll(read This1 val)=(..)
+    withoutLeft()                      method This withoutLeft()=(..)
+    withoutRight()                     method This withoutRight()=(..)
+    #elem#default(that)                read method This1 #elem#default(I that)=(..)
+    #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
+    #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
+    #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+    #in1(that)                         @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool #in1(read This1 that)=(..)
+    #iterator()                        read method read This #iterator()=(..)
+    #startIndex()                      read method I #startIndex()=(..)
+    allEq(that)                        @{
+      Predicate
+      returns true if all the elements in 'this' are individually 
+      This.equals(a,b) to the corresponding element in 'that'.
+      This can be different from '==' or 'readEquality': they just use system equality.
+      If the elements have a 'readEquality' method, that is used
+      On default This.equals(a,b) will use an available equality predicate visible on the element; 
+      prioritizing in the following order:
+      'allEq', 'readEquality' and '=='.
+      If none is present, 'System.immEquality' is used instead.
+      }read method Bool allEq(read This that)=(..)
+    clone()                            read method capsule This clone()=(..)
+    contains(that)                     @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool contains(read This1 that)=(..)
+    indexOf(left)                      @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the leftmost occurrence
+      of 'left' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 left)=(..)
+    indexOf(right)                     @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the rightmost occurrence
+      of 'right' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 right)=(..)
+    isEmpty()                          read method Bool isEmpty()native{..}=(..)
+    isMutVal(that)                     read method Bool isMutVal(I that)native{..}=(..)
+    left()                             read method This1 left()=(..)
+    readEquality(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }read method Bool readEquality(read This that)=(..)
+    readLeft()                         read method read This1 readLeft()=(..)
+    readRight()                        read method read This1 readRight()=(..)
+    readVal(that)                      read method read This1 readVal(I that)native{..}=(..)
+    right()                            read method This1 right()=(..)
+    size()                             read method I size()native{..}=(..)
+    toS()                              read method S toS()=(..)
+    val(that)                          read method This1 val(I that)native{..}=(..)
+    vals()                             read method read This vals()=(..)
+    vals(that)                         read method read Iterator vals(I that)=(..)
+    vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
+    vals(to)                           read method read Iterator vals(I to)=(..)
+    #add(left)                         mut method Void #add(mut This1 left)=(..)
+    #add(right)                        mut method Void #add(mut This1 right)=(..)
+    #add(that)                         mut method Void #add(mut This1 that)=(..)
+    #add(that, val)                    mut method Void #add(I that, mut This1 val)native{..}=(..)
+    #apply(that)                       mut method mut This #apply(Void that)=(..)
+    #elem#mut(that)                    mut method mut This1 #elem#mut(I that)=(..)
+    #left()                            mut method mut This1 #left()=(..)
+    #left(that)                        mut method Void #left(mut This1 that)=(..)
+    #right()                           mut method mut This1 #right()=(..)
+    #right(that)                       mut method Void #right(mut This1 that)=(..)
+    #set(that, val)                    mut method Void #set(I that, mut This1 val)native{..}=(..)
+    #squareAdd(mutVal)                 mut method Void #squareAdd(mut This1 mutVal)=(..)
+    #squareAdd(that)                   mut method Void #squareAdd(This1 that)=(..)
+    #update#default(that, val)         mut method This1 #update#default(I that, This1 val)=(..)
+    #update#imm(that, val)             mut method This1 #update#imm(I that, This1 val)=(..)
+    #update#mut(that, val)             mut method mut This1 #update#mut(I that, mut This1 val)=(..)
+    #val(that)                         mut method mut This1 #val(I that)native{..}=(..)
+    #vals()                            mut method mut This #vals()=(..)
+    #vals(that)                        mut method mut Iterator #vals(I that)=(..)
+    #vals(that, to)                    mut method mut Iterator #vals(I that, I to)=(..)
+    #vals(to)                          mut method mut Iterator #vals(I to)=(..)
+    #varIterator()                     mut method mut This #varIterator()=(..)
+    add(left)                          mut method Void add(This1 left)=(..)
+    add(right)                         mut method Void add(This1 right)=(..)
+    add(that)                          mut method Void add(This1 that)=(..)
+    add(that, val)                     mut method Void add(I that, This1 val)native{..}=(..)
+    clear()                            mut method Void clear()=(..)
+    left(that)                         mut method Void left(This1 that)=(..)
+    remove(left)                       @{
+      Mutator 
+      Removes from the list the leftmost element equal to 'left'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(left)'  
+      }mut method Void remove(read This1 left)=(..)
+    remove(right)                      @{
+      Mutator 
+      Removes from the list the rightmost element equal to 'right'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(right)'  
+      }mut method Void remove(read This1 right)=(..)
+    remove(that)                       mut method Void remove(I that)native{..}=(..)
+    removeAll(val)                     @{
+      Mutator 
+      Removes from the list all the elements equal to 'val'.
+      It relies on 'This.equals(a,b)'  
+      }mut method Void removeAll(read This1 val)=(..)
+    removeLeft()                       mut method Void removeLeft()=(..)
+    removeRight()                      mut method Void removeRight()=(..)
+    right(that)                        mut method Void right(This1 that)=(..)
+    set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
+    Iterator={
+      #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      #elem#default(that)                read method This2 #elem#default(I that)=(..)
+      #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
+      #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
+      #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+      #iterator()                        read method read This #iterator()=(..)
+      #startIndex()                      read method I #startIndex()=(..)
+      end()                              read method I end()
+      list()                             read method read This1 list()
+      start()                            read method I start()
+      #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
+      #list()                            mut method mut This1 #list()
+      #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
+      #update#imm(that, val)             mut method This2 #update#imm(I that, This2 val)=(..)
+      #update#mut(that, val)             mut method mut This2 #update#mut(I that, mut This2 val)=(..)
+      #varIterator()                     mut method mut This #varIterator()=(..)
+      }
+    }
+  Opt={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    #bang0()                           read method Bool #bang0()=(..)
+    #if()                              read method Bool #if()native{..}=(..)
+    #in1(that)                         read method Bool #in1(read This1 that)=(..)
+    allEq(that)                        read method Bool allEq(read This that)=(..)
+    contains(that)                     read method Bool contains(read This1 that)=(..)
+    isPresent()                        read method Bool isPresent()=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    toS()                              read method S toS()=(..)
+    val()                              read method read This1 val()native{..}=(..)
+    val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    #val()                             mut method mut This1 #val()native{..}=(..)
+    #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
+    }
+  }
+Vector2D={
+  [HasToS]
+  #apply(rad)                        class method This #apply(Double rad)=(..)
+  #apply(x, y)                       class method This #apply(Double x, Double y)=(..)
+  #immK(x, y)                        class method This #immK(Double x, Double y)=(..)
+  invariant(x, y)                    class method Void invariant(Double x, Double y)=(..)
+  norm(that, x, y, tot2)             class method This norm(Double that, Double x, Double y, Double tot2)=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  #plus0(that)                       method This #plus0(This that)=(..)
+  limit(that)                        method This limit(Double that)=(..)
+  norm()                             method This norm()=(..)
+  norm(that)                         method This norm(Double that)=(..)
+  random(r)                          method This random(mut Math.Random r)=(..)
+  to3D(z)                            method Vector3D to3D(Double z)=(..)
+  with(x)                            method This with(Double x)=(..)
+  with(y)                            method This with(Double y)=(..)
+  immClone()                         read method This immClone()=(..)
+  invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  x()                                read method Double x()=(..)
+  y()                                read method Double y()=(..)
+  capsuleClone()                     mut method capsule This capsuleClone()=(..)
+  List={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
+    #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
+    #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
+    #squareBuilder()                   class method mut This #squareBuilder()=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #equalequal0(This that)=(..)
+    #minus0(right)                     @{
+      Wither
+      Returns the receiver but without all the elements equal to 'right'
+      }method This #minus0(This1 right)=(..)
+    #minusminus0(right)                @{
+      Wither
+      Returns the receiver but without all the elements contained in the list 'right'
+      }method This #minusminus0(This right)=(..)
+    #plus0(right)                      method This #plus0(This1 right)=(..)
+    #plus1(left)                       method This #plus1(This1 left)=(..)
+    #plusplus0(right)                  method This #plusplus0(This right)=(..)
+    immNorm()                          method This immNorm()=(..)
+    with(left)                         method This with(This1 left)=(..)
+    with(right)                        method This with(This1 right)=(..)
+    with(that, val)                    method This with(I that, This1 val)=(..)
+    withAlso(left)                     method This withAlso(This1 left)=(..)
+    withAlso(right)                    method This withAlso(This1 right)=(..)
+    withAlso(that, val)                method This withAlso(I that, This1 val)=(..)
+    without(left)                      @{
+      Wither
+      Returns the receiver but without the leftmost element equal to 'val'
+      }method This without(read This1 left)=(..)
+    without(right)                     @{
+      Wither
+      Returns the receiver but without the rightmost element equal to 'val'
+      }method This without(read This1 right)=(..)
+    without(that)                      method This without(I that)=(..)
+    withoutAll(val)                    @{
+      Wither
+      Returns the receiver but without all the elements equal to 'val'
+      }method This withoutAll(read This1 val)=(..)
+    withoutLeft()                      method This withoutLeft()=(..)
+    withoutRight()                     method This withoutRight()=(..)
+    #elem#default(that)                read method This1 #elem#default(I that)=(..)
+    #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
+    #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
+    #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+    #in1(that)                         @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool #in1(read This1 that)=(..)
+    #iterator()                        read method read This #iterator()=(..)
+    #startIndex()                      read method I #startIndex()=(..)
+    allEq(that)                        @{
+      Predicate
+      returns true if all the elements in 'this' are individually 
+      This.equals(a,b) to the corresponding element in 'that'.
+      This can be different from '==' or 'readEquality': they just use system equality.
+      If the elements have a 'readEquality' method, that is used
+      On default This.equals(a,b) will use an available equality predicate visible on the element; 
+      prioritizing in the following order:
+      'allEq', 'readEquality' and '=='.
+      If none is present, 'System.immEquality' is used instead.
+      }read method Bool allEq(read This that)=(..)
+    clone()                            read method capsule This clone()=(..)
+    contains(that)                     @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool contains(read This1 that)=(..)
+    indexOf(left)                      @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the leftmost occurrence
+      of 'left' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 left)=(..)
+    indexOf(right)                     @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the rightmost occurrence
+      of 'right' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 right)=(..)
+    isEmpty()                          read method Bool isEmpty()native{..}=(..)
+    isMutVal(that)                     read method Bool isMutVal(I that)native{..}=(..)
+    left()                             read method This1 left()=(..)
+    readEquality(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }read method Bool readEquality(read This that)=(..)
+    readLeft()                         read method read This1 readLeft()=(..)
+    readRight()                        read method read This1 readRight()=(..)
+    readVal(that)                      read method read This1 readVal(I that)native{..}=(..)
+    right()                            read method This1 right()=(..)
+    size()                             read method I size()native{..}=(..)
+    toS()                              read method S toS()=(..)
+    val(that)                          read method This1 val(I that)native{..}=(..)
+    vals()                             read method read This vals()=(..)
+    vals(that)                         read method read Iterator vals(I that)=(..)
+    vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
+    vals(to)                           read method read Iterator vals(I to)=(..)
+    #add(left)                         mut method Void #add(mut This1 left)=(..)
+    #add(right)                        mut method Void #add(mut This1 right)=(..)
+    #add(that)                         mut method Void #add(mut This1 that)=(..)
+    #add(that, val)                    mut method Void #add(I that, mut This1 val)native{..}=(..)
+    #apply(that)                       mut method mut This #apply(Void that)=(..)
+    #elem#mut(that)                    mut method mut This1 #elem#mut(I that)=(..)
+    #left()                            mut method mut This1 #left()=(..)
+    #left(that)                        mut method Void #left(mut This1 that)=(..)
+    #right()                           mut method mut This1 #right()=(..)
+    #right(that)                       mut method Void #right(mut This1 that)=(..)
+    #set(that, val)                    mut method Void #set(I that, mut This1 val)native{..}=(..)
+    #squareAdd(mutVal)                 mut method Void #squareAdd(mut This1 mutVal)=(..)
+    #squareAdd(that)                   mut method Void #squareAdd(This1 that)=(..)
+    #update#default(that, val)         mut method This1 #update#default(I that, This1 val)=(..)
+    #update#imm(that, val)             mut method This1 #update#imm(I that, This1 val)=(..)
+    #update#mut(that, val)             mut method mut This1 #update#mut(I that, mut This1 val)=(..)
+    #val(that)                         mut method mut This1 #val(I that)native{..}=(..)
+    #vals()                            mut method mut This #vals()=(..)
+    #vals(that)                        mut method mut Iterator #vals(I that)=(..)
+    #vals(that, to)                    mut method mut Iterator #vals(I that, I to)=(..)
+    #vals(to)                          mut method mut Iterator #vals(I to)=(..)
+    #varIterator()                     mut method mut This #varIterator()=(..)
+    add(left)                          mut method Void add(This1 left)=(..)
+    add(right)                         mut method Void add(This1 right)=(..)
+    add(that)                          mut method Void add(This1 that)=(..)
+    add(that, val)                     mut method Void add(I that, This1 val)native{..}=(..)
+    clear()                            mut method Void clear()=(..)
+    left(that)                         mut method Void left(This1 that)=(..)
+    remove(left)                       @{
+      Mutator 
+      Removes from the list the leftmost element equal to 'left'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(left)'  
+      }mut method Void remove(read This1 left)=(..)
+    remove(right)                      @{
+      Mutator 
+      Removes from the list the rightmost element equal to 'right'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(right)'  
+      }mut method Void remove(read This1 right)=(..)
+    remove(that)                       mut method Void remove(I that)native{..}=(..)
+    removeAll(val)                     @{
+      Mutator 
+      Removes from the list all the elements equal to 'val'.
+      It relies on 'This.equals(a,b)'  
+      }mut method Void removeAll(read This1 val)=(..)
+    removeLeft()                       mut method Void removeLeft()=(..)
+    removeRight()                      mut method Void removeRight()=(..)
+    right(that)                        mut method Void right(This1 that)=(..)
+    set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
+    Iterator={
+      #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      #elem#default(that)                read method This2 #elem#default(I that)=(..)
+      #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
+      #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
+      #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+      #iterator()                        read method read This #iterator()=(..)
+      #startIndex()                      read method I #startIndex()=(..)
+      end()                              read method I end()
+      list()                             read method read This1 list()
+      start()                            read method I start()
+      #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
+      #list()                            mut method mut This1 #list()
+      #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
+      #update#imm(that, val)             mut method This2 #update#imm(I that, This2 val)=(..)
+      #update#mut(that, val)             mut method mut This2 #update#mut(I that, mut This2 val)=(..)
+      #varIterator()                     mut method mut This #varIterator()=(..)
+      }
+    }
+  Opt={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    #bang0()                           read method Bool #bang0()=(..)
+    #if()                              read method Bool #if()native{..}=(..)
+    #in1(that)                         read method Bool #in1(read This1 that)=(..)
+    allEq(that)                        read method Bool allEq(read This that)=(..)
+    contains(that)                     read method Bool contains(read This1 that)=(..)
+    isPresent()                        read method Bool isPresent()=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    toS()                              read method S toS()=(..)
+    val()                              read method read This1 val()native{..}=(..)
+    val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    #val()                             mut method mut This1 #val()native{..}=(..)
+    #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
+    }
+  }
+Vector3D={
+  [HasToS]
+  #apply(theta, phi)                 class method This #apply(Double theta, Double phi)=(..)
+  #apply(x, y, z)                    class method This #apply(Double x, Double y, Double z)=(..)
+  #immK(x, y, z)                     class method This #immK(Double x, Double y, Double z)=(..)
+  invariant(x, y, z)                 class method Void invariant(Double x, Double y, Double z)=(..)
+  norm(that, x, y, z, tot2)          class method This norm(Double that, Double x, Double y, Double z, Double tot2)=(..)
+  random(r)                          class method This random(mut Math.Random r)=(..)
+  #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+  #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  #plus0(point)                      method Point3D #plus0(Point3D point)=(..)
+  #plus0(that)                       method This #plus0(This that)=(..)
+  #plus1(point)                      method Point3D #plus1(Point3D point)=(..)
+  limit(that)                        method This limit(Double that)=(..)
+  norm()                             method This norm()=(..)
+  norm(that)                         method This norm(Double that)=(..)
+  to2D()                             method Vector2D to2D()=(..)
+  with(x)                            method This with(Double x)=(..)
+  with(y)                            method This with(Double y)=(..)
+  with(z)                            method This with(Double z)=(..)
+  immClone()                         read method This immClone()=(..)
+  invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
+  readEquality(that)                 read method Bool readEquality(read This that)=(..)
+  toS()                              read method S toS()=(..)
+  x()                                read method Double x()=(..)
+  y()                                read method Double y()=(..)
+  z()                                read method Double z()=(..)
+  capsuleClone()                     mut method capsule This capsuleClone()=(..)
+  List={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
+    #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
+    #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
+    #squareBuilder()                   class method mut This #squareBuilder()=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }method Bool #equalequal0(This that)=(..)
+    #minus0(right)                     @{
+      Wither
+      Returns the receiver but without all the elements equal to 'right'
+      }method This #minus0(This1 right)=(..)
+    #minusminus0(right)                @{
+      Wither
+      Returns the receiver but without all the elements contained in the list 'right'
+      }method This #minusminus0(This right)=(..)
+    #plus0(right)                      method This #plus0(This1 right)=(..)
+    #plus1(left)                       method This #plus1(This1 left)=(..)
+    #plusplus0(right)                  method This #plusplus0(This right)=(..)
+    immNorm()                          method This immNorm()=(..)
+    with(left)                         method This with(This1 left)=(..)
+    with(right)                        method This with(This1 right)=(..)
+    with(that, val)                    method This with(I that, This1 val)=(..)
+    withAlso(left)                     method This withAlso(This1 left)=(..)
+    withAlso(right)                    method This withAlso(This1 right)=(..)
+    withAlso(that, val)                method This withAlso(I that, This1 val)=(..)
+    without(left)                      @{
+      Wither
+      Returns the receiver but without the leftmost element equal to 'val'
+      }method This without(read This1 left)=(..)
+    without(right)                     @{
+      Wither
+      Returns the receiver but without the rightmost element equal to 'val'
+      }method This without(read This1 right)=(..)
+    without(that)                      method This without(I that)=(..)
+    withoutAll(val)                    @{
+      Wither
+      Returns the receiver but without all the elements equal to 'val'
+      }method This withoutAll(read This1 val)=(..)
+    withoutLeft()                      method This withoutLeft()=(..)
+    withoutRight()                     method This withoutRight()=(..)
+    #elem#default(that)                read method This1 #elem#default(I that)=(..)
+    #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
+    #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
+    #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+    #in1(that)                         @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool #in1(read This1 that)=(..)
+    #iterator()                        read method read This #iterator()=(..)
+    #startIndex()                      read method I #startIndex()=(..)
+    allEq(that)                        @{
+      Predicate
+      returns true if all the elements in 'this' are individually 
+      This.equals(a,b) to the corresponding element in 'that'.
+      This can be different from '==' or 'readEquality': they just use system equality.
+      If the elements have a 'readEquality' method, that is used
+      On default This.equals(a,b) will use an available equality predicate visible on the element; 
+      prioritizing in the following order:
+      'allEq', 'readEquality' and '=='.
+      If none is present, 'System.immEquality' is used instead.
+      }read method Bool allEq(read This that)=(..)
+    clone()                            read method capsule This clone()=(..)
+    contains(that)                     @{
+      Predicate
+      True if the element is contained in the List.
+      }read method Bool contains(read This1 that)=(..)
+    indexOf(left)                      @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the leftmost occurrence
+      of 'left' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 left)=(..)
+    indexOf(right)                     @{
+      Old fashion indexOf returning 0..size-1 or -1 to indicate absence. 
+      The result is the index of the rightmost occurrence
+      of 'right' in the list according to 'This.equals(a,b)'
+      }read method I indexOf(read This1 right)=(..)
+    isEmpty()                          read method Bool isEmpty()native{..}=(..)
+    isMutVal(that)                     read method Bool isMutVal(I that)native{..}=(..)
+    left()                             read method This1 left()=(..)
+    readEquality(that)                 @{
+      Predicate
+      Delegates to 'System.immEquality'.
+      Look at 'allEq' for more flexible equivalence checks.
+      }read method Bool readEquality(read This that)=(..)
+    readLeft()                         read method read This1 readLeft()=(..)
+    readRight()                        read method read This1 readRight()=(..)
+    readVal(that)                      read method read This1 readVal(I that)native{..}=(..)
+    right()                            read method This1 right()=(..)
+    size()                             read method I size()native{..}=(..)
+    toS()                              read method S toS()=(..)
+    val(that)                          read method This1 val(I that)native{..}=(..)
+    vals()                             read method read This vals()=(..)
+    vals(that)                         read method read Iterator vals(I that)=(..)
+    vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
+    vals(to)                           read method read Iterator vals(I to)=(..)
+    #add(left)                         mut method Void #add(mut This1 left)=(..)
+    #add(right)                        mut method Void #add(mut This1 right)=(..)
+    #add(that)                         mut method Void #add(mut This1 that)=(..)
+    #add(that, val)                    mut method Void #add(I that, mut This1 val)native{..}=(..)
+    #apply(that)                       mut method mut This #apply(Void that)=(..)
+    #elem#mut(that)                    mut method mut This1 #elem#mut(I that)=(..)
+    #left()                            mut method mut This1 #left()=(..)
+    #left(that)                        mut method Void #left(mut This1 that)=(..)
+    #right()                           mut method mut This1 #right()=(..)
+    #right(that)                       mut method Void #right(mut This1 that)=(..)
+    #set(that, val)                    mut method Void #set(I that, mut This1 val)native{..}=(..)
+    #squareAdd(mutVal)                 mut method Void #squareAdd(mut This1 mutVal)=(..)
+    #squareAdd(that)                   mut method Void #squareAdd(This1 that)=(..)
+    #update#default(that, val)         mut method This1 #update#default(I that, This1 val)=(..)
+    #update#imm(that, val)             mut method This1 #update#imm(I that, This1 val)=(..)
+    #update#mut(that, val)             mut method mut This1 #update#mut(I that, mut This1 val)=(..)
+    #val(that)                         mut method mut This1 #val(I that)native{..}=(..)
+    #vals()                            mut method mut This #vals()=(..)
+    #vals(that)                        mut method mut Iterator #vals(I that)=(..)
+    #vals(that, to)                    mut method mut Iterator #vals(I that, I to)=(..)
+    #vals(to)                          mut method mut Iterator #vals(I to)=(..)
+    #varIterator()                     mut method mut This #varIterator()=(..)
+    add(left)                          mut method Void add(This1 left)=(..)
+    add(right)                         mut method Void add(This1 right)=(..)
+    add(that)                          mut method Void add(This1 that)=(..)
+    add(that, val)                     mut method Void add(I that, This1 val)native{..}=(..)
+    clear()                            mut method Void clear()=(..)
+    left(that)                         mut method Void left(This1 that)=(..)
+    remove(left)                       @{
+      Mutator 
+      Removes from the list the leftmost element equal to 'left'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(left)'  
+      }mut method Void remove(read This1 left)=(..)
+    remove(right)                      @{
+      Mutator 
+      Removes from the list the rightmost element equal to 'right'.
+      It relies on 'This.equals(a,b)' through 'this.indexOf(right)'  
+      }mut method Void remove(read This1 right)=(..)
+    remove(that)                       mut method Void remove(I that)native{..}=(..)
+    removeAll(val)                     @{
+      Mutator 
+      Removes from the list all the elements equal to 'val'.
+      It relies on 'This.equals(a,b)'  
+      }mut method Void removeAll(read This1 val)=(..)
+    removeLeft()                       mut method Void removeLeft()=(..)
+    removeRight()                      mut method Void removeRight()=(..)
+    right(that)                        mut method Void right(This1 that)=(..)
+    set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
+    Iterator={
+      #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      #elem#default(that)                read method This2 #elem#default(I that)=(..)
+      #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
+      #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
+      #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+      #iterator()                        read method read This #iterator()=(..)
+      #startIndex()                      read method I #startIndex()=(..)
+      end()                              read method I end()
+      list()                             read method read This1 list()
+      start()                            read method I start()
+      #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
+      #list()                            mut method mut This1 #list()
+      #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
+      #update#imm(that, val)             mut method This2 #update#imm(I that, This2 val)=(..)
+      #update#mut(that, val)             mut method mut This2 #update#mut(I that, mut This2 val)=(..)
+      #varIterator()                     mut method mut This #varIterator()=(..)
+      }
+    }
+  Opt={
+    [HasToS]
+    #apply()                           class method mut This #apply()
+    #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
+    equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    #bang0()                           read method Bool #bang0()=(..)
+    #if()                              read method Bool #if()native{..}=(..)
+    #in1(that)                         read method Bool #in1(read This1 that)=(..)
+    allEq(that)                        read method Bool allEq(read This that)=(..)
+    contains(that)                     read method Bool contains(read This1 that)=(..)
+    isPresent()                        read method Bool isPresent()=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    toS()                              read method S toS()=(..)
+    val()                              read method read This1 val()native{..}=(..)
+    val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    #val()                             mut method mut This1 #val()native{..}=(..)
+    #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
+    }
+  }
+]]></pre>
+
+
+        </p>
+        </div>
+      </div>
+      <div id="footerwrap">
+        <div id="footer">
+          <ul style='padding: 10px;'>
+            <li style='display:inline;'>
+            <a href="mailto:marco.servetto@gmail.com" rel="me">Contact Us</a> |</li>
+            <li style='display:inline;'>
+            <a href= "http://ecs.victoria.ac.nz/mailman/listinfo/team42">Mailing list</a> |</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+	
+  </body>
+</html>
+
+
