@@ -81,20 +81,37 @@ Model = J.Handler:{
 <pre class="l42BigFolded"><![CDATA[
 J={
   #$of()                             @Public class method mut This #$of()=(..)
-  alive()                            @Public read method Bool alive()=(..)
+  alive()                            @{
+    Is this Java process alive?
+    }@Public read method Bool alive()=(..)
   #apply(that)                       @Public mut method mut EventIterator #apply(mut S.List that)=(..)
-  askEvent(key, id, msg)             @Public mut method S.Opt askEvent(S key, S id, S msg)[Fail]=(..)
-  kill()                             @Public mut method Void kill()=(..)
-  loadCode(fullName, code)           @Public mut method Void loadCode(S fullName, S code)[Fail]=(..)
-  nextEvent(keys)                    @Public mut method S.Opt nextEvent(S keys)[Fail]=(..)
-  submitEvent(key, id, msg)          @Public mut method Void submitEvent(S key, S id, S msg)[Fail]=(..)
+  askEvent(key, id, msg)             @{
+    Submits a synchronous event and waits for the answer.
+    }@Public mut method S.Opt askEvent(S key, S id, S msg)[Fail]=(..)
+  kill()                             @{
+    Submits the 'Kill' event on the Java slave and sets the alive flag to false.
+    }@Public mut method Void kill()=(..)
+  loadCode(fullName, code)           @{
+    Loads the following code into a Java class and creates an instance of it.
+    It then sets the alive flag to true.
+    }@Public mut method Void loadCode(S fullName, S code)[Fail]=(..)
+  nextEvent(keys)                    @{
+    Gets the next event from the Java slave.
+    More then one key can be specified; 
+    if multiple keys are specified, they must be separated by a single new line character.
+    }@Public mut method S.Opt nextEvent(S keys)[Fail]=(..)
+  submitEvent(key, id, msg)          @{
+    Submits a new event to the Java slave.
+    }@Public mut method Void submitEvent(S key, S id, S msg)[Fail]=(..)
   @Public Event={
     [HasToS]
     #apply(key, id, msg)               class method This #apply(fwd imm S key, fwd imm S id, fwd imm S msg)=(..)
     #immK(key, id, msg)                class method This #immK(S key, S id, S msg)=(..)
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
-    #gtgt0(map)                        method Void #gtgt0(mut Handler.Map map)=(..)
+    #gtgt0(map)                        @{
+      This event get handled by the 'map'
+      }method Void #gtgt0(mut Handler.Map map)=(..)
     norm()                             method This norm()=(..)
     with(id)                           method This with(S id)=(..)
     with(key)                          method This with(S key)=(..)
@@ -139,7 +156,9 @@ J={
     }
   @Public Handler={
     interface
-    #gtgt1(event)                      @Public mut method Void #gtgt1(Event event)
+    #gtgt1(event)                      @{
+      Handles the event by delegating it to an appropriate instance method.
+      }@Public mut method Void #gtgt1(Event event)
     @Public ClassOperators={
       #apply()                           class method class This #apply()=(..)
       #colon0(lifted)                    class method Trait #colon0(class Trait.Lifted lifted)[Fail]=(..)
@@ -246,7 +265,9 @@ J0={
   }
 Model={
   [J.Handler]
-  #gtgt1(event)                      mut method Void #gtgt1(J.Event event)=(..)
+  #gtgt1(event)                      @{
+    Handles the event by delegating it to an appropriate instance method.
+    }mut method Void #gtgt1(J.Event event)=(..)
   fromJavaToL42(msg)                 @J.Handler mut method Void fromJavaToL42(S msg)=(..)
   }
 ]]></pre>
