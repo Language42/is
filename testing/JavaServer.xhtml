@@ -61,13 +61,197 @@
 </div></div><div class="finishFloat"></div></div>
 
 </p><p id="JavaServer">
-</p><div style="break-after:page"></div><h1> Chapter Title Here </h1> <p>
-</p><h2> (1/5) Sub title </h2> <p>
-some text
+</p><div style="break-after:page"></div><h1> Java Server </h1> <p>
+This library helps to create a bidirectional event based
+communication with Java.
+More detailed info can be seen in the tutorial
+<a href="tutorial_09InputOutput.xhtml">chapter 9</a>.
+
+</p><h2> Importing process and example usage </h2> <p>
 <pre class="l42Big"><![CDATA[
-#apply(slaveName)                  class method Library #apply(S slaveName)[Trait.InvalidName]=(..)
+reuse[L42.is/AdamsTowel]
+J0 = Load:{reuse [L42.is/JavaServer]}
+J = J0(slaveName=S"mySlave{}")
+Model = J.Handler:{
+  @J.Handler mut method Void fromJavaToL42(S msg) = void
+  }
 ]]></pre>
-more text
+
+</p><h2> Overview </h2> <p>
+<pre class="l42BigFolded"><![CDATA[
+J={
+  #$of()                             @Public class method mut This #$of()=(..)
+  alive()                            @Public read method Bool alive()=(..)
+  #apply(that)                       @Public mut method mut EventIterator #apply(mut S.List that)=(..)
+  askEvent(key, id, msg)             @Public mut method S.Opt askEvent(S key, S id, S msg)[Fail]=(..)
+  kill()                             @Public mut method Void kill()=(..)
+  loadCode(fullName, code)           @Public mut method Void loadCode(S fullName, S code)[Fail]=(..)
+  nextEvent(keys)                    @Public mut method S.Opt nextEvent(S keys)[Fail]=(..)
+  submitEvent(key, id, msg)          @Public mut method Void submitEvent(S key, S id, S msg)[Fail]=(..)
+  @Public Event={
+    [HasToS]
+    #apply(key, id, msg)               class method This #apply(fwd imm S key, fwd imm S id, fwd imm S msg)=(..)
+    #immK(key, id, msg)                class method This #immK(S key, S id, S msg)=(..)
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    #gtgt0(map)                        method Void #gtgt0(mut Handler.Map map)=(..)
+    norm()                             method This norm()=(..)
+    self()                             method This self()=(..)
+    with(id)                           method This with(S id)=(..)
+    with(key)                          method This with(S key)=(..)
+    with(msg)                          method This with(S msg)=(..)
+    id()                               read method S id()=(..)
+    immClone()                         read method This immClone()=(..)
+    key()                              read method S key()=(..)
+    msg()                              read method S msg()=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    toS()                              read method S toS()=(..)
+    capsuleClone()                     mut method capsule This capsuleClone()=(..)
+    }
+  @Public EventIterator={
+    #apply(that, streams)              class method mut This #apply(mut This1 that, mut S.List streams)=(..)
+    #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+    #startIndex()                      read method I #startIndex()=(..)
+    keys()                             read method S keys()=(..)
+    streams()                          read method read S.List streams()=(..)
+    that()                             read method read This1 that()=(..)
+    #elem#default(that)                mut method Event #elem#default(I that)=(..)
+    #elem#imm(that)                    mut method Event #elem#imm(I that)=(..)
+    #elem#read(that)                   mut method Event #elem#read(I that)=(..)
+    #iterator()                        mut method mut This #iterator()=(..)
+    #streams()                         mut method mut S.List #streams()=(..)
+    #that()                            mut method mut This1 #that()=(..)
+    #varIterator()                     mut method mut This #varIterator()=(..)
+    from(oRes)                         mut method Event from(S.Opt oRes)=(..)
+    from(res)                          mut method Event from(S res)=(..)
+    }
+  @Public Fail={
+    [Message, HasToS, Message.Guard]
+    #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
+    #apply(that)                       class method mut This #apply(S that)=(..)
+    #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
+    with(cause)                        method This with(Message cause)=(..)
+    cause()                            read method Message.OptMessage cause()=(..)
+    text()                             read method S text()=(..)
+    toS()                              read method S toS()=(..)
+    cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
+    text(that)                         mut method Void text(S that)=(..)
+    }
+  @Public Handler={
+    interface
+    #gtgt1(event)                      @Public mut method Void #gtgt1(Event event)
+    @Public ClassOperators={
+      #apply()                           class method class This #apply()=(..)
+      #colon0(lifted)                    class method Trait #colon0(class Trait.Lifted lifted)[Fail]=(..)
+      #colon0(that)                      class method Library #colon0(Library that)[Fail]=(..)
+      #colon0(trait)                     class method Trait #colon0(Trait trait)[Fail]=(..)
+      }
+    @Public Fail={
+      [Message, HasToS, Message.Guard]
+      #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
+      #apply(that)                       class method mut This #apply(S that)=(..)
+      #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+      #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
+      with(cause)                        method This with(Message cause)=(..)
+      cause()                            read method Message.OptMessage cause()=(..)
+      text()                             read method S text()=(..)
+      toS()                              read method S toS()=(..)
+      cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
+      text(that)                         mut method Void text(S that)=(..)
+      }
+    @Public Map={
+      [HasToS]
+      #apply()                           @Public class method mut This #apply()=(..)
+      #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
+      #shortCircutSquare()               @Public class method Bool #shortCircutSquare()=(..)
+      #squareBuilder()                   @Public class method mut This #squareBuilder()=(..)
+      empty()                            @Public class method mut This empty()=(..)
+      #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
+      #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
+      immNorm()                          @Public method This immNorm()=(..)
+      #elem#default(that)                @Public read method Entry #elem#default(I that)=(..)
+      #elem#imm(that)                    @Public read method Entry #elem#imm(I that)=(..)
+      #elem#read(that)                   @Public read method read Entry #elem#read(I that)=(..)
+      #hasElem(that)                     @Public read method Collection.IteratorCompose #hasElem(I that)=(..)
+      #iterator()                        @Public read method read This #iterator()=(..)
+      #startIndex()                      @Public read method I #startIndex()=(..)
+      entry(that)                        @Public read method read Entry entry(I that)=(..)
+      immEntry(that)                     @Public read method Entry immEntry(I that)=(..)
+      isEmpty()                          @Public read method Bool isEmpty()=(..)
+      isMutVal(that)                     @Public read method Bool isMutVal(I that)=(..)
+      key(that)                          @Public read method S key(I that)=(..)
+      readEquality(that)                 @Public read method Bool readEquality(read This that)=(..)
+      readVal(key)                       @Public read method read OVal readVal(S key)=(..)
+      readVal(that)                      @Public read method read This1 readVal(I that)=(..)
+      size()                             @Public read method I size()=(..)
+      toS()                              @Public read method S toS()=(..)
+      val(key)                           @Public read method OVal val(S key)=(..)
+      val(that)                          @Public read method This1 val(I that)=(..)
+      vals()                             @Public read method read This vals()=(..)
+      #apply(that)                       @Public mut method mut This #apply(Void that)=(..)
+      #elem#mut(that)                    @Public mut method mut Entry #elem#mut(I that)=(..)
+      #entry(that)                       @Public mut method mut Entry #entry(I that)=(..)
+      #put(key, val)                     @Public mut method Void #put(S key, mut This1 val)=(..)
+      #squareAdd(key, mutVal)            @Public mut method Void #squareAdd(S key, mut This1 mutVal)=(..)
+      #squareAdd(key, val)               @Public mut method Void #squareAdd(S key, This1 val)=(..)
+      #val(key)                          @Public mut method mut OVal #val(S key)=(..)
+      #val(that)                         @Public mut method mut This1 #val(I that)=(..)
+      #vals()                            @Public mut method mut This #vals()=(..)
+      #varIterator()                     @Public mut method mut This #varIterator()=(..)
+      put(key, val)                      @Public mut method Void put(S key, This1 val)=(..)
+      remove(key)                        @Public mut method Void remove(S key)=(..)
+      @Public Entry={
+        [HasToS]
+        #apply(key, val)                   class method mut This #apply(fwd imm S key, fwd mut This2 val)=(..)
+        #immK(key, val)                    class method This #immK(S key, This2 val)=(..)
+        readEntry(key, val)                class method read This readEntry(S key, read This2 val)=(..)
+        #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+        #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+        norm()                             method This norm()=(..)
+        with(key)                          method This with(S key)=(..)
+        with(val)                          method This with(This2 val)=(..)
+        immClone()                         read method This immClone()=(..)
+        key()                              read method S key()=(..)
+        readEquality(that)                 read method Bool readEquality(read This that)=(..)
+        toS()                              read method S toS()=(..)
+        val()                              read method read This2 val()=(..)
+        #val()                             mut method mut This2 #val()=(..)
+        capsuleClone()                     mut method capsule This capsuleClone()=(..)
+        }
+      @Public OVal={
+        [HasToS]
+        #apply()                           class method mut This #apply()=(..)
+        #apply(that)                       class method mut This #apply(fwd mut This2 that)native{..}=(..)
+        equals(a, b)                       class method Bool equals(read This2 a, read This2 b)=(..)
+        #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+        #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+        #bang0()                           read method Bool #bang0()=(..)
+        #if()                              read method Bool #if()native{..}=(..)
+        #in1(that)                         read method Bool #in1(read This2 that)=(..)
+        allEq(that)                        read method Bool allEq(read This that)=(..)
+        contains(that)                     read method Bool contains(read This2 that)=(..)
+        isPresent()                        read method Bool isPresent()=(..)
+        readEquality(that)                 read method Bool readEquality(read This that)=(..)
+        toS()                              read method S toS()=(..)
+        val()                              read method read This2 val()native{..}=(..)
+        val(orElse)                        read method read This2 val(read This2 orElse)=(..)
+        #val()                             mut method mut This2 #val()native{..}=(..)
+        #val(orElse)                       mut method mut This2 #val(mut This2 orElse)=(..)
+        }
+      }
+    }
+  }
+J0={
+  #apply(slaveName)                  class method Library #apply(S slaveName)[Trait.InvalidName]=(..)
+  }
+Model={
+  [J.Handler]
+  #gtgt1(event)                      mut method Void #gtgt1(J.Event event)=(..)
+  fromJavaToL42(msg)                 @J.Handler mut method Void fromJavaToL42(S msg)=(..)
+  }
+]]></pre>
+
         </p>
         </div>
       </div>
