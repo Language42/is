@@ -96,7 +96,6 @@ J={
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
     #gtgt0(map)                        method Void #gtgt0(mut Handler.Map map)=(..)
     norm()                             method This norm()=(..)
-    self()                             method This self()=(..)
     with(id)                           method This with(S id)=(..)
     with(key)                          method This with(S key)=(..)
     with(msg)                          method This with(S msg)=(..)
@@ -259,6 +258,8 @@ present in the 42 project folder.
 <br/>
 The loaded Java code need to represent a class with a constructor
 taking in input an <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Event]]></span><it style="font-style: bold; color:green;">&#187;</it> instance.
+Directly after creating such class and loading the code, a new instance of such a class is created,
+with an <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Event]]></span><it style="font-style: bold; color:green;">&#187;</it> instance able to talk back to 42.
 The <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Event]]></span><it style="font-style: bold; color:green;">&#187;</it> interface is as follows:
  
 <pre class="java"><![CDATA[
