@@ -78,27 +78,34 @@ Main=(
 </p><h2> Overview under AdamsTowel </h2> <p>
 <pre class="l42BigFolded"><![CDATA[
 interface
+//mut methods:
 currentTime()                      mut method Math.Long currentTime()[Fail]
 dateTime(zoneId, pattern)          mut method S dateTime(S zoneId, S pattern)[Fail]
 Fail={
   [Message, HasToS, Message.Guard]
+  //class methods:
   #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
   #apply(that)                       class method mut This #apply(S that)=(..)
   #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+  //imm methods:
   #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
   with(cause)                        method This with(Message cause)=(..)
+  //read methods:
   cause()                            read method Message.OptMessage cause()
   text()                             read method S text()
   toS()                              read method S toS()=(..)
+  //mut methods:
   cause(that)                        mut method Void cause(Message.OptMessage that)
   text(that)                         mut method Void text(S that)
   }
 Real={
   [This1]
+  //class methods:
   #$of()                             @{
      Capability factory.
     Provides an object to call the function methods on
     }@Public class method mut This #$of()=(..)
+  //mut methods:
   currentTime()                      @{
      Capability method. 
     returns unix universal time
