@@ -82,6 +82,7 @@ Process = Load:{reuse[L42.is/Process]}
 </p><h2> Overview under AdamsTowel </h2> <p>
 <pre class="l42BigFolded"><![CDATA[
 interface
+//mut methods:
 start(input)                       @{
   Capability method
   Starts the process with the provided input.
@@ -93,27 +94,34 @@ start(input)                       @{
   }mut method Result start(S input)[Fail]
 Fail={
   [Message, HasToS, Message.Guard]
+  //class methods:
   #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
   #apply(that)                       class method mut This #apply(S that)=(..)
   #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+  //imm methods:
   #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
   with(cause)                        method This with(Message cause)=(..)
+  //read methods:
   cause()                            read method Message.OptMessage cause()
   text()                             read method S text()
   toS()                              read method S toS()=(..)
+  //mut methods:
   cause(that)                        mut method Void cause(Message.OptMessage that)
   text(that)                         mut method Void text(S that)
   }
 Real={
   [This1]
+  //class methods:
   #$of(that)                         @{
     Capability factory
     Makes a @This capability object that can only run the provided process
     with the provided parameters    
     }@Public class method mut This #$of(S.List that)=(..)
+  //read methods:
   that()                             @{
     The process ready to run
     }@Public read method S.List that()=(..)
+  //mut methods:
   start(input)                       @{
     Capability method
     Starts the process with the provided input.
@@ -126,13 +134,16 @@ Real={
   }
 Result={
   [HasToS]
+  //class methods:
   #apply(out, err)                   class method This #apply(fwd imm S out, fwd imm S err)=(..)
   #immK(out, err)                    class method This #immK(S out, S err)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   norm()                             method This norm()=(..)
   with(err)                          method This with(S err)=(..)
   with(out)                          method This with(S out)=(..)
+  //read methods:
   err()                              @{
     the standard error of the process
     }read method S err()=(..)
@@ -142,6 +153,7 @@ Result={
     }read method S out()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   }
 ]]></pre>
