@@ -66,36 +66,47 @@
 </p><h2> (1/5) Sub title </h2> <p>
 some text
 <pre class="l42Big"><![CDATA[
+//class methods:
 #$of()                             @Public class method mut This #$of()[Fail]=(..)
 #apply(that)                       @Public class method mut This #apply(mut J that)[Fail]=(..)
 query(squareBuilder)               @Public class method QuerySquare query(QuerySquare squareBuilder)=(..)
+//mut methods:
 kill()                             @Public mut method Void kill()=(..)
 tables()                           @Public mut method Library tables()=(..)
 @Public Fail={
   [Message, HasToS, Message.Guard]
+  //class methods:
   #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
   #apply(that)                       class method mut This #apply(S that)=(..)
   #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+  //imm methods:
   #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
   with(cause)                        method This with(Message cause)=(..)
+  //read methods:
   cause()                            read method Message.OptMessage cause()=(..)
   text()                             read method S text()=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
   text(that)                         mut method Void text(S that)=(..)
   }
 @Public QueryBox={
+  //class methods:
   #colon0(lib)                       class method Library #colon0(Library lib)[Class.IncoherentClass]=(..)
   #colon0(trait)                     class method Trait #colon0(Trait trait)=(..)
   ClassOperators={
+    //class methods:
     #apply()                           class method class This1 #apply()=(..)
     }
   }
 QuerySquare={
+  //class methods:
   #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
   #squareBuilder#query()             class method mut This #squareBuilder#query()=(..)
+  //imm methods:
   #from(stringLiteral)               method Library #from(S.StringBuilder stringLiteral)=(..)
   selectedFactory(r)                 method Info.Method selectedFactory(Info r)=(..)
+  //mut methods:
   #squareAdd(that)                   mut method Void #squareAdd(class Any that)=(..)
   }
 ]]></pre>
