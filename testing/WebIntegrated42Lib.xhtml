@@ -94,11 +94,9 @@ deployTowel(that)                  mut method Void deployTowel(Trait that)[GW.Fa
 fs()                               mut method mut Fs fs()=(..)
 gw()                               mut method mut GW gw()=(..)
 Deploy={
-  //class methods:
   with(writer)                       class method Library with(class Any writer)[Class.IncoherentClass, Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   DeployTrait={
     [Trait.Lifted]
-    //class methods:
     #apply()                           class method Trait #apply()=(..)
     #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -107,13 +105,11 @@ Deploy={
     info()                             class method Info info()=(..)
     resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
     ClassOperators={
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
   }
 DeployGit={
-  //class methods:
   jar(that, on, writer)              class method Void jar(Trait that, Url on, mut GW writer)[GW.Fail]=(..)
   module(that, name, on, writer)     class method Void module(Trait that, Name name, Url on, mut GW writer)[GW.Fail, Cache.Call.Fail, Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   towel(that, on, writer)            class method Void towel(Trait that, Url on, mut GW writer)[GW.Fail, Cache.Call.Fail]=(..)
@@ -146,7 +142,6 @@ DocsBuilder={
   }
 Fs={
   interface
-  //mut methods:
   delete(that)                       mut method Void delete(Url that)[Fail]
   makeDirs(that)                     mut method Void makeDirs(Url that)[Fail]
   read(that)                         mut method S read(Url that)[Fail]
@@ -275,7 +270,6 @@ GW={
     }
   HttpRequest={
     interface
-    //mut methods:
     #apply(request, body)              mut method Response #apply(S request, S body)[Fail]
     Real={
       [This1]
@@ -308,7 +302,6 @@ GW={
   }
 Process={
   interface
-  //mut methods:
   start(input)                       @{
     Capability method
     Starts the process with the provided input.
