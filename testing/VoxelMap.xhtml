@@ -82,6 +82,7 @@ Process = Load:{reuse[L42.is/Process]}
 </p><h2> Overview under AdamsTowel </h2> <p>
 <pre class="l42BigFolded"><![CDATA[
 [Trait.Lifted]
+//class methods:
 #apply()                           class method Trait #apply()=(..)
 #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
 #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -90,11 +91,13 @@ code()                             class method Library code()=(..)
 info()                             class method Info info()=(..)
 resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
 ClassOperators={
+  //class methods:
   #apply()                           class method Trait #apply()=(..)
   }
 ]]></pre>
 Exmaple instantiation
 <pre class="l42BigFolded"><![CDATA[
+//class methods:
 deltaM()                           class method Double deltaM()=(..)
 deltaP()                           class method Double deltaP()=(..)
 layerSize()                        class method I layerSize()=(..)
@@ -105,10 +108,12 @@ maxY()                             class method I maxY()=(..)
 maxZ()                             class method I maxZ()=(..)
 Cell2D={
   [HasToS]
+  //class methods:
   #apply(x, y)                       class method This #apply(I x, I y)=(..)
   #immK(x, y)                        class method This #immK(I x, I y)=(..)
   invariant(x, y)                    class method Void invariant(I x, I y)=(..)
   random(r)                          class method This random(mut Math.Random r)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   isBorder()                         method Bool isBorder()=(..)
@@ -117,21 +122,25 @@ Cell2D={
   toPoint()                          method Point2D toPoint()=(..)
   with(x)                            method This with(I x)=(..)
   with(y)                            method This with(I y)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
   x()                                read method I x()=(..)
   y()                                read method I y()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -175,6 +184,7 @@ Cell2D={
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -230,6 +240,7 @@ Cell2D={
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -279,7 +290,9 @@ Cell2D={
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -289,6 +302,7 @@ Cell2D={
       end()                              read method I end()
       list()                             read method read This1 list()
       start()                            read method I start()
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -299,11 +313,14 @@ Cell2D={
     }
   Opt={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    //read methods:
     #bang0()                           read method Bool #bang0()=(..)
     #if()                              read method Bool #if()native{..}=(..)
     #in1(that)                         read method Bool #in1(read This1 that)=(..)
@@ -314,16 +331,19 @@ Cell2D={
     toS()                              read method S toS()=(..)
     val()                              read method read This1 val()native{..}=(..)
     val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    //mut methods:
     #val()                             mut method mut This1 #val()native{..}=(..)
     #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
     }
   }
 Cell3D={
   [HasToS]
+  //class methods:
   #apply(x, y, z)                    class method This #apply(I x, I y, I z)=(..)
   #immK(x, y, z)                     class method This #immK(I x, I y, I z)=(..)
   invariant(x, y, z)                 class method Void invariant(I x, I y, I z)=(..)
   random(r)                          class method This random(mut Math.Random r)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   isBorder()                         method Bool isBorder()=(..)
@@ -333,6 +353,7 @@ Cell3D={
   with(x)                            method This with(I x)=(..)
   with(y)                            method This with(I y)=(..)
   with(z)                            method This with(I z)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
@@ -340,15 +361,18 @@ Cell3D={
   x()                                read method I x()=(..)
   y()                                read method I y()=(..)
   z()                                read method I z()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -392,6 +416,7 @@ Cell3D={
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -447,6 +472,7 @@ Cell3D={
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -496,7 +522,9 @@ Cell3D={
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -506,6 +534,7 @@ Cell3D={
       end()                              read method I end()
       list()                             read method read This1 list()
       start()                            read method I start()
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -516,11 +545,14 @@ Cell3D={
     }
   Opt={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    //read methods:
     #bang0()                           read method Bool #bang0()=(..)
     #if()                              read method Bool #if()native{..}=(..)
     #in1(that)                         read method Bool #in1(read This1 that)=(..)
@@ -531,15 +563,18 @@ Cell3D={
     toS()                              read method S toS()=(..)
     val()                              read method read This1 val()native{..}=(..)
     val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    //mut methods:
     #val()                             mut method mut This1 #val()native{..}=(..)
     #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
     }
   }
 CellBoundingBox={
   [HasToS]
+  //class methods:
   #apply(lowCorner, highCorner)      class method This #apply(Cell3D lowCorner, Cell3D highCorner)=(..)
   #immK(lowCorner, highCorner)       class method This #immK(Cell3D lowCorner, Cell3D highCorner)=(..)
   invariant(lowCorner, highCorner)     class method Void invariant(Cell3D lowCorner, Cell3D highCorner)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   expand(that)                       method This expand(I that)=(..)
@@ -548,21 +583,25 @@ CellBoundingBox={
   vals3D()                           method Cell3D.List vals3D()=(..)
   with(highCorner)                   method This with(Cell3D highCorner)=(..)
   with(lowCorner)                    method This with(Cell3D lowCorner)=(..)
+  //read methods:
   highCorner()                       read method Cell3D highCorner()=(..)
   immClone()                         read method This immClone()=(..)
   invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
   lowCorner()                        read method Cell3D lowCorner()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   }
 Cilinder={
   [HasToS]
+  //class methods:
   #apply(bottomCenter, radius, height)     class method This #apply(Point3D bottomCenter, Double radius, Double height)=(..)
   #immK(bottomCenter, radius, height)     class method This #immK(Point3D bottomCenter, Double radius, Double height)=(..)
   box(bottomCenter, radius, height)     class method CellBoundingBox box(Point3D bottomCenter, Double radius, Double height)=(..)
   impactCircle(p1, r1, p2, r2)       class method Bool impactCircle(Point3D p1, Double r1, Point3D p2, Double r2)=(..)
   impactZ(l1, h1, l2, h2)            class method Bool impactZ(Double l1, Double h1, Double l2, Double h2)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   high()                             method Double high()=(..)
@@ -572,6 +611,7 @@ Cilinder={
   with(bottomCenter)                 method This with(Point3D bottomCenter)=(..)
   with(height)                       method This with(Double height)=(..)
   with(radius)                       method This with(Double radius)=(..)
+  //read methods:
   bottomCenter()                     read method Point3D bottomCenter()=(..)
   box()                              @Cache.Now read method CellBoundingBox box()native{..}=(..)
   height()                           read method Double height()=(..)
@@ -579,9 +619,11 @@ Cilinder={
   radius()                           read method Double radius()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   }
 Coords={
+  //class methods:
   #apply(x, y)                       class method I #apply(I x, I y)=(..)
   #apply(x, y, z)                    class method I #apply(I x, I y, I z)=(..)
   x2(that)                           class method I x2(I that)=(..)
@@ -592,10 +634,12 @@ Coords={
   }
 Delta2D={
   [HasToS]
+  //class methods:
   #apply(x, y)                       class method This #apply(fwd imm I x, fwd imm I y)=(..)
   #immK(x, y)                        class method This #immK(I x, I y)=(..)
   adjacent4()                        @Cache.Lazy class method List adjacent4()=(..)
   adjacent8()                        @Cache.Lazy class method List adjacent8()=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   #plus0(cell)                       method Cell2D #plus0(Cell2D cell)=(..)
@@ -608,20 +652,24 @@ Delta2D={
   toVector()                         method Vector2D toVector()=(..)
   with(x)                            method This with(I x)=(..)
   with(y)                            method This with(I y)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
   x()                                read method I x()=(..)
   y()                                read method I y()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -665,6 +713,7 @@ Delta2D={
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -720,6 +769,7 @@ Delta2D={
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -769,7 +819,9 @@ Delta2D={
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -779,6 +831,7 @@ Delta2D={
       end()                              read method I end()
       list()                             read method read This1 list()
       start()                            read method I start()
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -789,11 +842,14 @@ Delta2D={
     }
   Opt={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    //read methods:
     #bang0()                           read method Bool #bang0()=(..)
     #if()                              read method Bool #if()native{..}=(..)
     #in1(that)                         read method Bool #in1(read This1 that)=(..)
@@ -804,16 +860,19 @@ Delta2D={
     toS()                              read method S toS()=(..)
     val()                              read method read This1 val()native{..}=(..)
     val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    //mut methods:
     #val()                             mut method mut This1 #val()native{..}=(..)
     #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
     }
   }
 Delta3D={
   [HasToS]
+  //class methods:
   #apply(x, y, z)                    class method This #apply(fwd imm I x, fwd imm I y, fwd imm I z)=(..)
   #immK(x, y, z)                     class method This #immK(I x, I y, I z)=(..)
   adjacent26()                       @Cache.Lazy class method List adjacent26()=(..)
   adjacent6()                        @Cache.Lazy class method List adjacent6()=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   #plus0(cell)                       method Cell3D #plus0(Cell3D cell)=(..)
@@ -827,21 +886,25 @@ Delta3D={
   with(x)                            method This with(I x)=(..)
   with(y)                            method This with(I y)=(..)
   with(z)                            method This with(I z)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
   x()                                read method I x()=(..)
   y()                                read method I y()=(..)
   z()                                read method I z()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -885,6 +948,7 @@ Delta3D={
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -940,6 +1004,7 @@ Delta3D={
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -989,7 +1054,9 @@ Delta3D={
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -999,6 +1066,7 @@ Delta3D={
       end()                              read method I end()
       list()                             read method read This1 list()
       start()                            read method I start()
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -1009,11 +1077,14 @@ Delta3D={
     }
   Opt={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    //read methods:
     #bang0()                           read method Bool #bang0()=(..)
     #if()                              read method Bool #if()native{..}=(..)
     #in1(that)                         read method Bool #in1(read This1 that)=(..)
@@ -1024,11 +1095,13 @@ Delta3D={
     toS()                              read method S toS()=(..)
     val()                              read method read This1 val()native{..}=(..)
     val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    //mut methods:
     #val()                             mut method mut This1 #val()native{..}=(..)
     #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
     }
   }
 InRangeCell={
+  //class methods:
   #apply(x)                          class method Bool #apply(I x)=(..)
   #apply(x, y)                       class method Bool #apply(I x, I y)=(..)
   #apply(x, y, z)                    class method Bool #apply(I x, I y, I z)=(..)
@@ -1043,6 +1116,7 @@ InRangeCell={
   inRange(that, to)                  class method Bool inRange(I that, I to)=(..)
   }
 InRangeDouble={
+  //class methods:
   #apply(x)                          class method Bool #apply(Double x)=(..)
   #apply(x, y)                       class method Bool #apply(Double x, Double y)=(..)
   #apply(x, y, z)                    class method Bool #apply(Double x, Double y, Double z)=(..)
@@ -1058,6 +1132,7 @@ InRangeDouble={
   }
 InRangeTrait={
   [Trait.Lifted]
+  //class methods:
   #apply()                           class method Trait #apply()=(..)
   #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1066,22 +1141,28 @@ InRangeTrait={
   info()                             class method Info info()=(..)
   resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
   ClassOperators={
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     }
   }
 Iterator2D={
+  //class methods:
   #apply()                           class method This #apply()
+  //imm methods:
   #elem#default(that)                method Cell2D #elem#default(I that)=(..)
   #hasElem(that)                     method Collection.IteratorCompose #hasElem(I that)=(..)
   #startIndex()                      method I #startIndex()=(..)
   }
 Iterator3D={
+  //class methods:
   #apply()                           class method This #apply()
+  //imm methods:
   #elem#default(that)                method Cell3D #elem#default(I that)=(..)
   #hasElem(that)                     method Collection.IteratorCompose #hasElem(I that)=(..)
   }
 Map2DTrait={
   [Trait.Lifted]
+  //class methods:
   #apply()                           class method Trait #apply()=(..)
   #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1090,11 +1171,13 @@ Map2DTrait={
   info()                             class method Info info()=(..)
   resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
   ClassOperators={
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     }
   }
 Map3DTrait={
   [Trait.Lifted]
+  //class methods:
   #apply()                           class method Trait #apply()=(..)
   #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1103,11 +1186,13 @@ Map3DTrait={
   info()                             class method Info info()=(..)
   resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
   ClassOperators={
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     }
   }
 Physics={
   [Trait.Lifted]
+  //class methods:
   #apply()                           class method Trait #apply()=(..)
   #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1116,14 +1201,17 @@ Physics={
   info()                             class method Info info()=(..)
   resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
   ClassOperators={
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     }
   }
 Point2D={
   [HasToS]
+  //class methods:
   #apply(x, y)                       class method This #apply(Double x, Double y)=(..)
   #immK(x, y)                        class method This #immK(Double x, Double y)=(..)
   invariant(x, y)                    class method Void invariant(Double x, Double y)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   distance(other)                    method Double distance(This other)=(..)
@@ -1134,21 +1222,25 @@ Point2D={
   toCell()                           method Cell2D toCell()=(..)
   with(x)                            method This with(Double x)=(..)
   with(y)                            method This with(Double y)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
   x()                                read method Double x()=(..)
   y()                                read method Double y()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -1192,6 +1284,7 @@ Point2D={
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -1247,6 +1340,7 @@ Point2D={
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -1296,7 +1390,9 @@ Point2D={
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -1306,6 +1402,7 @@ Point2D={
       end()                              read method I end()
       list()                             read method read This1 list()
       start()                            read method I start()
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -1316,11 +1413,14 @@ Point2D={
     }
   Opt={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    //read methods:
     #bang0()                           read method Bool #bang0()=(..)
     #if()                              read method Bool #if()native{..}=(..)
     #in1(that)                         read method Bool #in1(read This1 that)=(..)
@@ -1331,15 +1431,18 @@ Point2D={
     toS()                              read method S toS()=(..)
     val()                              read method read This1 val()native{..}=(..)
     val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    //mut methods:
     #val()                             mut method mut This1 #val()native{..}=(..)
     #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
     }
   }
 Point3D={
   [HasToS]
+  //class methods:
   #apply(x, y, z)                    class method This #apply(Double x, Double y, Double z)=(..)
   #immK(x, y, z)                     class method This #immK(Double x, Double y, Double z)=(..)
   invariant(x, y, z)                 class method Void invariant(Double x, Double y, Double z)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   distance(other)                    method Double distance(This other)=(..)
@@ -1352,6 +1455,7 @@ Point3D={
   with(x)                            method This with(Double x)=(..)
   with(y)                            method This with(Double y)=(..)
   with(z)                            method This with(Double z)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
@@ -1359,15 +1463,18 @@ Point3D={
   x()                                read method Double x()=(..)
   y()                                read method Double y()=(..)
   z()                                read method Double z()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -1411,6 +1518,7 @@ Point3D={
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -1466,6 +1574,7 @@ Point3D={
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -1515,7 +1624,9 @@ Point3D={
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -1525,6 +1636,7 @@ Point3D={
       end()                              read method I end()
       list()                             read method read This1 list()
       start()                            read method I start()
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -1535,11 +1647,14 @@ Point3D={
     }
   Opt={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    //read methods:
     #bang0()                           read method Bool #bang0()=(..)
     #if()                              read method Bool #if()native{..}=(..)
     #in1(that)                         read method Bool #in1(read This1 that)=(..)
@@ -1550,17 +1665,20 @@ Point3D={
     toS()                              read method S toS()=(..)
     val()                              read method read This1 val()native{..}=(..)
     val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    //mut methods:
     #val()                             mut method mut This1 #val()native{..}=(..)
     #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
     }
   }
 Vector2D={
   [HasToS]
+  //class methods:
   #apply(rad)                        class method This #apply(Double rad)=(..)
   #apply(x, y)                       class method This #apply(Double x, Double y)=(..)
   #immK(x, y)                        class method This #immK(Double x, Double y)=(..)
   invariant(x, y)                    class method Void invariant(Double x, Double y)=(..)
   norm(that, x, y, tot2)             class method This norm(Double that, Double x, Double y, Double tot2)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   #plus0(that)                       method This #plus0(This that)=(..)
@@ -1571,21 +1689,25 @@ Vector2D={
   to3D(z)                            method Vector3D to3D(Double z)=(..)
   with(x)                            method This with(Double x)=(..)
   with(y)                            method This with(Double y)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
   x()                                read method Double x()=(..)
   y()                                read method Double y()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -1629,6 +1751,7 @@ Vector2D={
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -1684,6 +1807,7 @@ Vector2D={
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -1733,7 +1857,9 @@ Vector2D={
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -1743,6 +1869,7 @@ Vector2D={
       end()                              read method I end()
       list()                             read method read This1 list()
       start()                            read method I start()
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -1753,11 +1880,14 @@ Vector2D={
     }
   Opt={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    //read methods:
     #bang0()                           read method Bool #bang0()=(..)
     #if()                              read method Bool #if()native{..}=(..)
     #in1(that)                         read method Bool #in1(read This1 that)=(..)
@@ -1768,18 +1898,21 @@ Vector2D={
     toS()                              read method S toS()=(..)
     val()                              read method read This1 val()native{..}=(..)
     val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    //mut methods:
     #val()                             mut method mut This1 #val()native{..}=(..)
     #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
     }
   }
 Vector3D={
   [HasToS]
+  //class methods:
   #apply(theta, phi)                 class method This #apply(Double theta, Double phi)=(..)
   #apply(x, y, z)                    class method This #apply(Double x, Double y, Double z)=(..)
   #immK(x, y, z)                     class method This #immK(Double x, Double y, Double z)=(..)
   invariant(x, y, z)                 class method Void invariant(Double x, Double y, Double z)=(..)
   norm(that, x, y, z, tot2)          class method This norm(Double that, Double x, Double y, Double z, Double tot2)=(..)
   random(r)                          class method This random(mut Math.Random r)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   #plus0(point)                      method Point3D #plus0(Point3D point)=(..)
@@ -1792,6 +1925,7 @@ Vector3D={
   with(x)                            method This with(Double x)=(..)
   with(y)                            method This with(Double y)=(..)
   with(z)                            method This with(Double z)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
@@ -1799,15 +1933,18 @@ Vector3D={
   x()                                read method Double x()=(..)
   y()                                read method Double y()=(..)
   z()                                read method Double z()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -1851,6 +1988,7 @@ Vector3D={
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -1906,6 +2044,7 @@ Vector3D={
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -1955,7 +2094,9 @@ Vector3D={
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -1965,6 +2106,7 @@ Vector3D={
       end()                              read method I end()
       list()                             read method read This1 list()
       start()                            read method I start()
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -1975,11 +2117,14 @@ Vector3D={
     }
   Opt={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()
     #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    //read methods:
     #bang0()                           read method Bool #bang0()=(..)
     #if()                              read method Bool #if()native{..}=(..)
     #in1(that)                         read method Bool #in1(read This1 that)=(..)
@@ -1990,6 +2135,7 @@ Vector3D={
     toS()                              read method S toS()=(..)
     val()                              read method read This1 val()native{..}=(..)
     val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    //mut methods:
     #val()                             mut method mut This1 #val()native{..}=(..)
     #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
     }
