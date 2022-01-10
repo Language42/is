@@ -79,16 +79,19 @@ Main=(
 </p><h2> Overview under AdamsTowel </h2> <p>
 
 <pre class="l42BigFolded"><![CDATA[
+//class methods:
 #apply(string)                     @Public class method Value #apply(S string)=(..)
 #from(stringLiteral)               @Public class method Value #from(S.StringBuilder stringLiteral)=(..)
 @Public Array={
   [Value, HasToS]
+  //class methods:
   #apply()                           class method mut This #apply()=(..)
   #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
   #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
   #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
   #squareBuilder()                   class method mut This #squareBuilder()=(..)
   equals(a, b)                       class method Bool equals(read Value a, read Value b)=(..)
+  //imm methods:
   #bangequal0(that)                  @{
     Predicate
     Delegates to 'System.immEquality'.
@@ -132,6 +135,7 @@ Main=(
     }method This withoutAll(read Value val)=(..)
   withoutLeft()                      method This withoutLeft()=(..)
   withoutRight()                     method This withoutRight()=(..)
+  //read methods:
   #elem#default(that)                read method Value #elem#default(I that)=(..)
   #elem#imm(that)                    read method Value #elem#imm(I that)=(..)
   #elem#read(that)                   read method read Value #elem#read(I that)=(..)
@@ -187,6 +191,7 @@ Main=(
   vals(that)                         read method read Iterator vals(I that)=(..)
   vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
   vals(to)                           read method read Iterator vals(I to)=(..)
+  //mut methods:
   #add(left)                         mut method Void #add(mut Value left)=(..)
   #add(right)                        mut method Void #add(mut Value right)=(..)
   #add(that)                         mut method Void #add(mut Value that)=(..)
@@ -236,7 +241,9 @@ Main=(
   right(that)                        mut method Void right(Value that)=(..)
   set(that, val)                     mut method Void set(I that, Value val)native{..}=(..)
   Iterator={
+    //class methods:
     #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
+    //read methods:
     #elem#default(that)                read method Value #elem#default(I that)=(..)
     #elem#imm(that)                    read method Value #elem#imm(I that)=(..)
     #elem#read(that)                   read method read Value #elem#read(I that)=(..)
@@ -246,6 +253,7 @@ Main=(
     end()                              read method I end()=(..)
     list()                             read method read This1 list()=(..)
     start()                            read method I start()=(..)
+    //mut methods:
     #elem#mut(that)                    mut method mut Value #elem#mut(I that)=(..)
     #list()                            mut method mut This1 #list()=(..)
     #update#default(that, val)         mut method Value #update#default(I that, Value val)=(..)
@@ -256,28 +264,35 @@ Main=(
   }
 @Public Bool={
   interface[HasToS, Value]
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)
   #equalequal0(that)                 method Bool #equalequal0(This that)
+  //read methods:
   immClone()                         read method This immClone()
   readEquality(that)                 read method Bool readEquality(read This that)
   toS()                              read method S toS()
   False={
     [This1, HasToS, Value]
+    //class methods:
     #apply()                           class method This #apply()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This1 that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This1 that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This1 that)=(..)
     toS()                              read method S toS()=(..)
     }
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -321,6 +336,7 @@ Main=(
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -376,6 +392,7 @@ Main=(
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -425,7 +442,9 @@ Main=(
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -435,6 +454,7 @@ Main=(
       end()                              read method I end()=(..)
       list()                             read method read This1 list()=(..)
       start()                            read method I start()=(..)
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()=(..)
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -445,14 +465,17 @@ Main=(
     }
   Map={
     [HasToS]
+    //class methods:
     #apply()                           @Public class method mut This #apply()=(..)
     #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               @Public class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   @Public class method mut This #squareBuilder()=(..)
     empty()                            @Public class method mut This empty()=(..)
+    //imm methods:
     #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
     immNorm()                          @Public method This immNorm()=(..)
+    //read methods:
     #elem#default(that)                @Public read method Entry #elem#default(I that)=(..)
     #elem#imm(that)                    @Public read method Entry #elem#imm(I that)=(..)
     #elem#read(that)                   @Public read method read Entry #elem#read(I that)=(..)
@@ -472,6 +495,7 @@ Main=(
     val(key)                           @Public read method OVal val(S key)=(..)
     val(that)                          @Public read method This1 val(I that)=(..)
     vals()                             @Public read method read This vals()=(..)
+    //mut methods:
     #apply(that)                       @Public mut method mut This #apply(Void that)=(..)
     #elem#mut(that)                    @Public mut method mut Entry #elem#mut(I that)=(..)
     #entry(that)                       @Public mut method mut Entry #entry(I that)=(..)
@@ -486,29 +510,36 @@ Main=(
     remove(key)                        @Public mut method Void remove(S key)=(..)
     @Public Entry={
       [HasToS]
+      //class methods:
       #apply(key, val)                   class method mut This #apply(fwd imm S key, fwd mut This2 val)=(..)
       #immK(key, val)                    class method This #immK(S key, This2 val)=(..)
       readEntry(key, val)                class method read This readEntry(S key, read This2 val)=(..)
+      //imm methods:
       #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
       #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
       norm()                             method This norm()=(..)
       with(key)                          method This with(S key)=(..)
       with(val)                          method This with(This2 val)=(..)
+      //read methods:
       immClone()                         read method This immClone()=(..)
       key()                              read method S key()=(..)
       readEquality(that)                 read method Bool readEquality(read This that)=(..)
       toS()                              read method S toS()=(..)
       val()                              read method read This2 val()=(..)
+      //mut methods:
       #val()                             mut method mut This2 #val()=(..)
       capsuleClone()                     mut method capsule This capsuleClone()=(..)
       }
     @Public OVal={
       [HasToS]
+      //class methods:
       #apply()                           class method mut This #apply()=(..)
       #apply(that)                       class method mut This #apply(fwd mut This2 that)native{..}=(..)
       equals(a, b)                       class method Bool equals(read This2 a, read This2 b)=(..)
+      //imm methods:
       #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
       #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+      //read methods:
       #bang0()                           read method Bool #bang0()=(..)
       #if()                              read method Bool #if()native{..}=(..)
       #in1(that)                         read method Bool #in1(read This2 that)=(..)
@@ -519,72 +550,91 @@ Main=(
       toS()                              read method S toS()=(..)
       val()                              read method read This2 val()native{..}=(..)
       val(orElse)                        read method read This2 val(read This2 orElse)=(..)
+      //mut methods:
       #val()                             mut method mut This2 #val()native{..}=(..)
       #val(orElse)                       mut method mut This2 #val(mut This2 orElse)=(..)
       }
     }
   True={
     [This1, HasToS, Value]
+    //class methods:
     #apply()                           class method This #apply()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This1 that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This1 that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This1 that)=(..)
     toS()                              read method S toS()=(..)
     }
   Vals={
     [HasToS]
+    //class methods:
     #apply()                           @Cache.Lazy class method List #apply()native{..}=(..)
     #apply(that)                       class method This1 #apply(S that)=(..)
     #immK()                            class method This #immK()=(..)
     map()                              @Cache.Lazy class method Map map()native{..}=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
     norm()                             method This norm()=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     }
   }
 @Public Null={
   [HasToS, Value]
+  //class methods:
   #apply()                           class method This #apply()=(..)
   #immK()                            class method This #immK()=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   norm()                             method This norm()=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   }
 @Public Number={
   [HasToS, Value]
+  //class methods:
   #apply(string)                     class method This #apply(S string)=(..)
   #apply(that)                       class method This #apply(S that)=(..)
   #from(stringLiteral)               @Cache.Call class method This #from(S.StringBuilder stringLiteral)=(..)
   #immK(that)                        class method This #immK(S that)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   norm()                             method This norm()=(..)
   with(that)                         method This with(S that)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   that()                             read method S that()=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   }
 @Public Object={
   [Value, HasToS]
+  //class methods:
   #apply()                           @Public class method mut This #apply()=(..)
   #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
   #shortCircutSquare()               @Public class method Bool #shortCircutSquare()=(..)
   #squareBuilder()                   @Public class method mut This #squareBuilder()=(..)
   empty()                            @Public class method mut This empty()=(..)
+  //imm methods:
   #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
   immNorm()                          @Public method This immNorm()=(..)
+  //read methods:
   #elem#default(that)                @Public read method Entry #elem#default(I that)=(..)
   #elem#imm(that)                    @Public read method Entry #elem#imm(I that)=(..)
   #elem#read(that)                   @Public read method read Entry #elem#read(I that)=(..)
@@ -604,6 +654,7 @@ Main=(
   val(key)                           @Public read method OVal val(String key)=(..)
   val(that)                          @Public read method Value val(I that)=(..)
   vals()                             @Public read method read This vals()=(..)
+  //mut methods:
   #apply(that)                       @Public mut method mut This #apply(Void that)=(..)
   #elem#mut(that)                    @Public mut method mut Entry #elem#mut(I that)=(..)
   #entry(that)                       @Public mut method mut Entry #entry(I that)=(..)
@@ -618,29 +669,36 @@ Main=(
   remove(key)                        @Public mut method Void remove(String key)=(..)
   @Public Entry={
     [HasToS]
+    //class methods:
     #apply(key, val)                   class method mut This #apply(fwd imm String key, fwd mut Value val)=(..)
     #immK(key, val)                    class method This #immK(String key, Value val)=(..)
     readEntry(key, val)                class method read This readEntry(String key, read Value val)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
     norm()                             method This norm()=(..)
     with(key)                          method This with(String key)=(..)
     with(val)                          method This with(Value val)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     key()                              read method String key()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     toS()                              read method S toS()=(..)
     val()                              read method read Value val()=(..)
+    //mut methods:
     #val()                             mut method mut Value #val()=(..)
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     }
   @Public OVal={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(that)                       class method mut This #apply(fwd mut Value that)native{..}=(..)
     equals(a, b)                       class method Bool equals(read Value a, read Value b)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    //read methods:
     #bang0()                           read method Bool #bang0()=(..)
     #if()                              read method Bool #if()native{..}=(..)
     #in1(that)                         read method Bool #in1(read Value that)=(..)
@@ -651,28 +709,34 @@ Main=(
     toS()                              read method S toS()=(..)
     val()                              read method read Value val()native{..}=(..)
     val(orElse)                        read method read Value val(read Value orElse)=(..)
+    //mut methods:
     #val()                             mut method mut Value #val()native{..}=(..)
     #val(orElse)                       mut method mut Value #val(mut Value orElse)=(..)
     }
   }
 @Public String={
   [HasToS, Value]
+  //class methods:
   #apply(string)                     class method This #apply(S string)=(..)
   #apply(that)                       class method This #apply(S that)=(..)
   #from(stringLiteral)               @Cache.Call class method This #from(S.StringBuilder stringLiteral)=(..)
   #immK(that)                        class method This #immK(S that)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   norm()                             method This norm()=(..)
   with(that)                         method This with(S that)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   that()                             read method S that()=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   }
 @Public Value={
   interface[HasToS]
+  //read methods:
   toS()                              read method S toS()
   }
 ]]></pre>
