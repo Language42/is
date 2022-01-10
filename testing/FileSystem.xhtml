@@ -77,6 +77,7 @@ fs.write(on=Url"a/b.txt" content=res++res)
 </p><h2> Overview under AdamsTowel </h2> <p>
 <pre class="l42BigFolded"><![CDATA[
 interface
+//mut methods:
 delete(that)                       mut method Void delete(Url that)[Fail]
 makeDirs(that)                     mut method Void makeDirs(Url that)[Fail]
 read(that)                         mut method S read(Url that)[Fail]
@@ -85,23 +86,29 @@ write(on, content)                 mut method Void write(Url on, S content)[Fail
 write(on, contentBase64)           mut method Void write(Url on, S contentBase64)[Fail]
 Fail={
   [Message, HasToS, Message.Guard]
+  //class methods:
   #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
   #apply(that)                       class method mut This #apply(S that)=(..)
   #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+  //imm methods:
   #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
   with(cause)                        method This with(Message cause)=(..)
+  //read methods:
   cause()                            read method Message.OptMessage cause()
   text()                             read method S text()
   toS()                              read method S toS()=(..)
+  //mut methods:
   cause(that)                        mut method Void cause(Message.OptMessage that)
   text(that)                         mut method Void text(S that)
   }
 Real={
   [This1]
+  //class methods:
   #$of()                             @{
     Capability factory.  
     Creates an object connected with the real file system.
     }@Public class method mut This #$of()=(..)
+  //mut methods:
   delete(that)                       @{
     Capability method.
     Deletes the file or directory denoted by the @Url 'that'.
