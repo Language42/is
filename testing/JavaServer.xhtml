@@ -80,10 +80,13 @@ Model = J.Handler:{
 </p><h2> Overview </h2> <p>
 <pre class="l42BigFolded"><![CDATA[
 J={
+  //class methods:
   #$of()                             @Public class method mut This #$of()=(..)
+  //read methods:
   alive()                            @{
     Is this Java process alive?
     }@Public read method Bool alive()=(..)
+  //mut methods:
   #apply(that)                       @Public mut method mut EventIterator #apply(mut S.List that)=(..)
   askEvent(key, id, msg)             @{
     Submits a synchronous event and waits for the answer.
@@ -105,8 +108,10 @@ J={
     }@Public mut method Void submitEvent(S key, S id, S msg)[Fail]=(..)
   @Public Event={
     [HasToS]
+    //class methods:
     #apply(key, id, msg)               class method This #apply(fwd imm S key, fwd imm S id, fwd imm S msg)=(..)
     #immK(key, id, msg)                class method This #immK(S key, S id, S msg)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
     #gtgt0(map)                        @{
@@ -116,21 +121,26 @@ J={
     with(id)                           method This with(S id)=(..)
     with(key)                          method This with(S key)=(..)
     with(msg)                          method This with(S msg)=(..)
+    //read methods:
     id()                               read method S id()=(..)
     immClone()                         read method This immClone()=(..)
     key()                              read method S key()=(..)
     msg()                              read method S msg()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     }
   @Public EventIterator={
+    //class methods:
     #apply(that, streams)              class method mut This #apply(mut This1 that, mut S.List streams)=(..)
+    //read methods:
     #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
     #startIndex()                      read method I #startIndex()=(..)
     keys()                             read method S keys()=(..)
     streams()                          read method read S.List streams()=(..)
     that()                             read method read This1 that()=(..)
+    //mut methods:
     #elem#default(that)                mut method Event #elem#default(I that)=(..)
     #elem#imm(that)                    mut method Event #elem#imm(I that)=(..)
     #elem#read(that)                   mut method Event #elem#read(I that)=(..)
@@ -143,23 +153,29 @@ J={
     }
   @Public Fail={
     [Message, HasToS, Message.Guard]
+    //class methods:
     #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
     #apply(that)                       class method mut This #apply(S that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
     with(cause)                        method This with(Message cause)=(..)
+    //read methods:
     cause()                            read method Message.OptMessage cause()=(..)
     text()                             read method S text()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
     text(that)                         mut method Void text(S that)=(..)
     }
   @Public Handler={
     interface
+    //mut methods:
     #gtgt1(event)                      @{
       Handles the event by delegating it to an appropriate instance method.
       }@Public mut method Void #gtgt1(Event event)
     @Public ClassOperators={
+      //class methods:
       #apply()                           class method class This #apply()=(..)
       #colon0(lifted)                    class method Trait #colon0(class Trait.Lifted lifted)[Fail]=(..)
       #colon0(that)                      class method Library #colon0(Library that)[Fail]=(..)
@@ -167,27 +183,34 @@ J={
       }
     @Public Fail={
       [Message, HasToS, Message.Guard]
+      //class methods:
       #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
       #apply(that)                       class method mut This #apply(S that)=(..)
       #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+      //imm methods:
       #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
       with(cause)                        method This with(Message cause)=(..)
+      //read methods:
       cause()                            read method Message.OptMessage cause()=(..)
       text()                             read method S text()=(..)
       toS()                              read method S toS()=(..)
+      //mut methods:
       cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
       text(that)                         mut method Void text(S that)=(..)
       }
     @Public Map={
       [HasToS]
+      //class methods:
       #apply()                           @Public class method mut This #apply()=(..)
       #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
       #shortCircutSquare()               @Public class method Bool #shortCircutSquare()=(..)
       #squareBuilder()                   @Public class method mut This #squareBuilder()=(..)
       empty()                            @Public class method mut This empty()=(..)
+      //imm methods:
       #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
       #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
       immNorm()                          @Public method This immNorm()=(..)
+      //read methods:
       #elem#default(that)                @Public read method Entry #elem#default(I that)=(..)
       #elem#imm(that)                    @Public read method Entry #elem#imm(I that)=(..)
       #elem#read(that)                   @Public read method read Entry #elem#read(I that)=(..)
@@ -207,6 +230,7 @@ J={
       val(key)                           @Public read method OVal val(S key)=(..)
       val(that)                          @Public read method This1 val(I that)=(..)
       vals()                             @Public read method read This vals()=(..)
+      //mut methods:
       #apply(that)                       @Public mut method mut This #apply(Void that)=(..)
       #elem#mut(that)                    @Public mut method mut Entry #elem#mut(I that)=(..)
       #entry(that)                       @Public mut method mut Entry #entry(I that)=(..)
@@ -221,29 +245,36 @@ J={
       remove(key)                        @Public mut method Void remove(S key)=(..)
       @Public Entry={
         [HasToS]
+        //class methods:
         #apply(key, val)                   class method mut This #apply(fwd imm S key, fwd mut This2 val)=(..)
         #immK(key, val)                    class method This #immK(S key, This2 val)=(..)
         readEntry(key, val)                class method read This readEntry(S key, read This2 val)=(..)
+        //imm methods:
         #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
         #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
         norm()                             method This norm()=(..)
         with(key)                          method This with(S key)=(..)
         with(val)                          method This with(This2 val)=(..)
+        //read methods:
         immClone()                         read method This immClone()=(..)
         key()                              read method S key()=(..)
         readEquality(that)                 read method Bool readEquality(read This that)=(..)
         toS()                              read method S toS()=(..)
         val()                              read method read This2 val()=(..)
+        //mut methods:
         #val()                             mut method mut This2 #val()=(..)
         capsuleClone()                     mut method capsule This capsuleClone()=(..)
         }
       @Public OVal={
         [HasToS]
+        //class methods:
         #apply()                           class method mut This #apply()=(..)
         #apply(that)                       class method mut This #apply(fwd mut This2 that)native{..}=(..)
         equals(a, b)                       class method Bool equals(read This2 a, read This2 b)=(..)
+        //imm methods:
         #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
         #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+        //read methods:
         #bang0()                           read method Bool #bang0()=(..)
         #if()                              read method Bool #if()native{..}=(..)
         #in1(that)                         read method Bool #in1(read This2 that)=(..)
@@ -254,6 +285,7 @@ J={
         toS()                              read method S toS()=(..)
         val()                              read method read This2 val()native{..}=(..)
         val(orElse)                        read method read This2 val(read This2 orElse)=(..)
+        //mut methods:
         #val()                             mut method mut This2 #val()native{..}=(..)
         #val(orElse)                       mut method mut This2 #val(mut This2 orElse)=(..)
         }
@@ -261,10 +293,12 @@ J={
     }
   }
 J0={
+  //class methods:
   #apply(slaveName)                  class method Library #apply(S slaveName)[Trait.InvalidName]=(..)
   }
 Model={
   [J.Handler]
+  //mut methods:
   #gtgt1(event)                      @{
     Handles the event by delegating it to an appropriate instance method.
     }mut method Void #gtgt1(J.Event event)=(..)
