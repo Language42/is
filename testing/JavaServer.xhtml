@@ -170,12 +170,10 @@ J={
     }
   @Public Handler={
     interface
-    //mut methods:
     #gtgt1(event)                      @{
       Handles the event by delegating it to an appropriate instance method.
       }@Public mut method Void #gtgt1(Event event)
     @Public ClassOperators={
-      //class methods:
       #apply()                           class method class This #apply()=(..)
       #colon0(lifted)                    class method Trait #colon0(class Trait.Lifted lifted)[Fail]=(..)
       #colon0(that)                      class method Library #colon0(Library that)[Fail]=(..)
@@ -293,12 +291,10 @@ J={
     }
   }
 J0={
-  //class methods:
   #apply(slaveName)                  class method Library #apply(S slaveName)[Trait.InvalidName]=(..)
   }
 Model={
   [J.Handler]
-  //mut methods:
   #gtgt1(event)                      @{
     Handles the event by delegating it to an appropriate instance method.
     }mut method Void #gtgt1(J.Event event)=(..)
