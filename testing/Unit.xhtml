@@ -76,18 +76,22 @@ Unit = Load:{reuse[L42.is/Unit]}
 </p><h2> Overview under AdamsTowel </h2> <p>
 This will give us the following:
 <pre class="l42BigFolded"><![CDATA[
+//class methods:
 #apply(that)                       class method Library #apply(class Any that)[NotValidSupport]=(..)
 CompositUnit={
+  //class methods:
   #apply(i1, i2, trait)              class method Library #apply(Info i1, Info i2, Trait trait)[NotValidUnit, NotSameSupport]=(..)
   #apply(inverse)                    class method Library #apply(Info inverse)[NotValidUnit]=(..)
   #apply(that, and)                  class method Library #apply(Info that, Info and)[NotValidUnit, NotSameSupport]=(..)
   #apply(that, per)                  class method Library #apply(Info that, Info per)[NotValidUnit, NotSameSupport]=(..)
   tOf(that)                          class method Info.Type tOf(Info that)[NotValidUnit]=(..)
   ParRename={
+    //class methods:
     #apply(that, trait, names)         class method Library #apply(class Any that, Trait trait, S.List names)=(..)
     }
   TraitDiv={
     [Trait.Lifted]
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -96,11 +100,13 @@ CompositUnit={
     info()                             class method Info info()=(..)
     resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
     ClassOperators={
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
   TraitInverse={
     [Trait.Lifted]
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -109,11 +115,13 @@ CompositUnit={
     info()                             class method Info info()=(..)
     resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
     ClassOperators={
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
   TraitTimes={
     [Trait.Lifted]
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -122,54 +130,69 @@ CompositUnit={
     info()                             class method Info info()=(..)
     resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
     ClassOperators={
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
   }
 N={
+  //class methods:
   #apply(that)                       class method Info #apply(class Any that)=(..)
   }
 NotSameSupport={
   [Message, HasToS, Message.Guard]
+  //class methods:
   #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
   #apply(that)                       class method mut This #apply(S that)=(..)
   #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+  //imm methods:
   #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
   with(cause)                        method This with(Message cause)=(..)
+  //read methods:
   cause()                            read method Message.OptMessage cause()
   text()                             read method S text()
   toS()                              read method S toS()=(..)
+  //mut methods:
   cause(that)                        mut method Void cause(Message.OptMessage that)
   text(that)                         mut method Void text(S that)
   }
 NotValidSupport={
   [Message, HasToS, Message.Guard]
+  //class methods:
   #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
   #apply(that)                       class method mut This #apply(S that)=(..)
   #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+  //imm methods:
   #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
   with(cause)                        method This with(Message cause)=(..)
+  //read methods:
   cause()                            read method Message.OptMessage cause()
   text()                             read method S text()
   toS()                              read method S toS()=(..)
+  //mut methods:
   cause(that)                        mut method Void cause(Message.OptMessage that)
   text(that)                         mut method Void text(S that)
   }
 NotValidUnit={
   [Message, HasToS, Message.Guard]
+  //class methods:
   #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
   #apply(that)                       class method mut This #apply(S that)=(..)
   #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+  //imm methods:
   #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
   with(cause)                        method This with(Message cause)=(..)
+  //read methods:
   cause()                            read method Message.OptMessage cause()
   text()                             read method S text()
   toS()                              read method S toS()=(..)
+  //mut methods:
   cause(that)                        mut method Void cause(Message.OptMessage that)
   text(that)                         mut method Void text(S that)
   }
 TraitHasSupport={
   [Trait.Lifted]
+  //class methods:
   #apply()                           class method Trait #apply()=(..)
   #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -178,11 +201,13 @@ TraitHasSupport={
   info()                             class method Info info()=(..)
   resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
   ClassOperators={
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     }
   }
 TraitSI={
   [Trait.Lifted]
+  //class methods:
   #apply()                           class method Trait #apply()=(..)
   #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -191,11 +216,13 @@ TraitSI={
   info()                             class method Info info()=(..)
   resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
   ClassOperators={
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     }
   }
 TraitUnit={
   [Trait.Lifted]
+  //class methods:
   #apply()                           class method Trait #apply()=(..)
   #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -204,6 +231,7 @@ TraitUnit={
   info()                             class method Info info()=(..)
   resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
   ClassOperators={
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     }
   }
@@ -221,11 +249,13 @@ Main={
   }
 Mana={
   [HasToS]
+  //class methods:
   #apply(string)                     class method This #apply(S string)=(..)
   #apply(that)                       class method This #apply(Double that)=(..)
   #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
   #immK(that)                        class method This #immK(Double that)=(..)
   zero()                             class method This zero()=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #divide0(support)                  method This #divide0(Double support)=(..)
   #divide0(that)                     method Double #divide0(This that)=(..)
@@ -245,22 +275,28 @@ Mana={
   self()                             method This self()=(..)
   toDouble()                         method Double toDouble()=(..)
   with(that)                         method This with(Double that)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   that()                             read method Double that()=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   Inverse={
+    //class methods:
     #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
     }
   Per={
+    //class methods:
     #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
     }
   Times={
+    //class methods:
     #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
     }
   }
 SI={
+  //class methods:
   avogadroConstant()                 @Cache.Lazy class method Num avogadroConstant()=(..)
   boltzmannConstant()                @Cache.Lazy class method Entropy boltzmannConstant()=(..)
   caesiumTransitionFrequency()       @Cache.Lazy class method Hertz caesiumTransitionFrequency()=(..)
@@ -270,12 +306,14 @@ SI={
   speedOfLight()                     @Cache.Lazy class method Velocity speedOfLight()=(..)
   Acceleration={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Velocity that, Second per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -298,22 +336,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromSecond={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -322,11 +366,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromVelocity={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -335,11 +381,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -348,11 +396,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -361,17 +411,20 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Ampere={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -391,29 +444,36 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
   Becquerel={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Num that, Second per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -436,22 +496,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromSecond={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -460,11 +526,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromUnit={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -473,17 +541,20 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Candela={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -503,29 +574,36 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
   Coulomb={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, and)                  class method This #apply(Second that, Ampere and)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(left)                     method Ampere #divide0(Second left)=(..)
     #divide0(right)                    method Second #divide0(Ampere right)=(..)
@@ -548,22 +626,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromAmpere={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -572,11 +656,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromSecond={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -585,11 +671,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -598,11 +686,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -611,18 +701,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Density={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Kg that, Meter3 per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -645,22 +738,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromKg={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -669,11 +768,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromMeter3={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -682,11 +783,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -695,11 +798,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -708,18 +813,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Entropy={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Joule that, Kelvin per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -742,22 +850,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromJoule={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -766,11 +880,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromKelvin={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -779,11 +895,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -792,11 +910,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -805,18 +925,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Farad={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Coulomb that, Volt per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -839,22 +962,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromCoulomb={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -863,11 +992,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromVolt={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -876,11 +1007,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -889,11 +1022,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -902,18 +1037,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Gray={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Joule that, Kg per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -936,22 +1074,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromJoule={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -960,11 +1104,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromKg={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -973,11 +1119,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -986,11 +1134,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -999,18 +1149,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Henry={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Weber that, Ampere per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -1033,22 +1186,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromAmpere={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1057,11 +1216,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromWeber={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1070,11 +1231,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1083,11 +1246,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1096,18 +1261,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Hertz={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Num that, Second per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -1130,22 +1298,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromSecond={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1154,11 +1328,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromUnit={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1167,18 +1343,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Joule={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, and)                  class method This #apply(Newton that, Meter and)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(left)                     method Meter #divide0(Newton left)=(..)
     #divide0(right)                    method Newton #divide0(Meter right)=(..)
@@ -1203,22 +1382,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMeter={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1227,11 +1412,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromNewton={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1240,11 +1427,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1253,11 +1442,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1266,18 +1457,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Katal={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Mole that, Second per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -1300,22 +1494,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMole={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1324,11 +1524,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromSecond={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1337,11 +1539,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1350,11 +1554,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1363,17 +1569,20 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Kelvin={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -1393,28 +1602,35 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
   Kg={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -1437,28 +1653,35 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
   Meter={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -1481,29 +1704,36 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
   Meter2={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, and)                  class method This #apply(Meter that, Meter and)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(left)                     method Meter #divide0(Meter left)=(..)
     #divide0(right)                    method Meter #divide0(Meter right)=(..)
@@ -1527,22 +1757,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMeter={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1551,11 +1787,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1564,11 +1802,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1577,18 +1817,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Meter3={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, and)                  class method This #apply(Meter2 that, Meter and)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(left)                     method Meter #divide0(Meter2 left)=(..)
     #divide0(right)                    method Meter2 #divide0(Meter right)=(..)
@@ -1610,22 +1853,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMeter={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1634,11 +1883,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromMeter2={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1647,11 +1898,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1660,11 +1913,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1673,17 +1928,20 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Mole={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -1704,29 +1962,36 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
   Newton={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, and)                  class method This #apply(Kg that, Acceleration and)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(left)                     method Acceleration #divide0(Kg left)=(..)
     #divide0(right)                    method Kg #divide0(Acceleration right)=(..)
@@ -1751,22 +2016,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromAcceleration={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1775,11 +2046,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromKg={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1788,11 +2061,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1801,11 +2076,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1814,18 +2091,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Ohm={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, and)                  class method This #apply(Volt that, Ampere and)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(left)                     method Ampere #divide0(Volt left)=(..)
     #divide0(right)                    method Volt #divide0(Ampere right)=(..)
@@ -1848,22 +2128,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromAmpere={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1872,11 +2158,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromVolt={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1885,11 +2173,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1898,11 +2188,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1911,18 +2203,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Pascal={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Newton that, Meter2 per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -1945,22 +2240,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMeter2={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1969,11 +2270,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromNewton={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1982,11 +2285,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1995,11 +2300,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2008,17 +2315,20 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Second={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -2041,29 +2351,36 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
   Siemens={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Num that, Ohm per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -2086,22 +2403,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromOhm={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2110,11 +2433,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromUnit={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2123,18 +2448,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Sievert={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Joule that, Kg per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -2157,22 +2485,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromJoule={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2181,11 +2515,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromKg={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2194,11 +2530,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2207,11 +2545,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2220,18 +2560,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Tesla={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Weber that, Meter2 per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -2254,22 +2597,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMeter2={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2278,11 +2627,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromWeber={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2291,11 +2642,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2304,11 +2657,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2317,18 +2672,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Velocity={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Meter that, Second per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -2352,22 +2710,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMeter={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2376,11 +2740,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromSecond={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2389,11 +2755,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2402,11 +2770,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2415,18 +2785,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Volt={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Watt that, Ampere per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -2453,22 +2826,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromAmpere={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2477,11 +2856,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromWatt={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2490,11 +2871,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2503,11 +2886,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2516,18 +2901,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Watt={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, per)                  class method This #apply(Joule that, Second per)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(support)                  method This #divide0(Num support)=(..)
     #divide0(that)                     method Num #divide0(This that)=(..)
@@ -2551,22 +2939,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromJoule={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2575,11 +2969,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromSecond={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2588,11 +2984,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2601,11 +2999,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2614,18 +3014,21 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   Weber={
     [HasToS]
+    //class methods:
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Num that)=(..)
     #apply(that, and)                  class method This #apply(Volt that, Second and)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
     #immK(that)                        class method This #immK(Num that)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(left)                     method Second #divide0(Volt left)=(..)
     #divide0(right)                    method Volt #divide0(Second right)=(..)
@@ -2649,22 +3052,28 @@ SI={
     self()                             method This self()=(..)
     toDouble()                         method Double toDouble()=(..)
     with(that)                         method This with(Num that)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     that()                             read method Num that()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
+      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
+      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromSecond={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2673,11 +3082,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromVolt={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2686,11 +3097,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2699,11 +3112,13 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2712,6 +3127,7 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -2719,11 +3135,13 @@ SI={
   }
 Year={
   [HasToS]
+  //class methods:
   #apply(string)                     class method This #apply(S string)=(..)
   #apply(that)                       class method This #apply(I that)=(..)
   #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
   #immK(that)                        class method This #immK(I that)=(..)
   zero()                             class method This zero()=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #divide0(support)                  method This #divide0(I support)=(..)
   #divide0(that)                     method I #divide0(This that)=(..)
@@ -2743,18 +3161,23 @@ Year={
   self()                             method This self()=(..)
   toDouble()                         method Double toDouble()=(..)
   with(that)                         method This with(I that)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   that()                             read method I that()=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   Inverse={
+    //class methods:
     #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
     }
   Per={
+    //class methods:
     #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
     }
   Times={
+    //class methods:
     #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
     }
   }
