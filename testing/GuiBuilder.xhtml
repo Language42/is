@@ -81,9 +81,11 @@ Process = Load:{reuse[L42.is/Process]}
 
 </p><h2> Overview under AdamsTowel </h2> <p>
 <pre class="l42BigFolded"><![CDATA[
+//class methods:
 #apply(javaServer)                 class method Library #apply(class Any javaServer)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
 GuiBuilder={
   [Trait.Lifted]
+  //class methods:
   #apply()                           class method Trait #apply()=(..)
   #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -92,6 +94,7 @@ GuiBuilder={
   info()                             class method Info info()=(..)
   resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
   ClassOperators={
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     }
   }
@@ -99,12 +102,14 @@ GuiBuilder={
 Exmaple instantiation
 <pre class="l42BigFolded"><![CDATA[
 [HasToS]
+//class methods:
 #apply(j, package, imports, name, x, y)     class method mut This #apply(mut GuiJ j, S package, S imports, S name, I x, I y)=(..)
 #apply(j, package, imports, name, x, y, ping)     class method mut This #apply(fwd mut GuiJ j, fwd imm S package, fwd imm S imports, fwd imm S name, fwd imm I x, fwd imm I y, fwd imm I ping)=(..)
 #apply(j, package, name, x, y)     class method mut This #apply(mut GuiJ j, S package, S name, I x, I y)=(..)
 #apply(j, package, name, x, y, ping)     class method mut This #apply(mut GuiJ j, S package, S name, I x, I y, I ping)=(..)
 #immK(j, package, imports, name, x, y, ping)     class method This #immK(GuiJ j, S package, S imports, S name, I x, I y, I ping)=(..)
 defaultImports()                   class method S defaultImports()=(..)
+//imm methods:
 #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
 #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
 norm()                             method This norm()=(..)
@@ -115,6 +120,7 @@ with(package)                      method This with(S package)=(..)
 with(ping)                         method This with(I ping)=(..)
 with(x)                            method This with(I x)=(..)
 with(y)                            method This with(I y)=(..)
+//read methods:
 button(id, msg, text)              read method S button(S id, S msg, S text)=(..)
 immClone()                         read method This immClone()=(..)
 imports()                          read method S imports()=(..)
@@ -127,10 +133,12 @@ toS()                              read method S toS()=(..)
 toSwing(that)                      read method S toSwing(S that)=(..)
 x()                                read method I x()=(..)
 y()                                read method I y()=(..)
+//mut methods:
 #from(stringLiteral)               mut method Void #from(S.StringBuilder stringLiteral)[GuiJ.Fail]=(..)
 #j()                               mut method mut GuiJ #j()=(..)
 capsuleClone()                     mut method capsule This capsuleClone()=(..)
 JavaCode={
+  //class methods:
   closing()                          class method S closing()=(..)
   defaultImports()                   class method S defaultImports()=(..)
   label(k, id, text)                 class method S label(S k, S id, S text)=(..)
