@@ -76,22 +76,18 @@ Unit = Load:{reuse[L42.is/Unit]}
 </p><h2> Overview under AdamsTowel </h2> <p>
 This will give us the following:
 <pre class="l42BigFolded"><![CDATA[
-//class methods:
 #apply(that)                       class method Library #apply(class Any that)[NotValidSupport]=(..)
 CompositUnit={
-  //class methods:
   #apply(i1, i2, trait)              class method Library #apply(Info i1, Info i2, Trait trait)[NotValidUnit, NotSameSupport]=(..)
   #apply(inverse)                    class method Library #apply(Info inverse)[NotValidUnit]=(..)
   #apply(that, and)                  class method Library #apply(Info that, Info and)[NotValidUnit, NotSameSupport]=(..)
   #apply(that, per)                  class method Library #apply(Info that, Info per)[NotValidUnit, NotSameSupport]=(..)
   tOf(that)                          class method Info.Type tOf(Info that)[NotValidUnit]=(..)
   ParRename={
-    //class methods:
     #apply(that, trait, names)         class method Library #apply(class Any that, Trait trait, S.List names)=(..)
     }
   TraitDiv={
     [Trait.Lifted]
-    //class methods:
     #apply()                           class method Trait #apply()=(..)
     #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -100,13 +96,11 @@ CompositUnit={
     info()                             class method Info info()=(..)
     resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
     ClassOperators={
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
   TraitInverse={
     [Trait.Lifted]
-    //class methods:
     #apply()                           class method Trait #apply()=(..)
     #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -115,13 +109,11 @@ CompositUnit={
     info()                             class method Info info()=(..)
     resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
     ClassOperators={
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
   TraitTimes={
     [Trait.Lifted]
-    //class methods:
     #apply()                           class method Trait #apply()=(..)
     #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -130,13 +122,11 @@ CompositUnit={
     info()                             class method Info info()=(..)
     resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
     ClassOperators={
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
   }
 N={
-  //class methods:
   #apply(that)                       class method Info #apply(class Any that)=(..)
   }
 NotSameSupport={
@@ -192,7 +182,6 @@ NotValidUnit={
   }
 TraitHasSupport={
   [Trait.Lifted]
-  //class methods:
   #apply()                           class method Trait #apply()=(..)
   #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -201,13 +190,11 @@ TraitHasSupport={
   info()                             class method Info info()=(..)
   resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
   ClassOperators={
-    //class methods:
     #apply()                           class method Trait #apply()=(..)
     }
   }
 TraitSI={
   [Trait.Lifted]
-  //class methods:
   #apply()                           class method Trait #apply()=(..)
   #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -216,13 +203,11 @@ TraitSI={
   info()                             class method Info info()=(..)
   resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
   ClassOperators={
-    //class methods:
     #apply()                           class method Trait #apply()=(..)
     }
   }
 TraitUnit={
   [Trait.Lifted]
-  //class methods:
   #apply()                           class method Trait #apply()=(..)
   #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -231,7 +216,6 @@ TraitUnit={
   info()                             class method Info info()=(..)
   resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
   ClassOperators={
-    //class methods:
     #apply()                           class method Trait #apply()=(..)
     }
   }
@@ -283,20 +267,16 @@ Mana={
   //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   Inverse={
-    //class methods:
     #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
     }
   Per={
-    //class methods:
     #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
     }
   Times={
-    //class methods:
     #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
     }
   }
 SI={
-  //class methods:
   avogadroConstant()                 @Cache.Lazy class method Num avogadroConstant()=(..)
   boltzmannConstant()                @Cache.Lazy class method Entropy boltzmannConstant()=(..)
   caesiumTransitionFrequency()       @Cache.Lazy class method Hertz caesiumTransitionFrequency()=(..)
@@ -344,20 +324,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromSecond={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -366,13 +342,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromVelocity={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -381,13 +355,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -396,13 +368,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -411,7 +381,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -452,15 +421,12 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
@@ -504,20 +470,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromSecond={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -526,13 +488,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromUnit={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -541,7 +501,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -582,15 +541,12 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
@@ -634,20 +590,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromAmpere={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -656,13 +608,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromSecond={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -671,13 +621,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -686,13 +634,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -701,7 +647,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -746,20 +691,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromKg={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -768,13 +709,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromMeter3={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -783,13 +722,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -798,13 +735,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -813,7 +748,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -858,20 +792,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromJoule={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -880,13 +810,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromKelvin={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -895,13 +823,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -910,13 +836,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -925,7 +849,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -970,20 +893,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromCoulomb={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -992,13 +911,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromVolt={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1007,13 +924,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1022,13 +937,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1037,7 +950,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -1082,20 +994,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromJoule={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1104,13 +1012,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromKg={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1119,13 +1025,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1134,13 +1038,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1149,7 +1051,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -1194,20 +1095,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromAmpere={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1216,13 +1113,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromWeber={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1231,13 +1126,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1246,13 +1139,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1261,7 +1152,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -1306,20 +1196,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromSecond={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1328,13 +1214,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromUnit={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1343,7 +1227,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -1390,20 +1273,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMeter={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1412,13 +1291,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromNewton={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1427,13 +1304,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1442,13 +1317,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1457,7 +1330,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -1502,20 +1374,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMole={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1524,13 +1392,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromSecond={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1539,13 +1405,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1554,13 +1418,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1569,7 +1431,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -1610,15 +1471,12 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
@@ -1661,15 +1519,12 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
@@ -1712,15 +1567,12 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
@@ -1765,20 +1617,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMeter={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1787,13 +1635,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1802,13 +1648,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1817,7 +1661,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -1861,20 +1704,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMeter={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1883,13 +1722,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromMeter2={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1898,13 +1735,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1913,13 +1748,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -1928,7 +1761,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -1970,15 +1802,12 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
@@ -2024,20 +1853,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromAcceleration={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2046,13 +1871,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromKg={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2061,13 +1884,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2076,13 +1897,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2091,7 +1910,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -2136,20 +1954,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromAmpere={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2158,13 +1972,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromVolt={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2173,13 +1985,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2188,13 +1998,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2203,7 +2011,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -2248,20 +2055,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMeter2={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2270,13 +2073,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromNewton={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2285,13 +2086,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2300,13 +2099,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2315,7 +2112,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -2359,15 +2155,12 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     }
@@ -2411,20 +2204,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromOhm={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2433,13 +2222,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromUnit={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2448,7 +2235,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -2493,20 +2279,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromJoule={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2515,13 +2297,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromKg={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2530,13 +2310,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2545,13 +2323,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2560,7 +2336,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -2605,20 +2380,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMeter2={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2627,13 +2398,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromWeber={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2642,13 +2411,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2657,13 +2424,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2672,7 +2437,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -2718,20 +2482,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromMeter={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2740,13 +2500,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromSecond={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2755,13 +2513,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2770,13 +2526,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2785,7 +2539,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -2834,20 +2587,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromAmpere={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2856,13 +2605,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromWatt={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2871,13 +2618,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2886,13 +2631,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2901,7 +2644,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -2947,20 +2689,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromJoule={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2969,13 +2707,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromSecond={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2984,13 +2720,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2999,13 +2733,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -3014,7 +2746,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -3060,20 +2791,16 @@ SI={
     //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     Inverse={
-      //class methods:
       #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
       }
     Per={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     Times={
-      //class methods:
       #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
       }
     TraitFromSecond={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -3082,13 +2809,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitFromVolt={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -3097,13 +2822,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromLeft={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -3112,13 +2835,11 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     _FromRight={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -3127,7 +2848,6 @@ SI={
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -3169,15 +2889,12 @@ Year={
   //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   Inverse={
-    //class methods:
     #apply()                           class method Library #apply()[UnitLib.NotValidUnit]=(..)
     }
   Per={
-    //class methods:
     #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
     }
   Times={
-    //class methods:
     #apply(that)                       class method Library #apply(class Any that)[UnitLib.NotValidUnit, UnitLib.NotSameSupport]=(..)
     }
   }
