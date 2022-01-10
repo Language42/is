@@ -282,7 +282,6 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Break={
-  //class methods:
   #apply()                           class method Void #apply()[Void]=(..)
   #apply(that)                       class method Void #apply(Void that)[Void]=(..)
   @AbstractTowel{
@@ -290,15 +289,12 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Cache={
-  //class methods:
   #$stopCacheEager()                 class method Void #$stopCacheEager()=(..)
   Call={
-    //class methods:
     #colon0(l)                         @Public class method Trait #colon0(class Trait.Lifted l)[Fail]=(..)
     #colon0(t)                         @Public class method Trait #colon0(Trait t)[Fail]=(..)
     #colon0(that)                      @Public class method Library #colon0(Library that)[Fail]=(..)
     @Public ClassOperators={
-      //class methods:
       #apply()                           class method class This1 #apply()=(..)
       }
     @Public Fail={
@@ -354,12 +350,10 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Class={
-  //class methods:
   #colon0(library)                   class method Library #colon0(Library library)[IncoherentClass]=(..)
   #colon0(lifted)                    class method Library #colon0(class Trait.Lifted lifted)[IncoherentClass]=(..)
   #colon0(that)                      class method Library #colon0(Trait that)[IncoherentClass]=(..)
   ClassOperators={
-    //class methods:
     #apply()                           class method class This1 #apply()=(..)
     }
   IncoherentClass={
@@ -380,11 +374,9 @@ Main = Debug(S"Hello world")
     text(that)                         mut method Void text(S that)=(..)
     }
   Relax={
-    //class methods:
     #colon0(lifted)                    class method Library #colon0(class Trait.Lifted lifted)=(..)
     #colon0(that)                      class method Library #colon0(Trait that)=(..)
     ClassOperators={
-      //class methods:
       #apply()                           class method class This1 #apply()=(..)
       }
     }
@@ -393,7 +385,6 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Collection={
-  //class methods:
   linkedList(that)                   @Public class method Library linkedList(class Any that)=(..)
   linkedListTrait()                  @Public class method Trait linkedListTrait()=(..)
   list(that)                         @Public class method Library list(class Any that)=(..)
@@ -408,7 +399,6 @@ Main = Debug(S"Hello world")
   set(that)                          @Public class method Library set(class Any that)=(..)
   setTrait()                         @Public class method Trait setTrait()=(..)
   @Public AnyToS={
-    //class methods:
     #apply(that)                       class method S #apply(read Any that)=(..)
     escape(that)                       class method S escape(S that)=(..)
     }
@@ -464,11 +454,9 @@ Main = Debug(S"Hello world")
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public Enum={
-    //class methods:
     #colon0(that)                      class method Library #colon0(Library that)[Fail]=(..)
     #colon0(trait)                     class method Trait #colon0(Trait trait)[Fail]=(..)
     ClassOperators={
-      //class methods:
       #apply()                           class method class This1 #apply()=(..)
       }
     Fail={
@@ -490,7 +478,6 @@ Main = Debug(S"Hello world")
       }
     TraitCacheVals={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -499,13 +486,11 @@ Main = Debug(S"Hello world")
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitEnumBase={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -514,13 +499,11 @@ Main = Debug(S"Hello world")
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitEnumStep={
       [Trait.Lifted]
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -529,7 +512,6 @@ Main = Debug(S"Hello world")
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
@@ -671,7 +653,6 @@ Main = Debug(S"Hello world")
     #colon0(t)                         @Public method Trait #colon0(Trait t)[Fail]=(..)
     #colon0(that)                      @Public method Library #colon0(Library that)[Fail]=(..)
     @Public ClassOperators={
-      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
@@ -690,34 +671,27 @@ Main = Debug(S"Hello world")
       }
     }
   @Public AddList={
-    //imm methods:
     #colon0(lib)                       @Public method Library #colon0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
     #colon0(that)                      @Public method Trait #colon0(Trait that)[Trait.ClassClash, Trait.MethodClash]=(..)
     @Public ClassOperators={
-      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     }
   @Public AddOpt={
-    //imm methods:
     #colon0(lib)                       @Public method Library #colon0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
     #colon0(that)                      @Public method Trait #colon0(Trait that)[Trait.ClassClash, Trait.MethodClash]=(..)
     @Public ClassOperators={
-      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     }
   @Public AddSet={
-    //imm methods:
     #colon0(lib)                       @Public method Library #colon0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
     #colon0(that)                      @Public method Trait #colon0(Trait that)[Trait.ClassClash, Trait.MethodClash]=(..)
     @Public ClassOperators={
-      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     }
   @Public ClassOperators={
-    //class methods:
     #apply()                           class method This1 #apply()=(..)
     }
   @Public Close={
@@ -729,7 +703,6 @@ Main = Debug(S"Hello world")
     #colon0(t)                         @Public method Trait #colon0(Trait t)[Fail]=(..)
     #colon0(that)                      @Public method Library #colon0(Library that)[Fail]=(..)
     @Public ClassOperators={
-      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
@@ -755,7 +728,6 @@ Main = Debug(S"Hello world")
     #colon0(t)                         @Public method Trait #colon0(Trait t)[Fail]=(..)
     #colon0(that)                      @Public method Library #colon0(Library that)[Fail]=(..)
     @Public ClassOperators={
-      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
@@ -790,14 +762,12 @@ Main = Debug(S"Hello world")
     text(that)                         mut method Void text(S that)
     }
   @Public Relax={
-    //class methods:
     #apply()                           class method This1 #apply()=(..)
     #apply(string)                     class method This1 #apply(S string)=(..)
     #apply(that)                       class method This1 #apply(Name that)=(..)
     #apply(that, autoNorm)             class method This1 #apply(Name that, Bool autoNorm)=(..)
     #from(stringLiteral)               class method This1 #from(S.StringBuilder stringLiteral)=(..)
     ClassOperators={
-      //class methods:
       #apply()                           class method This2 #apply()=(..)
       }
     }
@@ -809,7 +779,6 @@ Main = Debug(S"Hello world")
     #colon0(t)                         @Public method Trait #colon0(Trait t)[Fail]=(..)
     #colon0(that)                      @Public method Library #colon0(Library that)[Fail]=(..)
     @Public ClassOperators={
-      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
@@ -832,7 +801,6 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Debug={
-  //class methods:
   #apply(that)                       @Public class method Void #apply(read HasToS that)=(..)
   @AbstractTowel{
     debug
@@ -846,7 +814,6 @@ Main = Debug(S"Hello world")
   #colon0(lib)                       @Public method Library #colon0(Library lib)[Fail]=(..)
   #colon0(trait)                     @Public method Trait #colon0(Trait trait)[Fail]=(..)
   @Public ClassOperators={
-    //class methods:
     #apply()                           class method This1 #apply()=(..)
     }
   @Public Fail={
@@ -874,7 +841,6 @@ Main = Debug(S"Hello world")
     #colon0(lib)                       @Public method Library #colon0(Library lib)[Fail]=(..)
     #colon0(trait)                     @Public method Trait #colon0(Trait trait)[Fail]=(..)
     @Public ClassOperators={
-      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
@@ -1149,11 +1115,9 @@ Main = Debug(S"Hello world")
   }
 @Public HasToS={
   interface
-  //read methods:
   toS()                              read method S toS()
   Raw={
     interface[This1]
-    //read methods:
     toS()                              read method S toS()
     }
   @AbstractTowel{
@@ -2322,14 +2286,11 @@ Main = Debug(S"Hello world")
   //read methods:
   deps()                             read method Info.List deps()=(..)
   ClassOperators={
-    //class methods:
     #apply()                           class method This1 #apply()=(..)
     }
   N={
-    //class methods:
     #colon0(a)                         class method Info #colon0(class Any a)=(..)
     ClassOperators={
-      //class methods:
       #apply()                           class method class This1 #apply()=(..)
       }
     }
@@ -2378,7 +2339,6 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Math={
-  //class methods:
   maxI()                             class method I maxI()=(..)
   maxLong()                          class method Long maxLong()=(..)
   minI()                             class method I minI()=(..)
@@ -2487,7 +2447,6 @@ Main = Debug(S"Hello world")
     }
   RandomListTrait={
     [Trait.Lifted]
-    //class methods:
     #apply()                           class method Trait #apply()=(..)
     #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2496,13 +2455,11 @@ Main = Debug(S"Hello world")
     info()                             class method Info info()=(..)
     resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
     ClassOperators={
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
   Support={
     [Trait.Lifted]
-    //class methods:
     #apply()                           class method Trait #apply()=(..)
     #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2511,7 +2468,6 @@ Main = Debug(S"Hello world")
     info()                             class method Info info()=(..)
     resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
     ClassOperators={
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
@@ -2545,7 +2501,6 @@ Main = Debug(S"Hello world")
     text(that)                         mut method Void text(S that)
     }
   @Public ClassOperators={
-    //class methods:
     #apply()                           class method class This #apply()=(..)
     #colon0(that)                      class method Library #colon0(Library that)[Trait.ClassClash, Trait.MethodClash]=(..)
     #colon0(trait)                     class method Trait #colon0(Trait trait)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2564,10 +2519,8 @@ Main = Debug(S"Hello world")
     text(that)                         mut method Void text(S that)
     }
   @Public Native={
-    //class methods:
     #apply()                           class method Trait #apply()=(..)
     ClassOperators={
-      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
@@ -2792,7 +2745,6 @@ Main = Debug(S"Hello world")
       }
     }
   @Public Mapping={
-    //class methods:
     #apply()                           @Public class method This #apply()=(..)
     #from(stringLiteral)               @Public@Cache.Call class method This1 #from(S.StringBuilder stringLiteral)=(..)
     }
@@ -3047,7 +2999,6 @@ Main = Debug(S"Hello world")
   #colon0(that)                      @Public method Library #colon0(Library that)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #colon0(trait)                     @Public method Trait #colon0(Trait trait)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   @Public ClassOperators={
-    //class methods:
     #apply()                           class method This1 #apply()=(..)
     }
   @AbstractTowel{
@@ -3064,7 +3015,6 @@ Main = Debug(S"Hello world")
   #colon0(lib)                       @This method Library #colon0(Library lib)[Data.Close.Fail, Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #colon0(that)                      @This method Trait #colon0(Trait that)[Data.Close.Fail, Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   @This ClassOperators={
-    //class methods:
     #apply()                           class method This1 #apply()=(..)
     }
   @AbstractTowel{
@@ -3108,7 +3058,6 @@ Main = Debug(S"Hello world")
   steps()                            @Public method I steps()=(..)
   @Public AndThen={
     [Indexes]
-    //imm methods:
     #elem#default(that)                @Public method I #elem#default(I that)=(..)
     #endIndex()                        @Public method I #endIndex()=(..)
     #hasElem(that)                     @Public method Collection.IteratorCompose #hasElem(I that)=(..)
@@ -3118,7 +3067,6 @@ Main = Debug(S"Hello world")
     }
   @Public Indexes={
     interface
-    //imm methods:
     #elem#default(that)                method I #elem#default(I that)
     #endIndex()                        method I #endIndex()
     #hasElem(that)                     method Collection.IteratorCompose #hasElem(I that)
@@ -3128,7 +3076,6 @@ Main = Debug(S"Hello world")
     }
   @Public Reverse={
     [Indexes]
-    //imm methods:
     #elem#default(that)                @Public method I #elem#default(I that)=(..)
     #endIndex()                        @Public method I #endIndex()=(..)
     #hasElem(that)                     @Public method Collection.IteratorCompose #hasElem(I that)=(..)
@@ -3138,7 +3085,6 @@ Main = Debug(S"Hello world")
     }
   @Public Unbounded={
     [Indexes]
-    //imm methods:
     #elem#default(that)                @Public method I #elem#default(I that)=(..)
     #endIndex()                        @Public method I #endIndex()=(..)
     #hasElem(that)                     @Public method Collection.IteratorCompose #hasElem(I that)=(..)
@@ -3292,7 +3238,6 @@ Main = Debug(S"Hello world")
     #colon0(trait)                     @Public method Trait #colon0(Trait trait)[Fail]=(..)
     trait()                            @Public method Trait trait()=(..)
     @Public ClassOperators={
-      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
@@ -3776,7 +3721,6 @@ Main = Debug(S"Hello world")
     }
   }
 @Public System={
-  //class methods:
   capsuleClone(that)                 @Public class method capsule Any capsuleClone(mut Any that)=(..)
   extractModule(that, name)          @Public class method Trait extractModule(Library that, Name name)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   immClone(that)                     @Public class method Any immClone(read Any that)=(..)
@@ -3835,7 +3779,6 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Test={
-  //class methods:
   #from(stringLiteral)               class method WithName #from(S.StringBuilder stringLiteral)=(..)
   hole()                             class method S hole()=(..)
   Condition={
@@ -3928,7 +3871,6 @@ Main = Debug(S"Hello world")
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public ClassOperators={
-    //class methods:
     #apply()                           class method This1 #apply()=(..)
     }
   @Public DocMap={
@@ -4054,11 +3996,9 @@ Main = Debug(S"Hello world")
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public LiftS={
-    //class methods:
     #apply(that)                       class method This1 #apply(S that)=(..)
     TraitS={
       [Lifted]
-      //class methods:
       #apply()                           class method This2 #apply()=(..)
       #apply(squareBuilder)              class method This2 #apply(mut Acc squareBuilder)[InvalidName, InvalidMap, ClassClash, MethodClash]=(..)
       #plus0(lib)                        class method This2 #plus0(Library lib)[ClassClash, MethodClash]=(..)
@@ -4067,14 +4007,12 @@ Main = Debug(S"Hello world")
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method This2 resetDocs(mut DocMap squareBuilder)[InvalidName]=(..)
       ClassOperators={
-        //class methods:
         #apply()                           class method This3 #apply()=(..)
         }
       }
     }
   @Public Lifted={
     interface
-    //class methods:
     #apply()                           class method This1 #apply()
     #apply(squareBuilder)              class method This1 #apply(mut Acc squareBuilder)[InvalidName, InvalidMap, ClassClash, MethodClash]
     #plus0(lib)                        class method This1 #plus0(Library lib)[ClassClash, MethodClash]
@@ -4098,7 +4036,6 @@ Main = Debug(S"Hello world")
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public NativeSlaveRename={
-    //class methods:
     #apply(that, oldName, newName)     @Public class method Library #apply(Library that, S oldName, S newName)[InvalidName]=(..)
     }
   @AbstractTowel{
@@ -4349,7 +4286,6 @@ Main = Debug(S"Hello world")
     #colon0(trait)                     @Public method Trait #colon0(Trait trait)[Fail]=(..)
     trait()                            @Public method Trait trait()=(..)
     @Public ClassOperators={
-      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
@@ -4371,7 +4307,6 @@ Main = Debug(S"Hello world")
       }
     }
   EnableAssertions={
-    //class methods:
     #apply()                           class method Bool #apply()=(..)
     }
   Guarded={
@@ -4444,7 +4379,6 @@ Would produce the following:
 <pre class="l42BigFolded"><![CDATA[
 LinkeListPerson={
   interface
-  //read methods:
   #iterator()                        @Public read method Iterator #iterator()
   #plusplus0(that)                   @Public read method read This #plusplus0(read This that)
   #startIndex()                      @Public read method read This #startIndex()
