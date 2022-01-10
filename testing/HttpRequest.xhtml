@@ -82,39 +82,50 @@ Process = Load:{reuse[L42.is/Process]}
 </p><h2> Overview under AdamsTowel </h2> <p>
 <pre class="l42BigFolded"><![CDATA[
 interface
+//mut methods:
 #apply(request, body)              mut method Response #apply(S request, S body)[Fail]
 Fail={
   [Message, HasToS, Message.Guard]
+  //class methods:
   #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
   #apply(that)                       class method mut This #apply(S that)=(..)
   #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+  //imm methods:
   #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
   with(cause)                        method This with(Message cause)=(..)
+  //read methods:
   cause()                            read method Message.OptMessage cause()
   text()                             read method S text()
   toS()                              read method S toS()=(..)
+  //mut methods:
   cause(that)                        mut method Void cause(Message.OptMessage that)
   text(that)                         mut method Void text(S that)
   }
 Real={
   [This1]
+  //class methods:
   #$of()                             @Public class method mut This #$of()=(..)
+  //mut methods:
   #apply(request, body)              @Public mut method Response #apply(S request, S body)[Fail]=(..)
   }
 Response={
   [HasToS]
+  //class methods:
   #apply(statusCode, body)           class method This #apply(fwd imm I statusCode, fwd imm S body)=(..)
   #immK(statusCode, body)            class method This #immK(I statusCode, S body)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   norm()                             method This norm()=(..)
   with(body)                         method This with(S body)=(..)
   with(statusCode)                   method This with(I statusCode)=(..)
+  //read methods:
   body()                             read method S body()=(..)
   immClone()                         read method This immClone()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   statusCode()                       read method I statusCode()=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   }
 ]]></pre>
