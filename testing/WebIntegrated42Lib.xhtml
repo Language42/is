@@ -81,20 +81,24 @@ Process = Load:{reuse[L42.is/Process]}
 
 </p><h2> Overview under AdamsTowel </h2> <p>
 <pre class="l42BigFolded"><![CDATA[
+//class methods:
 #$of()                             class method mut This #$of()=(..)
 #$token()                          class method S #$token()
 name()                             class method S name()
 repo()                             class method S repo()
 version()                          class method S version()
+//mut methods:
 deployDocs(that)                   mut method mut DocsBuilder deployDocs(S that)[Process.Fail]=(..)
 deployModule(that, nestedName)     mut method Void deployModule(Trait that, Name nestedName)[GW.Fail, Cache.Call.Fail, Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
 deployTowel(that)                  mut method Void deployTowel(Trait that)[GW.Fail, Cache.Call.Fail]=(..)
 fs()                               mut method mut Fs fs()=(..)
 gw()                               mut method mut GW gw()=(..)
 Deploy={
+  //class methods:
   with(writer)                       class method Library with(class Any writer)[Class.IncoherentClass, Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   DeployTrait={
     [Trait.Lifted]
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -103,29 +107,35 @@ Deploy={
     info()                             class method Info info()=(..)
     resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
     ClassOperators={
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
   }
 DeployGit={
+  //class methods:
   jar(that, on, writer)              class method Void jar(Trait that, Url on, mut GW writer)[GW.Fail]=(..)
   module(that, name, on, writer)     class method Void module(Trait that, Name name, Url on, mut GW writer)[GW.Fail, Cache.Call.Fail, Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   towel(that, on, writer)            class method Void towel(Trait that, Url on, mut GW writer)[GW.Fail, Cache.Call.Fail]=(..)
   }
 DocsBuilder={
   [HasToS]
+  //class methods:
   #apply(that, content)              class method mut This #apply(fwd mut This1 that, fwd imm S content)=(..)
   #immK(that, content)               class method This #immK(This1 that, S content)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   norm()                             method This norm()=(..)
   with(content)                      method This with(S content)=(..)
   with(that)                         method This with(This1 that)=(..)
+  //read methods:
   content()                          read method S content()=(..)
   immClone()                         read method This immClone()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   that()                             read method read This1 that()=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   #that()                            mut method mut This1 #that()=(..)
   #tilde0()                          mut method Void #tilde0()[GW.Fail]=(..)
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
@@ -136,6 +146,7 @@ DocsBuilder={
   }
 Fs={
   interface
+  //mut methods:
   delete(that)                       mut method Void delete(Url that)[Fail]
   makeDirs(that)                     mut method Void makeDirs(Url that)[Fail]
   read(that)                         mut method S read(Url that)[Fail]
@@ -144,23 +155,29 @@ Fs={
   write(on, contentBase64)           mut method Void write(Url on, S contentBase64)[Fail]
   Fail={
     [Message, HasToS, Message.Guard]
+    //class methods:
     #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
     #apply(that)                       class method mut This #apply(S that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
     with(cause)                        method This with(Message cause)=(..)
+    //read methods:
     cause()                            read method Message.OptMessage cause()
     text()                             read method S text()
     toS()                              read method S toS()=(..)
+    //mut methods:
     cause(that)                        mut method Void cause(Message.OptMessage that)
     text(that)                         mut method Void text(S that)
     }
   Real={
     [This1]
+    //class methods:
     #$of()                             @{
       Capability factory.  
       Creates an object connected with the real file system.
       }@Public class method mut This #$of()=(..)
+    //mut methods:
     delete(that)                       @{
       Capability method.
       Deletes the file or directory denoted by the @Url 'that'.
@@ -216,66 +233,82 @@ Fs={
   }
 GW={
   [HasToS]
+  //class methods:
   #$of(token, message)               class method mut This #$of(S token, S message)=(..)
   #apply(httpRequest, token, message)     class method mut This #apply(fwd mut HttpRequest httpRequest, fwd imm S token, fwd imm S message)=(..)
   #immK(httpRequest, token, message)     class method This #immK(HttpRequest httpRequest, S token, S message)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   norm()                             method This norm()=(..)
   with(httpRequest)                  method This with(HttpRequest httpRequest)=(..)
   with(message)                      method This with(S message)=(..)
   with(token)                        method This with(S token)=(..)
+  //read methods:
   httpRequest()                      read method read HttpRequest httpRequest()=(..)
   immClone()                         read method This immClone()=(..)
   message()                          read method S message()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
   token()                            read method S token()=(..)
+  //mut methods:
   #apply(user, repository, path, contentBase64)     mut method Void #apply(S user, S repository, S path, S contentBase64)[Fail]=(..)
   #httpRequest()                     mut method mut HttpRequest #httpRequest()=(..)
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   write(on, contentBase64)           mut method Void write(Url on, S contentBase64)[Fail]=(..)
   Fail={
     [Message, HasToS, Message.Guard]
+    //class methods:
     #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
     #apply(that)                       class method mut This #apply(S that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
     with(cause)                        method This with(Message cause)=(..)
+    //read methods:
     cause()                            read method Message.OptMessage cause()
     text()                             read method S text()
     toS()                              read method S toS()=(..)
+    //mut methods:
     cause(that)                        mut method Void cause(Message.OptMessage that)
     text(that)                         mut method Void text(S that)
     }
   HttpRequest={
     interface
+    //mut methods:
     #apply(request, body)              mut method Response #apply(S request, S body)[Fail]
     Real={
       [This1]
+      //class methods:
       #$of()                             @Public class method mut This #$of()=(..)
+      //mut methods:
       #apply(request, body)              @Public mut method Response #apply(S request, S body)[Fail]=(..)
       }
     Response={
       [HasToS]
+      //class methods:
       #apply(statusCode, body)           class method This #apply(fwd imm I statusCode, fwd imm S body)=(..)
       #immK(statusCode, body)            class method This #immK(I statusCode, S body)=(..)
+      //imm methods:
       #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
       #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
       norm()                             method This norm()=(..)
       with(body)                         method This with(S body)=(..)
       with(statusCode)                   method This with(I statusCode)=(..)
+      //read methods:
       body()                             read method S body()=(..)
       immClone()                         read method This immClone()=(..)
       readEquality(that)                 read method Bool readEquality(read This that)=(..)
       statusCode()                       read method I statusCode()=(..)
       toS()                              read method S toS()=(..)
+      //mut methods:
       capsuleClone()                     mut method capsule This capsuleClone()=(..)
       }
     }
   }
 Process={
   interface
+  //mut methods:
   start(input)                       @{
     Capability method
     Starts the process with the provided input.
@@ -287,27 +320,34 @@ Process={
     }mut method Result start(S input)[Fail]
   Fail={
     [Message, HasToS, Message.Guard]
+    //class methods:
     #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
     #apply(that)                       class method mut This #apply(S that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
     with(cause)                        method This with(Message cause)=(..)
+    //read methods:
     cause()                            read method Message.OptMessage cause()
     text()                             read method S text()
     toS()                              read method S toS()=(..)
+    //mut methods:
     cause(that)                        mut method Void cause(Message.OptMessage that)
     text(that)                         mut method Void text(S that)
     }
   Real={
     [This1]
+    //class methods:
     #$of(that)                         @{
       Capability factory
       Makes a @This capability object that can only run the provided process
       with the provided parameters    
       }@Public class method mut This #$of(S.List that)=(..)
+    //read methods:
     that()                             @{
       The process ready to run
       }@Public read method S.List that()=(..)
+    //mut methods:
     start(input)                       @{
       Capability method
       Starts the process with the provided input.
@@ -320,13 +360,16 @@ Process={
     }
   Result={
     [HasToS]
+    //class methods:
     #apply(out, err)                   class method This #apply(fwd imm S out, fwd imm S err)=(..)
     #immK(out, err)                    class method This #immK(S out, S err)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
     norm()                             method This norm()=(..)
     with(err)                          method This with(S err)=(..)
     with(out)                          method This with(S out)=(..)
+    //read methods:
     err()                              @{
       the standard error of the process
       }read method S err()=(..)
@@ -336,6 +379,7 @@ Process={
       }read method S out()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     }
   }
