@@ -81,9 +81,11 @@ Main = Debug(S"Hello world")
   }
 @Public Bool={
   [HasToS]
+  //class methods:
   #apply(string)                     class method This #apply(S string)=(..)
   false()                            class method This false()=(..)
   true()                             class method This true()=(..)
+  //imm methods:
   #bang0()                           method This #bang0()=(..)
   #bangequal0(that)                  method This #bangequal0(This that)=(..)
   #checkTrue()                       method Void #checkTrue()[Void]native{..}=(..)
@@ -92,16 +94,19 @@ Main = Debug(S"Hello world")
   and(that)                          method This and(This that)native{..}=(..)
   not()                              method This not()native{..}=(..)
   or(that)                           method This or(This that)native{..}=(..)
+  //read methods:
   readEquality(that)                 read method This readEquality(read This that)native{..}=(..)
   toS()                              read method S toS()native{..}=(..)
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method This1 #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method This1 equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -145,6 +150,7 @@ Main = Debug(S"Hello world")
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -200,6 +206,7 @@ Main = Debug(S"Hello world")
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -249,7 +256,9 @@ Main = Debug(S"Hello world")
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -259,6 +268,7 @@ Main = Debug(S"Hello world")
       end()                              read method I end()=(..)
       list()                             read method read This1 list()=(..)
       start()                            read method I start()=(..)
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()=(..)
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -272,6 +282,7 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Break={
+  //class methods:
   #apply()                           class method Void #apply()[Void]=(..)
   #apply(that)                       class method Void #apply(Void that)[Void]=(..)
   @AbstractTowel{
@@ -279,22 +290,29 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Cache={
+  //class methods:
   #$stopCacheEager()                 class method Void #$stopCacheEager()=(..)
   Call={
+    //class methods:
     #colon0(l)                         @Public class method Trait #colon0(class Trait.Lifted l)[Fail]=(..)
     #colon0(t)                         @Public class method Trait #colon0(Trait t)[Fail]=(..)
     #colon0(that)                      @Public class method Library #colon0(Library that)[Fail]=(..)
     @Public ClassOperators={
+      //class methods:
       #apply()                           class method class This1 #apply()=(..)
       }
     @Public Fail={
       [HasToS, Message, Message.Guard]
+      //class methods:
       #apply()                           class method This #apply()=(..)
       #apply(that)                       class method mut This #apply(S that)native{..}=(..)
       #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+      //imm methods:
       #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+      //read methods:
       text()                             read method S text()native{..}=(..)
       toS()                              read method S toS()=(..)
+      //mut methods:
       text(that)                         mut method Void text(S that)native{..}=(..)
       }
     @{
@@ -336,29 +354,37 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Class={
+  //class methods:
   #colon0(library)                   class method Library #colon0(Library library)[IncoherentClass]=(..)
   #colon0(lifted)                    class method Library #colon0(class Trait.Lifted lifted)[IncoherentClass]=(..)
   #colon0(that)                      class method Library #colon0(Trait that)[IncoherentClass]=(..)
   ClassOperators={
+    //class methods:
     #apply()                           class method class This1 #apply()=(..)
     }
   IncoherentClass={
     [Message, HasToS, Data.Fail, Message.Guard]
+    //class methods:
     #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
     #apply(that)                       class method mut This #apply(S that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
     with(cause)                        method This with(Message cause)=(..)
+    //read methods:
     cause()                            read method Message.OptMessage cause()=(..)
     text()                             read method S text()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
     text(that)                         mut method Void text(S that)=(..)
     }
   Relax={
+    //class methods:
     #colon0(lifted)                    class method Library #colon0(class Trait.Lifted lifted)=(..)
     #colon0(that)                      class method Library #colon0(Trait that)=(..)
     ClassOperators={
+      //class methods:
       #apply()                           class method class This1 #apply()=(..)
       }
     }
@@ -367,6 +393,7 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Collection={
+  //class methods:
   linkedList(that)                   @Public class method Library linkedList(class Any that)=(..)
   linkedListTrait()                  @Public class method Trait linkedListTrait()=(..)
   list(that)                         @Public class method Library list(class Any that)=(..)
@@ -381,69 +408,89 @@ Main = Debug(S"Hello world")
   set(that)                          @Public class method Library set(class Any that)=(..)
   setTrait()                         @Public class method Trait setTrait()=(..)
   @Public AnyToS={
+    //class methods:
     #apply(that)                       class method S #apply(read Any that)=(..)
     escape(that)                       class method S escape(S that)=(..)
     }
   @Public Dimensions={
     [HasToS]
+    //class methods:
     #apply(row, col)                   class method This #apply(I row, I col)=(..)
     #immK(row, col)                    class method This #immK(I row, I col)=(..)
     invariant(row, col)                class method Void invariant(I row, I col)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
     norm()                             method This norm()=(..)
     tot()                              method I tot()=(..)
     with(col)                          method This with(I col)=(..)
     with(row)                          method This with(I row)=(..)
+    //read methods:
     col()                              read method I col()=(..)
     immClone()                         read method This immClone()=(..)
     invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     row()                              read method I row()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     }
   @Public ElementNotImm={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(S that)native{..}=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method S text()native{..}=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public ElementNotMut={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(S that)native{..}=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method S text()native{..}=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public Enum={
+    //class methods:
     #colon0(that)                      class method Library #colon0(Library that)[Fail]=(..)
     #colon0(trait)                     class method Trait #colon0(Trait trait)[Fail]=(..)
     ClassOperators={
+      //class methods:
       #apply()                           class method class This1 #apply()=(..)
       }
     Fail={
       [Message, HasToS, Message.Guard]
+      //class methods:
       #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
       #apply(that)                       class method mut This #apply(S that)=(..)
       #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+      //imm methods:
       #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
       with(cause)                        method This with(Message cause)=(..)
+      //read methods:
       cause()                            read method Message.OptMessage cause()=(..)
       text()                             read method S text()=(..)
       toS()                              read method S toS()=(..)
+      //mut methods:
       cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
       text(that)                         mut method Void text(S that)=(..)
       }
     TraitCacheVals={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -452,11 +499,13 @@ Main = Debug(S"Hello world")
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitEnumBase={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -465,11 +514,13 @@ Main = Debug(S"Hello world")
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     TraitEnumStep={
       [Trait.Lifted]
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
       #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -478,24 +529,30 @@ Main = Debug(S"Hello world")
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method Trait #apply()=(..)
         }
       }
     }
   @Public IterationIncomplete={
     [Message, HasToS, Message.Guard]
+    //class methods:
     #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
     #apply(that)                       class method mut This #apply(S that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
     with(cause)                        method This with(Message cause)=(..)
+    //read methods:
     cause()                            read method Message.OptMessage cause()=(..)
     text()                             read method S text()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
     text(that)                         mut method Void text(S that)=(..)
     }
   @Public IteratorCompose={
+    //class methods:
     #apply(that)                       class method This #apply(Bool that)=(..)
     canContinue()                      class method This canContinue()=(..)
     canStop()                          class method This canStop()=(..)
@@ -505,6 +562,7 @@ Main = Debug(S"Hello world")
     mustContinue()                     class method This mustContinue()=(..)
     mustStop()                         class method This mustStop()=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
     #gt0(that)                         method Bool #gt0(This that)=(..)
@@ -517,50 +575,66 @@ Main = Debug(S"Hello world")
     pred()                             method This pred()native{..}=(..)
     signum()                           method This signum()native{..}=(..)
     succ()                             method This succ()native{..}=(..)
+    //read methods:
     readEquality(that)                 read method Bool readEquality(read This that)native{..}=(..)
     }
   @Public NoElementInOpt={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(S that)native{..}=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method S text()native{..}=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public OperationUndefinedOnEmpty={
     [Message, HasToS, Message.Guard]
+    //class methods:
     #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
     #apply(that)                       class method mut This #apply(S that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
     with(cause)                        method This with(Message cause)=(..)
+    //read methods:
     cause()                            read method Message.OptMessage cause()=(..)
     text()                             read method S text()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
     text(that)                         mut method Void text(S that)=(..)
     }
   @Public OutOfBounds={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(S that)native{..}=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method S text()native{..}=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public View={
     [HasToS]
+    //class methods:
     #apply(that)                       @Public class method This #apply(class Any that)=(..)
+    //imm methods:
     #toLibrary()                       @Public method Library #toLibrary()[Data.Fail, Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     cut()                              @Public method This cut()=(..)
     defaultMut()                       @Public method This defaultMut()=(..)
     defaultRead()                      @Public method This defaultRead()=(..)
     more()                             @Public method This more()=(..)
     moreMut()                          @Public method This moreMut()=(..)
+    //read methods:
     toS()                              read method S toS()=(..)
     }
   @AbstractTowel{
@@ -568,6 +642,7 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Data={
+  //class methods:
   #apply()                           @Public class method This #apply()=(..)
   #apply(string)                     @Public class method This #apply(S string)=(..)
   #apply(that)                       @Public class method This #apply(Name that)=(..)
@@ -582,90 +657,119 @@ Main = Debug(S"Hello world")
   addNEqOp()                         @Public class method Trait addNEqOp()=(..)
   addReadEqOp()                      @Public class method Trait addReadEqOp()=(..)
   checkCoherent(that)                @Public class method Void checkCoherent(Library that)[Class.IncoherentClass]=(..)
+  //imm methods:
   #colon0(lib)                       @Public method Library #colon0(Library lib)[Fail]=(..)
   #colon0(that)                      @Public method Trait #colon0(Trait that)[Fail]=(..)
   optionallyApply(that, acc)         @Public method Trait optionallyApply(Trait that, Trait acc)=(..)
   @Public AddConstructors={
+    //class methods:
     #apply(string)                     @Public class method This #apply(S string)=(..)
     #apply(that, noFwd)                @Public class method This #apply(Name that, Bool noFwd)=(..)
     #from(stringLiteral)               @Public class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #colon0(l)                         @Public method Trait #colon0(class Trait.Lifted l)[Fail]=(..)
     #colon0(t)                         @Public method Trait #colon0(Trait t)[Fail]=(..)
     #colon0(that)                      @Public method Library #colon0(Library that)[Fail]=(..)
     @Public ClassOperators={
+      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
       [HasToS, Message, Message.Guard, Fail]
+      //class methods:
       #apply()                           class method This #apply()=(..)
       #apply(that)                       class method mut This #apply(S that)native{..}=(..)
       #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+      //imm methods:
       #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+      //read methods:
       text()                             read method S text()native{..}=(..)
       toS()                              read method S toS()=(..)
+      //mut methods:
       text(that)                         mut method Void text(S that)native{..}=(..)
       }
     }
   @Public AddList={
+    //imm methods:
     #colon0(lib)                       @Public method Library #colon0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
     #colon0(that)                      @Public method Trait #colon0(Trait that)[Trait.ClassClash, Trait.MethodClash]=(..)
     @Public ClassOperators={
+      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     }
   @Public AddOpt={
+    //imm methods:
     #colon0(lib)                       @Public method Library #colon0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
     #colon0(that)                      @Public method Trait #colon0(Trait that)[Trait.ClassClash, Trait.MethodClash]=(..)
     @Public ClassOperators={
+      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     }
   @Public AddSet={
+    //imm methods:
     #colon0(lib)                       @Public method Library #colon0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
     #colon0(that)                      @Public method Trait #colon0(Trait that)[Trait.ClassClash, Trait.MethodClash]=(..)
     @Public ClassOperators={
+      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     }
   @Public ClassOperators={
+    //class methods:
     #apply()                           class method This1 #apply()=(..)
     }
   @Public Close={
+    //class methods:
     #apply(that, autoNorm)             @Public class method This #apply(Name that, Bool autoNorm)=(..)
     all(that, autoNorm)                @Public class method Trait all(Trait that, Bool autoNorm)[Fail]=(..)
+    //imm methods:
     #colon0(l)                         @Public method Trait #colon0(class Trait.Lifted l)[Fail]=(..)
     #colon0(t)                         @Public method Trait #colon0(Trait t)[Fail]=(..)
     #colon0(that)                      @Public method Library #colon0(Library that)[Fail]=(..)
     @Public ClassOperators={
+      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
       [HasToS, Message, Message.Guard, Fail]
+      //class methods:
       #apply()                           class method This #apply()=(..)
       #apply(that)                       class method mut This #apply(S that)native{..}=(..)
       #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+      //imm methods:
       #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+      //read methods:
       text()                             read method S text()native{..}=(..)
       toS()                              read method S toS()=(..)
+      //mut methods:
       text(that)                         mut method Void text(S that)native{..}=(..)
       }
     }
   @Public Defaults={
+    //class methods:
     #apply(that)                       @Public class method This #apply(Name that)=(..)
+    //imm methods:
     #colon0(l)                         @Public method Trait #colon0(class Trait.Lifted l)[Fail]=(..)
     #colon0(t)                         @Public method Trait #colon0(Trait t)[Fail]=(..)
     #colon0(that)                      @Public method Library #colon0(Library that)[Fail]=(..)
     @Public ClassOperators={
+      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
       [HasToS, Message, Message.Guard, Fail]
+      //class methods:
       #apply()                           class method This #apply()=(..)
       #apply(that)                       class method mut This #apply(S that)native{..}=(..)
       #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+      //imm methods:
       #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+      //read methods:
       text()                             read method S text()native{..}=(..)
       toS()                              read method S toS()=(..)
+      //mut methods:
       text(that)                         mut method Void text(S that)native{..}=(..)
       }
     @{
@@ -674,39 +778,52 @@ Main = Debug(S"Hello world")
     }
   @Public Fail={
     interface[Message.Guard, Message, HasToS]
+    //class methods:
     #apply(that)                       class method mut Message #apply(S that)
     #from(stringLiteral)               class method Message #from(S.StringBuilder stringLiteral)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)
+    //read methods:
     text()                             read method S text()
     toS()                              read method S toS()
+    //mut methods:
     text(that)                         mut method Void text(S that)
     }
   @Public Relax={
+    //class methods:
     #apply()                           class method This1 #apply()=(..)
     #apply(string)                     class method This1 #apply(S string)=(..)
     #apply(that)                       class method This1 #apply(Name that)=(..)
     #apply(that, autoNorm)             class method This1 #apply(Name that, Bool autoNorm)=(..)
     #from(stringLiteral)               class method This1 #from(S.StringBuilder stringLiteral)=(..)
     ClassOperators={
+      //class methods:
       #apply()                           class method This2 #apply()=(..)
       }
     }
   @Public Wither={
+    //class methods:
     #apply(that)                       @Public class method This #apply(Name that)=(..)
+    //imm methods:
     #colon0(l)                         @Public method Trait #colon0(class Trait.Lifted l)[Fail]=(..)
     #colon0(t)                         @Public method Trait #colon0(Trait t)[Fail]=(..)
     #colon0(that)                      @Public method Library #colon0(Library that)[Fail]=(..)
     @Public ClassOperators={
+      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
       [HasToS, Message, Message.Guard, Fail]
+      //class methods:
       #apply()                           class method This #apply()=(..)
       #apply(that)                       class method mut This #apply(S that)native{..}=(..)
       #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+      //imm methods:
       #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+      //read methods:
       text()                             read method S text()native{..}=(..)
       toS()                              read method S toS()=(..)
+      //mut methods:
       text(that)                         mut method Void text(S that)native{..}=(..)
       }
     }
@@ -715,50 +832,65 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Debug={
+  //class methods:
   #apply(that)                       @Public class method Void #apply(read HasToS that)=(..)
   @AbstractTowel{
     debug
     }
   }
 @Public Decorator={
+  //class methods:
   #apply()                           @Public class method This #apply()=(..)
+  //imm methods:
   #apply(trait)                      @Public method Trait #apply(Trait trait)[Message.Guard]=(..)
   #colon0(lib)                       @Public method Library #colon0(Library lib)[Fail]=(..)
   #colon0(trait)                     @Public method Trait #colon0(Trait trait)[Fail]=(..)
   @Public ClassOperators={
+    //class methods:
     #apply()                           class method This1 #apply()=(..)
     }
   @Public Fail={
     [Message, HasToS, Message.Guard]
+    //class methods:
     #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
     #apply(that)                       class method mut This #apply(S that)=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
     with(cause)                        method This with(Message cause)=(..)
+    //read methods:
     cause()                            read method Message.OptMessage cause()=(..)
     text()                             read method S text()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
     text(that)                         mut method Void text(S that)=(..)
     }
   @Public WithArgs={
+    //class methods:
     #apply()                           @Public class method This #apply()=(..)
+    //imm methods:
     #apply(trait)                      @Public method Trait #apply(Trait trait)[Message.Guard]=(..)
     #colon0(lib)                       @Public method Library #colon0(Library lib)[Fail]=(..)
     #colon0(trait)                     @Public method Trait #colon0(Trait trait)[Fail]=(..)
     @Public ClassOperators={
+      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
       [Message, HasToS, Message.Guard]
+      //class methods:
       #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
       #apply(that)                       class method mut This #apply(S that)=(..)
       #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+      //imm methods:
       #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
       with(cause)                        method This with(Message cause)=(..)
+      //read methods:
       cause()                            read method Message.OptMessage cause()=(..)
       text()                             read method S text()=(..)
       toS()                              read method S toS()=(..)
+      //mut methods:
       cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
       text(that)                         mut method Void text(S that)=(..)
       }
@@ -769,11 +901,13 @@ Main = Debug(S"Hello world")
   }
 @Public Double={
   [HasToS, Math.Numeric]
+  //class methods:
   #apply(num)                        class method This #apply(Num num)native{..}=(..)
   #apply(string)                     class method This #apply(S string)=(..)
   #apply(that)                       class method This #apply(Math.Numeric that)=(..)
   #from(stringLiteral)               @Cache.Call class method This #from(S.StringBuilder stringLiteral)=(..)
   zero()                             class method This zero()=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #divide0(that)                     method This #divide0(This that)native{..}=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
@@ -812,11 +946,15 @@ Main = Debug(S"Hello world")
   toI()                              method I toI()native{..}=(..)
   toLong()                           method Math.Long toLong()native{..}=(..)
   toNum()                            method Num toNum()=(..)
+  //read methods:
   readEquality(that)                 read method Bool readEquality(read This that)native{..}=(..)
   toS()                              read method S toS()native{..}=(..)
   Acc={
+    //class methods:
     #apply(val)                        class method mut This #apply(This1 val)=(..)
+    //read methods:
     val()                              read method This1 val()=(..)
+    //mut methods:
     #apply(that)                       mut method This1 #apply(Void that)=(..)
     add(that)                          mut method Void add(This1 that)=(..)
     addIf(that)                        mut method Void addIf(Bool that)=(..)
@@ -827,12 +965,14 @@ Main = Debug(S"Hello world")
     }
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -876,6 +1016,7 @@ Main = Debug(S"Hello world")
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -931,6 +1072,7 @@ Main = Debug(S"Hello world")
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -980,7 +1122,9 @@ Main = Debug(S"Hello world")
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -990,6 +1134,7 @@ Main = Debug(S"Hello world")
       end()                              read method I end()=(..)
       list()                             read method read This1 list()=(..)
       start()                            read method I start()=(..)
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()=(..)
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -1004,9 +1149,11 @@ Main = Debug(S"Hello world")
   }
 @Public HasToS={
   interface
+  //read methods:
   toS()                              read method S toS()
   Raw={
     interface[This1]
+    //read methods:
     toS()                              read method S toS()
     }
   @AbstractTowel{
@@ -1015,6 +1162,7 @@ Main = Debug(S"Hello world")
   }
 @Public I={
   [HasToS, Math.Numeric]
+  //class methods:
   #apply(num)                        @{
     Conversion method.
     Rounds the parameter (floor) to the nearest int32.
@@ -1030,6 +1178,7 @@ Main = Debug(S"Hello world")
     Meta-programming friendly method.
     The constant zero.
     }class method This zero()=(..)
+  //imm methods:
   #bangequal0(that)                  @{
     Optimized Signed Modular Arithmetic Relation.
     This operation returns false iff this = that, in the common mathematical interpretation.
@@ -1124,14 +1273,18 @@ Main = Debug(S"Hello world")
     Conversion method.
     Result = receiver/denominator.
     }method Num toNum(This denominator)=(..)
+  //read methods:
   readEquality(that)                 @{
     Optimized Signed Modular Arithmetic Relation.
     This operation returns true iff this = that, in the common mathematical interpretation.
     }read method Bool readEquality(read This that)native{..}=(..)
   toS()                              read method S toS()native{..}=(..)
   Acc={
+    //class methods:
     #apply(val)                        class method mut This #apply(This1 val)=(..)
+    //read methods:
     val()                              read method This1 val()=(..)
+    //mut methods:
     #apply(that)                       mut method This1 #apply(Void that)=(..)
     add(that)                          mut method Void add(This1 that)=(..)
     addIf(that)                        mut method Void addIf(Bool that)=(..)
@@ -1142,12 +1295,14 @@ Main = Debug(S"Hello world")
     }
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(capacity)                   class method mut This #apply(This1 capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -1191,6 +1346,7 @@ Main = Debug(S"Hello world")
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(This1 that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(This1 that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(This1 that)=(..)
@@ -1246,6 +1402,7 @@ Main = Debug(S"Hello world")
     vals(that)                         read method read Iterator vals(This1 that)=(..)
     vals(that, to)                     read method read Iterator vals(This1 that, This1 to)=(..)
     vals(to)                           read method read Iterator vals(This1 to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -1295,7 +1452,9 @@ Main = Debug(S"Hello world")
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(This1 that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(This2 start, This2 end, fwd mut This1 list)=(..)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(This2 that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(This2 that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(This2 that)=(..)
@@ -1305,6 +1464,7 @@ Main = Debug(S"Hello world")
       end()                              read method This2 end()=(..)
       list()                             read method read This1 list()=(..)
       start()                            read method This2 start()=(..)
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(This2 that)=(..)
       #list()                            mut method mut This1 #list()=(..)
       #update#default(that, val)         mut method This2 #update#default(This2 that, This2 val)=(..)
@@ -1319,8 +1479,10 @@ Main = Debug(S"Hello world")
   }
 @Public Info={
   [HasToS]
+  //class methods:
   #apply(library)                    @Public class method This #apply(Library library)=(..)
   #apply(that)                       @Public class method This #apply(class Any that)=(..)
+  //imm methods:
   #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
   classAny()                         @Public method class Any classAny()=(..)
@@ -1347,9 +1509,11 @@ Main = Debug(S"Hello world")
   position()                         @Public method S position()=(..)
   root()                             @Public method This root()=(..)
   toFullS()                          @Public method S toFullS()=(..)
+  //read methods:
   toS()                              read method S toS()=(..)
   @Public Doc={
     [HasToS]
+    //imm methods:
     #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
     annotatedAs(nested)                @Public method Bool annotatedAs(This1 nested)=(..)
@@ -1363,15 +1527,18 @@ Main = Debug(S"Hello world")
     nameFromRoot()                     @Public method Name nameFromRoot()=(..)
     root()                             @Public method This1 root()=(..)
     texts()                            @Public method S.List texts()=(..)
+    //read methods:
     toS()                              read method S toS()=(..)
     @Public List={
       [HasToS]
+      //class methods:
       #apply()                           class method mut This #apply()=(..)
       #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
       #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
       #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
       #squareBuilder()                   class method mut This #squareBuilder()=(..)
       equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+      //imm methods:
       #bangequal0(that)                  @{
         Predicate
         Delegates to 'System.immEquality'.
@@ -1415,6 +1582,7 @@ Main = Debug(S"Hello world")
         }method This withoutAll(read This1 val)=(..)
       withoutLeft()                      method This withoutLeft()=(..)
       withoutRight()                     method This withoutRight()=(..)
+      //read methods:
       #elem#default(that)                read method This1 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -1470,6 +1638,7 @@ Main = Debug(S"Hello world")
       vals(that)                         read method read Iterator vals(I that)=(..)
       vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
       vals(to)                           read method read Iterator vals(I to)=(..)
+      //mut methods:
       #add(left)                         mut method Void #add(mut This1 left)=(..)
       #add(right)                        mut method Void #add(mut This1 right)=(..)
       #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -1519,7 +1688,9 @@ Main = Debug(S"Hello world")
       right(that)                        mut method Void right(This1 that)=(..)
       set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
       Iterator={
+        //class methods:
         #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
+        //read methods:
         #elem#default(that)                read method This2 #elem#default(I that)=(..)
         #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
         #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -1529,6 +1700,7 @@ Main = Debug(S"Hello world")
         end()                              read method I end()=(..)
         list()                             read method read This1 list()=(..)
         start()                            read method I start()=(..)
+        //mut methods:
         #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
         #list()                            mut method mut This1 #list()=(..)
         #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -1539,11 +1711,14 @@ Main = Debug(S"Hello world")
       }
     @Public Opt={
       [HasToS]
+      //class methods:
       #apply()                           class method mut This #apply()=(..)
       #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
       equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+      //imm methods:
       #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
       #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+      //read methods:
       #bang0()                           read method Bool #bang0()=(..)
       #if()                              read method Bool #if()native{..}=(..)
       #in1(that)                         read method Bool #in1(read This1 that)=(..)
@@ -1554,18 +1729,21 @@ Main = Debug(S"Hello world")
       toS()                              read method S toS()=(..)
       val()                              read method read This1 val()native{..}=(..)
       val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+      //mut methods:
       #val()                             mut method mut This1 #val()native{..}=(..)
       #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
       }
     }
   @Public List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -1609,6 +1787,7 @@ Main = Debug(S"Hello world")
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -1664,6 +1843,7 @@ Main = Debug(S"Hello world")
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -1713,7 +1893,9 @@ Main = Debug(S"Hello world")
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -1723,6 +1905,7 @@ Main = Debug(S"Hello world")
       end()                              read method I end()=(..)
       list()                             read method read This1 list()=(..)
       start()                            read method I start()=(..)
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()=(..)
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -1733,6 +1916,7 @@ Main = Debug(S"Hello world")
     }
   @Public Method={
     [HasToS]
+    //imm methods:
     #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
     doc()                              @Public method Doc doc()=(..)
@@ -1745,15 +1929,18 @@ Main = Debug(S"Hello world")
     position()                         @Public method S position()=(..)
     returnType()                       @Public method Type returnType()=(..)
     selector()                         @Public method S selector()=(..)
+    //read methods:
     toS()                              read method S toS()=(..)
     @Public List={
       [HasToS]
+      //class methods:
       #apply()                           class method mut This #apply()=(..)
       #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
       #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
       #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
       #squareBuilder()                   class method mut This #squareBuilder()=(..)
       equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+      //imm methods:
       #bangequal0(that)                  @{
         Predicate
         Delegates to 'System.immEquality'.
@@ -1797,6 +1984,7 @@ Main = Debug(S"Hello world")
         }method This withoutAll(read This1 val)=(..)
       withoutLeft()                      method This withoutLeft()=(..)
       withoutRight()                     method This withoutRight()=(..)
+      //read methods:
       #elem#default(that)                read method This1 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -1852,6 +2040,7 @@ Main = Debug(S"Hello world")
       vals(that)                         read method read Iterator vals(I that)=(..)
       vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
       vals(to)                           read method read Iterator vals(I to)=(..)
+      //mut methods:
       #add(left)                         mut method Void #add(mut This1 left)=(..)
       #add(right)                        mut method Void #add(mut This1 right)=(..)
       #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -1901,7 +2090,9 @@ Main = Debug(S"Hello world")
       right(that)                        mut method Void right(This1 that)=(..)
       set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
       Iterator={
+        //class methods:
         #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
+        //read methods:
         #elem#default(that)                read method This2 #elem#default(I that)=(..)
         #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
         #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -1911,6 +2102,7 @@ Main = Debug(S"Hello world")
         end()                              read method I end()=(..)
         list()                             read method read This1 list()=(..)
         start()                            read method I start()=(..)
+        //mut methods:
         #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
         #list()                            mut method mut This1 #list()=(..)
         #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -1922,6 +2114,7 @@ Main = Debug(S"Hello world")
     }
   @Public Type={
     [HasToS]
+    //imm methods:
     #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
     doc()                              @Public method Doc doc()=(..)
@@ -1929,15 +2122,18 @@ Main = Debug(S"Hello world")
     mdf()                              @{
       return a string in the set "read","imm","fwd imm","mut","fwd mut","lent","capsule","class"
       }@Public method S mdf()=(..)
+    //read methods:
     toS()                              read method S toS()=(..)
     @Public List={
       [HasToS]
+      //class methods:
       #apply()                           class method mut This #apply()=(..)
       #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
       #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
       #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
       #squareBuilder()                   class method mut This #squareBuilder()=(..)
       equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+      //imm methods:
       #bangequal0(that)                  @{
         Predicate
         Delegates to 'System.immEquality'.
@@ -1981,6 +2177,7 @@ Main = Debug(S"Hello world")
         }method This withoutAll(read This1 val)=(..)
       withoutLeft()                      method This withoutLeft()=(..)
       withoutRight()                     method This withoutRight()=(..)
+      //read methods:
       #elem#default(that)                read method This1 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -2036,6 +2233,7 @@ Main = Debug(S"Hello world")
       vals(that)                         read method read Iterator vals(I that)=(..)
       vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
       vals(to)                           read method read Iterator vals(I to)=(..)
+      //mut methods:
       #add(left)                         mut method Void #add(mut This1 left)=(..)
       #add(right)                        mut method Void #add(mut This1 right)=(..)
       #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -2085,7 +2283,9 @@ Main = Debug(S"Hello world")
       right(that)                        mut method Void right(This1 that)=(..)
       set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
       Iterator={
+        //class methods:
         #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
+        //read methods:
         #elem#default(that)                read method This2 #elem#default(I that)=(..)
         #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
         #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -2095,6 +2295,7 @@ Main = Debug(S"Hello world")
         end()                              read method I end()=(..)
         list()                             read method read This1 list()=(..)
         start()                            read method I start()=(..)
+        //mut methods:
         #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
         #list()                            mut method mut This1 #list()=(..)
         #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -2109,20 +2310,26 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Load={
+  //class methods:
   #apply()                           class method This #apply()=(..)
   #apply(deps)                       class method This #apply(Info.List deps)=(..)
   baseDeps()                         class method mut Info.List baseDeps()=(..)
+  //imm methods:
   #colon0(that)                      method Library #colon0(Library that)[Trait.InvalidName, Trait.InvalidMap, Trait.MethodClash, Trait.ClassClash]=(..)
   #colon0(trait)                     method Trait #colon0(Trait trait)[Trait.InvalidName, Trait.InvalidMap, Trait.MethodClash, Trait.ClassClash]=(..)
   collect(that)                      method Trait.Acc collect(Library that)=(..)
   match(src, dest)                   method Bool match(S src, S dest)=(..)
+  //read methods:
   deps()                             read method Info.List deps()=(..)
   ClassOperators={
+    //class methods:
     #apply()                           class method This1 #apply()=(..)
     }
   N={
+    //class methods:
     #colon0(a)                         class method Info #colon0(class Any a)=(..)
     ClassOperators={
+      //class methods:
       #apply()                           class method class This1 #apply()=(..)
       }
     }
@@ -2131,11 +2338,14 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Log={
+  //class methods:
   #apply(that)                       class method This #apply(S that)=(..)
   #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+  //read methods:
   #$reader()                         read method mut This #$reader()=(..)
   clear()                            read method Void clear()=(..)
   write(that)                        read method Void write(S that)=(..)
+  //mut methods:
   read()                             mut method S read()=(..)
   @AbstractTowel{
     log
@@ -2143,17 +2353,23 @@ Main = Debug(S"Hello world")
   }
 @Public Match={
   @Public All={
+    //class methods:
     #apply()                           @Public class method mut This #apply()=(..)
+    //mut methods:
     #apply(that)                       @Public mut method Bool #apply(Void that)=(..)
     add(that)                          @Public mut method Void add(Bool that)[Void]=(..)
     }
   @Public None={
+    //class methods:
     #apply()                           @Public class method mut This #apply()=(..)
+    //mut methods:
     #apply(that)                       @Public mut method Bool #apply(Void that)=(..)
     add(that)                          @Public mut method Void add(Bool that)[Void]=(..)
     }
   @Public Some={
+    //class methods:
     #apply()                           @Public class method mut This #apply()=(..)
+    //mut methods:
     #apply(that)                       @Public mut method Bool #apply(Void that)=(..)
     add(that)                          @Public mut method Void add(Bool that)[Void]=(..)
     }
@@ -2162,6 +2378,7 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Math={
+  //class methods:
   maxI()                             class method I maxI()=(..)
   maxLong()                          class method Long maxLong()=(..)
   minI()                             class method I minI()=(..)
@@ -2175,21 +2392,27 @@ Main = Debug(S"Hello world")
   tau()                              class method Double tau()=(..)
   ArithmeticError={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(S that)native{..}=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method S text()native{..}=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   Long={
     [HasToS, Numeric]
+    //class methods:
     #apply(num)                        class method This #apply(Num num)native{..}=(..)
     #apply(string)                     class method This #apply(S string)=(..)
     #apply(that)                       class method This #apply(Numeric that)=(..)
     #from(stringLiteral)               @Cache.Call class method This #from(S.StringBuilder stringLiteral)=(..)
     zero()                             class method This zero()=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #divide0(that)                     method This #divide0(This that)native{..}=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
@@ -2218,11 +2441,15 @@ Main = Debug(S"Hello world")
     toLong()                           method This toLong()=(..)
     toNum()                            method Num toNum()=(..)
     toNum(denominator)                 method Num toNum(This denominator)=(..)
+    //read methods:
     readEquality(that)                 read method Bool readEquality(read This that)native{..}=(..)
     toS()                              read method S toS()native{..}=(..)
     Acc={
+      //class methods:
       #apply(val)                        class method mut This #apply(This1 val)=(..)
+      //read methods:
       val()                              read method This1 val()=(..)
+      //mut methods:
       #apply(that)                       mut method This1 #apply(Void that)=(..)
       add(that)                          mut method Void add(This1 that)=(..)
       addIf(that)                        mut method Void addIf(Bool that)=(..)
@@ -2237,18 +2464,22 @@ Main = Debug(S"Hello world")
     }
   Numeric={
     interface
+    //class methods:
     #apply(that)                       @{
       This method creates an instance of the current type from another @This.
       Any class implementing @This should refine the return type to its own This type.
       }class method This #apply(This that)
+    //imm methods:
     toDouble()                         method Double toDouble()
     toI()                              method I toI()
     toLong()                           method Long toLong()
     toNum()                            method Num toNum()
     }
   Random={
+    //class methods:
     #$random()                         class method mut This #$random()=(..)
     #apply(seed)                       class method mut This #apply(Long seed)=(..)
+    //mut methods:
     nextDouble()                       mut method Double nextDouble()=(..)
     nextInRange(that, to)              mut method I nextInRange(I that, I to)=(..)
     nextLong()                         mut method Long nextLong()=(..)
@@ -2256,6 +2487,7 @@ Main = Debug(S"Hello world")
     }
   RandomListTrait={
     [Trait.Lifted]
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2264,11 +2496,13 @@ Main = Debug(S"Hello world")
     info()                             class method Info info()=(..)
     resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
     ClassOperators={
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
   Support={
     [Trait.Lifted]
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     #apply(squareBuilder)              class method Trait #apply(mut Trait.Acc squareBuilder)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
     #plus0(lib)                        class method Trait #plus0(Library lib)[Trait.ClassClash, Trait.MethodClash]=(..)
@@ -2277,6 +2511,7 @@ Main = Debug(S"Hello world")
     info()                             class method Info info()=(..)
     resetDocs(squareBuilder)           class method Trait resetDocs(mut Trait.DocMap squareBuilder)[Trait.InvalidName]=(..)
     ClassOperators={
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
@@ -2286,46 +2521,64 @@ Main = Debug(S"Hello world")
   }
 @Public Message={
   interface[HasToS]
+  //class methods:
   #apply(that)                       @Public class method mut This #apply(S that)
   #from(stringLiteral)               @Public class method This #from(S.StringBuilder stringLiteral)
+  //imm methods:
   #whoopsed(atPos)                   @Public method This #whoopsed(Library atPos)
+  //read methods:
   text()                             @Public read method S text()
   toS()                              read method S toS()
+  //mut methods:
   text(that)                         @Public mut method Void text(S that)
   @Public Assert={
     interface[This1, HasToS]
+    //class methods:
     #apply(that)                       class method mut This1 #apply(S that)
     #from(stringLiteral)               class method This1 #from(S.StringBuilder stringLiteral)
+    //imm methods:
     #whoopsed(atPos)                   method This1 #whoopsed(Library atPos)
+    //read methods:
     text()                             read method S text()
     toS()                              read method S toS()
+    //mut methods:
     text(that)                         mut method Void text(S that)
     }
   @Public ClassOperators={
+    //class methods:
     #apply()                           class method class This #apply()=(..)
     #colon0(that)                      class method Library #colon0(Library that)[Trait.ClassClash, Trait.MethodClash]=(..)
     #colon0(trait)                     class method Trait #colon0(Trait trait)[Trait.ClassClash, Trait.MethodClash]=(..)
     }
   @Public Guard={
     interface[This1, HasToS]
+    //class methods:
     #apply(that)                       class method mut This1 #apply(S that)
     #from(stringLiteral)               class method This1 #from(S.StringBuilder stringLiteral)
+    //imm methods:
     #whoopsed(atPos)                   method This1 #whoopsed(Library atPos)
+    //read methods:
     text()                             read method S text()
     toS()                              read method S toS()
+    //mut methods:
     text(that)                         mut method Void text(S that)
     }
   @Public Native={
+    //class methods:
     #apply()                           class method Trait #apply()=(..)
     ClassOperators={
+      //class methods:
       #apply()                           class method Trait #apply()=(..)
       }
     }
   @Public OptMessage={
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
+    //read methods:
     #if()                              read method Bool #if()native{..}=(..)
     val()                              read method read This1 val()native{..}=(..)
+    //mut methods:
     #val()                             mut method mut This1 #val()native{..}=(..)
     }
   @AbstractTowel{
@@ -2334,9 +2587,11 @@ Main = Debug(S"Hello world")
   }
 @Public Name={
   [HasToS]
+  //class methods:
   #apply(string)                     @Public class method This #apply(S string)=(..)
   #from(stringLiteral)               @Public@Cache.Call class method This #from(S.StringBuilder stringLiteral)=(..)
   validX(that)                       @Public class method Bool validX(S that)=(..)
+  //imm methods:
   #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
   #equalgt0(nested)                  @Public method Mapping #equalgt0(Info nested)=(..)
   #equalgt0(other)                   @Public method Mapping #equalgt0(This other)=(..)
@@ -2353,16 +2608,19 @@ Main = Debug(S"Hello world")
   with(xs)                           @Public method This with(S.List xs)=(..)
   x()                                @Public method S x()=(..)
   xs()                               @Public method S.List xs()=(..)
+  //read methods:
   readEquality(that)                 @Public read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
   @Public List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -2406,6 +2664,7 @@ Main = Debug(S"Hello world")
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -2461,6 +2720,7 @@ Main = Debug(S"Hello world")
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -2510,7 +2770,9 @@ Main = Debug(S"Hello world")
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -2520,6 +2782,7 @@ Main = Debug(S"Hello world")
       end()                              read method I end()=(..)
       list()                             read method read This1 list()=(..)
       start()                            read method I start()=(..)
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()=(..)
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -2529,6 +2792,7 @@ Main = Debug(S"Hello world")
       }
     }
   @Public Mapping={
+    //class methods:
     #apply()                           @Public class method This #apply()=(..)
     #from(stringLiteral)               @Public@Cache.Call class method This1 #from(S.StringBuilder stringLiteral)=(..)
     }
@@ -2538,10 +2802,12 @@ Main = Debug(S"Hello world")
   }
 @Public Num={
   [HasToS, Math.Numeric]
+  //class methods:
   #apply(string)                     class method This #apply(S string)=(..)
   #apply(that)                       class method This #apply(Math.Numeric that)=(..)
   #from(stringLiteral)               @Cache.Call class method This #from(S.StringBuilder stringLiteral)=(..)
   zero()                             class method This zero()=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #divide0(that)                     method This #divide0(This that)native{..}=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
@@ -2572,11 +2838,15 @@ Main = Debug(S"Hello world")
   toI()                              method I toI()=(..)
   toLong()                           method Math.Long toLong()=(..)
   toNum()                            method This toNum()=(..)
+  //read methods:
   readEquality(that)                 read method Bool readEquality(read This that)native{..}=(..)
   toS()                              read method S toS()native{..}=(..)
   Acc={
+    //class methods:
     #apply(val)                        class method mut This #apply(This1 val)=(..)
+    //read methods:
     val()                              read method This1 val()=(..)
+    //mut methods:
     #apply(that)                       mut method This1 #apply(Void that)=(..)
     add(that)                          mut method Void add(This1 that)=(..)
     addIf(that)                        mut method Void addIf(Bool that)=(..)
@@ -2587,12 +2857,14 @@ Main = Debug(S"Hello world")
     }
   List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -2636,6 +2908,7 @@ Main = Debug(S"Hello world")
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -2691,6 +2964,7 @@ Main = Debug(S"Hello world")
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -2740,7 +3014,9 @@ Main = Debug(S"Hello world")
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -2750,6 +3026,7 @@ Main = Debug(S"Hello world")
       end()                              read method I end()=(..)
       list()                             read method read This1 list()=(..)
       start()                            read method I start()=(..)
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()=(..)
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -2763,11 +3040,14 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Organize={
+  //class methods:
   #apply()                           @Public class method This #apply()=(..)
+  //imm methods:
   #colon0(lifted)                    @Public method Trait #colon0(class Trait.Lifted lifted)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #colon0(that)                      @Public method Library #colon0(Library that)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #colon0(trait)                     @Public method Trait #colon0(Trait trait)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   @Public ClassOperators={
+    //class methods:
     #apply()                           class method This1 #apply()=(..)
     }
   @AbstractTowel{
@@ -2775,13 +3055,16 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Public={
+  //class methods:
   #apply()                           @This class method This #apply()=(..)
   #apply(private)                    @This class method This #apply(Info private)=(..)
   #apply(public)                     @This class method This #apply(Info public)=(..)
   #apply(public, private)            @This class method This #apply(Info public, Info private)=(..)
+  //imm methods:
   #colon0(lib)                       @This method Library #colon0(Library lib)[Data.Close.Fail, Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   #colon0(that)                      @This method Trait #colon0(Trait that)[Data.Close.Fail, Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   @This ClassOperators={
+    //class methods:
     #apply()                           class method This1 #apply()=(..)
     }
   @AbstractTowel{
@@ -2790,6 +3073,7 @@ Main = Debug(S"Hello world")
   }
 @Public Range={
   [Indexes]
+  //class methods:
   #apply(that)                       @{
     Factory method
     A range from zero (included) up to 'that' (excluded).
@@ -2810,6 +3094,7 @@ Main = Debug(S"Hello world")
     If iterated together with other collections, it will behave like a
     'cut-view' thus allowing for an early termination   
     }@Public class method Unbounded unbounded(I that)=(..)
+  //imm methods:
   #elem#default(that)                @Public method I #elem#default(I that)=(..)
   #endIndex()                        @Public method I #endIndex()=(..)
   #hasElem(that)                     @Public method Collection.IteratorCompose #hasElem(I that)=(..)
@@ -2823,6 +3108,7 @@ Main = Debug(S"Hello world")
   steps()                            @Public method I steps()=(..)
   @Public AndThen={
     [Indexes]
+    //imm methods:
     #elem#default(that)                @Public method I #elem#default(I that)=(..)
     #endIndex()                        @Public method I #endIndex()=(..)
     #hasElem(that)                     @Public method Collection.IteratorCompose #hasElem(I that)=(..)
@@ -2832,6 +3118,7 @@ Main = Debug(S"Hello world")
     }
   @Public Indexes={
     interface
+    //imm methods:
     #elem#default(that)                method I #elem#default(I that)
     #endIndex()                        method I #endIndex()
     #hasElem(that)                     method Collection.IteratorCompose #hasElem(I that)
@@ -2841,6 +3128,7 @@ Main = Debug(S"Hello world")
     }
   @Public Reverse={
     [Indexes]
+    //imm methods:
     #elem#default(that)                @Public method I #elem#default(I that)=(..)
     #endIndex()                        @Public method I #endIndex()=(..)
     #hasElem(that)                     @Public method Collection.IteratorCompose #hasElem(I that)=(..)
@@ -2850,6 +3138,7 @@ Main = Debug(S"Hello world")
     }
   @Public Unbounded={
     [Indexes]
+    //imm methods:
     #elem#default(that)                @Public method I #elem#default(I that)=(..)
     #endIndex()                        @Public method I #endIndex()=(..)
     #hasElem(that)                     @Public method Collection.IteratorCompose #hasElem(I that)=(..)
@@ -2863,6 +3152,7 @@ Main = Debug(S"Hello world")
   }
 @Public S={
   [HasToS, HasToS.Raw]
+  //class methods:
   #apply(string)                     @{
     Meta-programming friendly method.
     For this class it just returns the argument.
@@ -2883,6 +3173,7 @@ Main = Debug(S"Hello world")
     Returns a string composed only of the tab character.
     }@Public class method This tab()=(..)
   upToLow()                          @Public@Cache.Lazy class method Map upToLow()native{..}=(..)
+  //imm methods:
   #bangequal0(that)                  @{
     Structural inequality on strings.
     }@Public method Bool #bangequal0(This that)=(..)
@@ -2984,6 +3275,7 @@ Main = Debug(S"Hello world")
   trim()                             @{
     Returns a string like the receiver; but with all leading and trailing spaces, new lines and tabs removed.
     }@Public method This trim()native{..}=(..)
+  //read methods:
   readEquality(that)                 @{
     Structural equality on strings.
     }@Public read method Bool readEquality(read This that)native{..}=(..)
@@ -2992,47 +3284,59 @@ Main = Debug(S"Hello world")
     }@Public read method I size()native{..}=(..)
   toS()                              read method This toS()native{..}=(..)
   @Public Alphanumeric={
+    //class methods:
     #apply()                           @Public class method This #apply()=(..)
+    //imm methods:
     #apply(trait)                      @Public method Trait #apply(Trait trait)[Message.Guard]=(..)
     #colon0(lib)                       @Public method Library #colon0(Library lib)[Fail]=(..)
     #colon0(trait)                     @Public method Trait #colon0(Trait trait)[Fail]=(..)
     trait()                            @Public method Trait trait()=(..)
     @Public ClassOperators={
+      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
       [Message, HasToS, Message.Guard]
+      //class methods:
       #apply(text, cause)                class method mut This #apply(This2 text, Message.OptMessage cause)=(..)
       #apply(that)                       class method mut This #apply(This2 that)=(..)
       #from(stringLiteral)               class method This #from(StringBuilder stringLiteral)=(..)
+      //imm methods:
       #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
       with(cause)                        method This with(Message cause)=(..)
+      //read methods:
       cause()                            read method Message.OptMessage cause()=(..)
       text()                             read method This2 text()=(..)
       toS()                              read method This2 toS()=(..)
+      //mut methods:
       cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
       text(that)                         mut method Void text(This2 that)=(..)
       }
     }
   @Public Chariterator={
     [HasToS]
+    //read methods:
     #elem#default(that)                @Public read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    @Public read method This1 #elem#imm(I that)=(..)
     #if()                              @Public read method Bool #if()=(..)
     #startIndex()                      @Public read method I #startIndex()=(..)
     toS()                              read method This1 toS()=(..)
+    //lent methods:
     #iterator()                        @Public lent method lent This #iterator()=(..)
+    //mut methods:
     #apply()                           @Public mut method This1 #apply()=(..)
     #hasElem(that)                     @Public mut method Collection.IteratorCompose #hasElem(I that)=(..)
     }
   @Public List={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -3076,6 +3380,7 @@ Main = Debug(S"Hello world")
       }method This withoutAll(read This1 val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   read method read This1 #elem#read(I that)=(..)
@@ -3131,6 +3436,7 @@ Main = Debug(S"Hello world")
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut This1 left)=(..)
     #add(right)                        mut method Void #add(mut This1 right)=(..)
     #add(that)                         mut method Void #add(mut This1 that)=(..)
@@ -3180,7 +3486,9 @@ Main = Debug(S"Hello world")
     right(that)                        mut method Void right(This1 that)=(..)
     set(that, val)                     mut method Void set(I that, This1 val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
+      //read methods:
       #elem#default(that)                read method This2 #elem#default(I that)=(..)
       #elem#imm(that)                    read method This2 #elem#imm(I that)=(..)
       #elem#read(that)                   read method read This2 #elem#read(I that)=(..)
@@ -3190,6 +3498,7 @@ Main = Debug(S"Hello world")
       end()                              read method I end()=(..)
       list()                             read method read This1 list()=(..)
       start()                            read method I start()=(..)
+      //mut methods:
       #elem#mut(that)                    mut method mut This2 #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()=(..)
       #update#default(that, val)         mut method This2 #update#default(I that, This2 val)=(..)
@@ -3200,14 +3509,17 @@ Main = Debug(S"Hello world")
     }
   @Public Map={
     [HasToS]
+    //class methods:
     #apply()                           @Public class method mut This #apply()=(..)
     #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               @Public class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   @Public class method mut This #squareBuilder()=(..)
     empty()                            @Public class method mut This empty()=(..)
+    //imm methods:
     #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
     immNorm()                          @Public method This immNorm()=(..)
+    //read methods:
     #elem#default(that)                @Public read method Entry #elem#default(I that)=(..)
     #elem#imm(that)                    @Public read method Entry #elem#imm(I that)=(..)
     #elem#read(that)                   @Public read method read Entry #elem#read(I that)=(..)
@@ -3227,6 +3539,7 @@ Main = Debug(S"Hello world")
     val(key)                           @Public read method Opt val(This1 key)=(..)
     val(that)                          @Public read method This1 val(I that)=(..)
     vals()                             @Public read method read This vals()=(..)
+    //mut methods:
     #apply(that)                       @Public mut method mut This #apply(Void that)=(..)
     #elem#mut(that)                    @Public mut method mut Entry #elem#mut(I that)=(..)
     #entry(that)                       @Public mut method mut Entry #entry(I that)=(..)
@@ -3241,30 +3554,37 @@ Main = Debug(S"Hello world")
     remove(key)                        @Public mut method Void remove(This1 key)=(..)
     @Public Entry={
       [HasToS]
+      //class methods:
       #apply(key, val)                   class method mut This #apply(fwd imm This2 key, fwd mut This2 val)=(..)
       #immK(key, val)                    class method This #immK(This2 key, This2 val)=(..)
       readEntry(key, val)                class method read This readEntry(This2 key, read This2 val)=(..)
+      //imm methods:
       #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
       #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
       norm()                             method This norm()=(..)
       with(key)                          method This with(This2 key)=(..)
       with(val)                          method This with(This2 val)=(..)
+      //read methods:
       immClone()                         read method This immClone()=(..)
       key()                              read method This2 key()=(..)
       readEquality(that)                 read method Bool readEquality(read This that)=(..)
       toS()                              read method This2 toS()=(..)
       val()                              read method read This2 val()=(..)
+      //mut methods:
       #val()                             mut method mut This2 #val()=(..)
       capsuleClone()                     mut method capsule This capsuleClone()=(..)
       }
     }
   @Public Opt={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(that)                       class method mut This #apply(fwd mut This1 that)native{..}=(..)
     equals(a, b)                       class method Bool equals(read This1 a, read This1 b)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    //read methods:
     #bang0()                           read method Bool #bang0()=(..)
     #if()                              read method Bool #if()native{..}=(..)
     #in1(that)                         read method Bool #in1(read This1 that)=(..)
@@ -3275,28 +3595,36 @@ Main = Debug(S"Hello world")
     toS()                              read method This1 toS()=(..)
     val()                              read method read This1 val()native{..}=(..)
     val(orElse)                        read method read This1 val(read This1 orElse)=(..)
+    //mut methods:
     #val()                             mut method mut This1 #val()native{..}=(..)
     #val(orElse)                       mut method mut This1 #val(mut This1 orElse)=(..)
     }
   @Public ParseError={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(This1 that)native{..}=(..)
     #from(stringLiteral)               class method This #from(StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method This1 text()native{..}=(..)
     toS()                              read method This1 toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(This1 that)native{..}=(..)
     }
   @Public Set={
     [HasToS]
+    //class methods:
     #apply()                           @Public class method mut This #apply()=(..)
     #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               @Public class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   @Public class method mut This #squareBuilder()=(..)
     empty()                            @Public class method mut This empty()=(..)
+    //imm methods:
     #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
+    //read methods:
     #elem#default(that)                @Public read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    @Public read method This1 #elem#imm(I that)=(..)
     #elem#read(that)                   @Public read method This1 #elem#read(I that)=(..)
@@ -3311,6 +3639,7 @@ Main = Debug(S"Hello world")
     toS()                              @Public read method This1 toS()=(..)
     val(that)                          @Public read method This1 val(I that)=(..)
     vals()                             @Public read method read This vals()=(..)
+    //mut methods:
     #apply(that)                       @Public mut method mut This #apply(Void that)=(..)
     #squareAdd(that)                   @Public mut method Void #squareAdd(This1 that)=(..)
     #vals()                            @Public mut method mut This #vals()=(..)
@@ -3319,20 +3648,26 @@ Main = Debug(S"Hello world")
     }
   @Public Spliterator={
     [HasToS]
+    //read methods:
     #elem#default(that)                @Public read method This1 #elem#default(I that)=(..)
     #elem#imm(that)                    @Public read method This1 #elem#imm(I that)=(..)
     #if()                              @Public read method Bool #if()=(..)
     #startIndex()                      @Public read method I #startIndex()=(..)
     toS()                              read method This1 toS()=(..)
+    //lent methods:
     #iterator()                        @Public lent method lent This #iterator()=(..)
+    //mut methods:
     #apply()                           @Public mut method This1 #apply()=(..)
     #hasElem(that)                     @Public mut method Collection.IteratorCompose #hasElem(I that)=(..)
     }
   @Public StringBuilder={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #stringLiteralBuilder()            class method mut This #stringLiteralBuilder()=(..)
+    //read methods:
     toS()                              read method This1 toS()native{..}=(..)
+    //mut methods:
     #apply(that)                       mut method This1 #apply(Void that)=(..)
     #d0()                              mut method Void #d0()native{..}=(..)
     #d1()                              mut method Void #d1()native{..}=(..)
@@ -3441,6 +3776,7 @@ Main = Debug(S"Hello world")
     }
   }
 @Public System={
+  //class methods:
   capsuleClone(that)                 @Public class method capsule Any capsuleClone(mut Any that)=(..)
   extractModule(that, name)          @Public class method Trait extractModule(Library that, Name name)[Trait.InvalidName, Trait.InvalidMap, Trait.ClassClash, Trait.MethodClash]=(..)
   immClone(that)                     @Public class method Any immClone(read Any that)=(..)
@@ -3454,32 +3790,44 @@ Main = Debug(S"Hello world")
   towelToS(that, fauxName)           @Public class method S towelToS(Library that, S fauxName)=(..)
   @Public JavaException={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(S that)native{..}=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method S text()native{..}=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public LibraryNotSelfContained={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(S that)native{..}=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method S text()native{..}=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public NonDeterministicError={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(S that)native{..}=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method S text()native{..}=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @AbstractTowel{
@@ -3487,29 +3835,39 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Test={
+  //class methods:
   #from(stringLiteral)               class method WithName #from(S.StringBuilder stringLiteral)=(..)
   hole()                             class method S hole()=(..)
   Condition={
+    //class methods:
     #apply(name, cond, message)        class method This #apply(S name, Bool cond, S message)=(..)
+    //imm methods:
     #colon1(pos)                       method Void #colon1(Library pos)=(..)
     #from(stringLiteral)               method This #from(S.StringBuilder stringLiteral)=(..)
+    //read methods:
     cond()                             read method Bool cond()=(..)
     message()                          read method S message()=(..)
     name()                             read method S name()=(..)
     }
   ExpectedActual={
+    //class methods:
     #apply(name, expected, actual, message)     class method This #apply(S name, S expected, S actual, S message)=(..)
+    //imm methods:
     #colon1(pos)                       method Void #colon1(Library pos)=(..)
+    //read methods:
     actual()                           read method S actual()=(..)
     expected()                         read method S expected()=(..)
     message()                          read method S message()=(..)
     name()                             read method S name()=(..)
     }
   WithName={
+    //class methods:
     #apply(name)                       class method This #apply(S name)=(..)
+    //imm methods:
     #apply(actual, expected)           method ExpectedActual #apply(read HasToS actual, read HasToS expected)=(..)
     #apply(expected, actual)           method ExpectedActual #apply(read HasToS expected, read HasToS actual)=(..)
     #apply(that)                       method Condition #apply(Bool that)=(..)
+    //read methods:
     name()                             read method S name()=(..)
     }
   @AbstractTowel{
@@ -3517,9 +3875,11 @@ Main = Debug(S"Hello world")
     }
   }
 @Public Trait={
+  //class methods:
   #apply()                           @Public class method This #apply()=(..)
   #apply(that)                       @Public class method This #apply(Library that)=(..)
   delayedCode(that)                  @Public class method Library delayedCode(Library that)[ClassClash, MethodClash]=(..)
+  //imm methods:
   #apply(squareBuilder)              @Public method This #apply(read Acc squareBuilder)[InvalidName, InvalidMap, ClassClash, MethodClash]=(..)
   #colon0(lib)                       @Public method This #colon0(Library lib)[ClassClash, MethodClash]=(..)
   #colon0(lifted)                    @Public method This #colon0(class Lifted lifted)[ClassClash, MethodClash]=(..)
@@ -3533,13 +3893,17 @@ Main = Debug(S"Hello world")
   info()                             @Public method Info info()=(..)
   removeUnusedCode()                 @Public method This removeUnusedCode()=(..)
   resetDocs(squareBuilder)           @Public method This resetDocs(mut DocMap squareBuilder)[InvalidName]=(..)
+  //read methods:
   code()                             @Public read method Library code()=(..)
   @Public Acc={
+    //class methods:
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #apply(that)                       class method mut This #apply(Name.Mapping that)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
+    //read methods:
     that()                             read method Name.Mapping that()=(..)
+    //mut methods:
     #squareAdd(clear)                  mut method Void #squareAdd(Name clear)=(..)
     #squareAdd(clearSingle)            mut method Void #squareAdd(Name clearSingle)=(..)
     #squareAdd(hide)                   mut method Void #squareAdd(Name hide)=(..)
@@ -3551,28 +3915,36 @@ Main = Debug(S"Hello world")
     }
   @Public ClassClash={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(S that)native{..}=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method S text()native{..}=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public ClassOperators={
+    //class methods:
     #apply()                           class method This1 #apply()=(..)
     }
   @Public DocMap={
     [HasToS]
+    //class methods:
     #apply()                           @Public class method mut This #apply()=(..)
     #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               @Public class method Bool #shortCircutSquare()=(..)
     #squareBuilder#resetDocs()         @Public class method mut This #squareBuilder#resetDocs()=(..)
     #squareBuilder()                   @Public class method mut This #squareBuilder()=(..)
     empty()                            @Public class method mut This empty()=(..)
+    //imm methods:
     #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
     immNorm()                          @Public method This immNorm()=(..)
+    //read methods:
     #elem#default(that)                @Public read method Entry #elem#default(I that)=(..)
     #elem#imm(that)                    @Public read method Entry #elem#imm(I that)=(..)
     #elem#read(that)                   @Public read method read Entry #elem#read(I that)=(..)
@@ -3593,6 +3965,7 @@ Main = Debug(S"Hello world")
     val(key)                           @Public read method OVal val(Name key)=(..)
     val(that)                          @Public read method S val(I that)=(..)
     vals()                             @Public read method read This vals()=(..)
+    //mut methods:
     #apply(that)                       @Public mut method mut This #apply(Void that)=(..)
     #elem#mut(that)                    @Public mut method mut Entry #elem#mut(I that)=(..)
     #entry(that)                       @Public mut method mut Entry #entry(I that)=(..)
@@ -3607,29 +3980,36 @@ Main = Debug(S"Hello world")
     remove(key)                        @Public mut method Void remove(Name key)=(..)
     @Public Entry={
       [HasToS]
+      //class methods:
       #apply(key, val)                   class method mut This #apply(fwd imm Name key, fwd mut S val)=(..)
       #immK(key, val)                    class method This #immK(Name key, S val)=(..)
       readEntry(key, val)                class method read This readEntry(Name key, read S val)=(..)
+      //imm methods:
       #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
       #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
       norm()                             method This norm()=(..)
       with(key)                          method This with(Name key)=(..)
       with(val)                          method This with(S val)=(..)
+      //read methods:
       immClone()                         read method This immClone()=(..)
       key()                              read method Name key()=(..)
       readEquality(that)                 read method Bool readEquality(read This that)=(..)
       toS()                              read method S toS()=(..)
       val()                              read method read S val()=(..)
+      //mut methods:
       #val()                             mut method mut S #val()=(..)
       capsuleClone()                     mut method capsule This capsuleClone()=(..)
       }
     @Public OVal={
       [HasToS]
+      //class methods:
       #apply()                           class method mut This #apply()=(..)
       #apply(that)                       class method mut This #apply(fwd mut S that)native{..}=(..)
       equals(a, b)                       class method Bool equals(read S a, read S b)=(..)
+      //imm methods:
       #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
       #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+      //read methods:
       #bang0()                           read method Bool #bang0()=(..)
       #if()                              read method Bool #if()native{..}=(..)
       #in1(that)                         read method Bool #in1(read S that)=(..)
@@ -3640,34 +4020,45 @@ Main = Debug(S"Hello world")
       toS()                              read method S toS()=(..)
       val()                              read method read S val()native{..}=(..)
       val(orElse)                        read method read S val(read S orElse)=(..)
+      //mut methods:
       #val()                             mut method mut S #val()native{..}=(..)
       #val(orElse)                       mut method mut S #val(mut S orElse)=(..)
       }
     }
   @Public InvalidMap={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(S that)native{..}=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method S text()native{..}=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public InvalidName={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(S that)native{..}=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method S text()native{..}=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public LiftS={
+    //class methods:
     #apply(that)                       class method This1 #apply(S that)=(..)
     TraitS={
       [Lifted]
+      //class methods:
       #apply()                           class method This2 #apply()=(..)
       #apply(squareBuilder)              class method This2 #apply(mut Acc squareBuilder)[InvalidName, InvalidMap, ClassClash, MethodClash]=(..)
       #plus0(lib)                        class method This2 #plus0(Library lib)[ClassClash, MethodClash]=(..)
@@ -3676,12 +4067,14 @@ Main = Debug(S"Hello world")
       info()                             class method Info info()=(..)
       resetDocs(squareBuilder)           class method This2 resetDocs(mut DocMap squareBuilder)[InvalidName]=(..)
       ClassOperators={
+        //class methods:
         #apply()                           class method This3 #apply()=(..)
         }
       }
     }
   @Public Lifted={
     interface
+    //class methods:
     #apply()                           class method This1 #apply()
     #apply(squareBuilder)              class method This1 #apply(mut Acc squareBuilder)[InvalidName, InvalidMap, ClassClash, MethodClash]
     #plus0(lib)                        class method This1 #plus0(Library lib)[ClassClash, MethodClash]
@@ -3692,15 +4085,20 @@ Main = Debug(S"Hello world")
     }
   @Public MethodClash={
     [HasToS, Message, Message.Guard]
+    //class methods:
     #apply()                           class method This #apply()=(..)
     #apply(that)                       class method mut This #apply(S that)native{..}=(..)
     #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method Message #whoopsed(Library atPos)=(..)
+    //read methods:
     text()                             read method S text()native{..}=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     text(that)                         mut method Void text(S that)native{..}=(..)
     }
   @Public NativeSlaveRename={
+    //class methods:
     #apply(that, oldName, newName)     @Public class method Library #apply(Library that, S oldName, S newName)[InvalidName]=(..)
     }
   @AbstractTowel{
@@ -3709,8 +4107,10 @@ Main = Debug(S"Hello world")
   }
 @Public Url={
   [HasToS]
+  //class methods:
   #apply(string)                     @Public class method This #apply(S string)=(..)
   #from(stringLiteral)               @Public@Cache.Call class method This #from(S.StringBuilder stringLiteral)=(..)
+  //read methods:
   toS()                              read method S toS()=(..)
   @AbstractTowel{
     url
@@ -3718,6 +4118,7 @@ Main = Debug(S"Hello world")
   }
 @Public X={
   [Message, HasToS, Message.Assert]
+  //class methods:
   #apply(squareBuilder)              class method Void #apply(mut Checks squareBuilder)=(..)
   #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
   #apply(that)                       class method mut This #apply(S that)=(..)
@@ -3726,37 +4127,46 @@ Main = Debug(S"Hello world")
   #squareBuilder()                   class method mut Checks #squareBuilder()=(..)
   introMsg()                         class method S introMsg()=(..)
   raiseError(msg)                    class method Void raiseError(S msg)=(..)
+  //imm methods:
   #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
   with(cause)                        method This with(Message cause)=(..)
+  //read methods:
   cause()                            read method Message.OptMessage cause()=(..)
   text()                             read method S text()=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
   text(that)                         mut method Void text(S that)=(..)
   Check={
     [HasToS]
+    //class methods:
     #apply(res, msg)                   class method This #apply(fwd imm Bool res, fwd imm S msg)=(..)
     #immK(res, msg)                    class method This #immK(Bool res, S msg)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
     norm()                             method This norm()=(..)
     with(msg)                          method This with(S msg)=(..)
     with(res)                          method This with(Bool res)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     msg()                              read method S msg()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     res()                              read method Bool res()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     }
   Checks={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
     #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
     #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
     #squareBuilder()                   class method mut This #squareBuilder()=(..)
     equals(a, b)                       class method Bool equals(read Check a, read Check b)=(..)
+    //imm methods:
     #bangequal0(that)                  @{
       Predicate
       Delegates to 'System.immEquality'.
@@ -3800,6 +4210,7 @@ Main = Debug(S"Hello world")
       }method This withoutAll(read Check val)=(..)
     withoutLeft()                      method This withoutLeft()=(..)
     withoutRight()                     method This withoutRight()=(..)
+    //read methods:
     #elem#default(that)                read method Check #elem#default(I that)=(..)
     #elem#imm(that)                    read method Check #elem#imm(I that)=(..)
     #elem#read(that)                   read method read Check #elem#read(I that)=(..)
@@ -3855,6 +4266,7 @@ Main = Debug(S"Hello world")
     vals(that)                         read method read Iterator vals(I that)=(..)
     vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
     vals(to)                           read method read Iterator vals(I to)=(..)
+    //mut methods:
     #add(left)                         mut method Void #add(mut Check left)=(..)
     #add(right)                        mut method Void #add(mut Check right)=(..)
     #add(that)                         mut method Void #add(mut Check that)=(..)
@@ -3907,7 +4319,9 @@ Main = Debug(S"Hello world")
     right(that)                        mut method Void right(Check that)=(..)
     set(that, val)                     mut method Void set(I that, Check val)native{..}=(..)
     Iterator={
+      //class methods:
       #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)=(..)
+      //read methods:
       #elem#default(that)                read method Check #elem#default(I that)=(..)
       #elem#imm(that)                    read method Check #elem#imm(I that)=(..)
       #elem#read(that)                   read method read Check #elem#read(I that)=(..)
@@ -3917,6 +4331,7 @@ Main = Debug(S"Hello world")
       end()                              read method I end()=(..)
       list()                             read method read This1 list()=(..)
       start()                            read method I start()=(..)
+      //mut methods:
       #elem#mut(that)                    mut method mut Check #elem#mut(I that)=(..)
       #list()                            mut method mut This1 #list()=(..)
       #update#default(that, val)         mut method Check #update#default(I that, Check val)=(..)
@@ -3926,33 +4341,42 @@ Main = Debug(S"Hello world")
       }
     }
   Condition={
+    //class methods:
     #apply()                           @Public class method This #apply()=(..)
+    //imm methods:
     #apply(trait)                      @Public method Trait #apply(Trait trait)[Message.Guard]=(..)
     #colon0(lib)                       @Public method Library #colon0(Library lib)[Fail]=(..)
     #colon0(trait)                     @Public method Trait #colon0(Trait trait)[Fail]=(..)
     trait()                            @Public method Trait trait()=(..)
     @Public ClassOperators={
+      //class methods:
       #apply()                           class method This1 #apply()=(..)
       }
     @Public Fail={
       [Message, HasToS, Message.Guard]
+      //class methods:
       #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
       #apply(that)                       class method mut This #apply(S that)=(..)
       #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+      //imm methods:
       #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
       with(cause)                        method This with(Message cause)=(..)
+      //read methods:
       cause()                            read method Message.OptMessage cause()=(..)
       text()                             read method S text()=(..)
       toS()                              read method S toS()=(..)
+      //mut methods:
       cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
       text(that)                         mut method Void text(S that)=(..)
       }
     }
   EnableAssertions={
+    //class methods:
     #apply()                           class method Bool #apply()=(..)
     }
   Guarded={
     [Message, HasToS, Message.Guard]
+    //class methods:
     #apply(squareBuilder)              class method Void #apply(mut Checks squareBuilder)=(..)
     #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
     #apply(that)                       class method mut This #apply(S that)=(..)
@@ -3961,16 +4385,20 @@ Main = Debug(S"Hello world")
     #squareBuilder()                   class method mut Checks #squareBuilder()=(..)
     introMsg()                         class method S introMsg()=(..)
     raiseError(msg)                    class method Void raiseError(S msg)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
     with(cause)                        method This with(Message cause)=(..)
+    //read methods:
     cause()                            read method Message.OptMessage cause()=(..)
     text()                             read method S text()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
     text(that)                         mut method Void text(S that)=(..)
     }
   Pre={
     [Message, HasToS, Message.Assert]
+    //class methods:
     #apply(squareBuilder)              class method Void #apply(mut Checks squareBuilder)=(..)
     #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
     #apply(that)                       class method mut This #apply(S that)=(..)
@@ -3979,11 +4407,14 @@ Main = Debug(S"Hello world")
     #squareBuilder()                   class method mut Checks #squareBuilder()=(..)
     introMsg()                         class method S introMsg()=(..)
     raiseError(msg)                    class method Void raiseError(S msg)=(..)
+    //imm methods:
     #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
     with(cause)                        method This with(Message cause)=(..)
+    //read methods:
     cause()                            read method Message.OptMessage cause()=(..)
     text()                             read method S text()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
     text(that)                         mut method Void text(S that)=(..)
     }
@@ -4013,6 +4444,7 @@ Would produce the following:
 <pre class="l42BigFolded"><![CDATA[
 LinkeListPerson={
   interface
+  //read methods:
   #iterator()                        @Public read method Iterator #iterator()
   #plusplus0(that)                   @Public read method read This #plusplus0(read This that)
   #startIndex()                      @Public read method read This #startIndex()
@@ -4023,7 +4455,9 @@ LinkeListPerson={
   top()                              @Public read method read Person top()
   @Public Empty={
     [This1]
+    //class methods:
     #apply()                           @Public class method read This1 #apply()=(..)
+    //read methods:
     #iterator()                        read method Iterator #iterator()=(..)
     #plusplus0(that)                   read method read This1 #plusplus0(read This1 that)=(..)
     #startIndex()                      read method read This1 #startIndex()=(..)
@@ -4034,18 +4468,22 @@ LinkeListPerson={
     top()                              read method read Person top()=(..)
     }
   @Public Iterator={
+    //imm methods:
     #elem#default(that)                @Public method read Person #elem#default(read This1 that)=(..)
+    //read methods:
     #hasElem(that)                     @Public read method Collection.IteratorCompose #hasElem(read This1 that)=(..)
     }
   }
 ListPerson={
   [HasToS]
+  //class methods:
   #apply()                           class method mut This #apply()
   #apply(capacity)                   class method mut This #apply(I capacity)native{..}=(..)
   #apply(squareBuilder)              class method mut This #apply(mut This squareBuilder)=(..)
   #shortCircutSquare()               class method Bool #shortCircutSquare()=(..)
   #squareBuilder()                   class method mut This #squareBuilder()=(..)
   equals(a, b)                       class method Bool equals(read Person a, read Person b)=(..)
+  //imm methods:
   #bangequal0(that)                  @{
     Predicate
     Delegates to 'System.immEquality'.
@@ -4089,6 +4527,7 @@ ListPerson={
     }method This withoutAll(read Person val)=(..)
   withoutLeft()                      method This withoutLeft()=(..)
   withoutRight()                     method This withoutRight()=(..)
+  //read methods:
   #elem#default(that)                read method Person #elem#default(I that)=(..)
   #elem#imm(that)                    read method Person #elem#imm(I that)=(..)
   #elem#read(that)                   read method read Person #elem#read(I that)=(..)
@@ -4144,6 +4583,7 @@ ListPerson={
   vals(that)                         read method read Iterator vals(I that)=(..)
   vals(that, to)                     read method read Iterator vals(I that, I to)=(..)
   vals(to)                           read method read Iterator vals(I to)=(..)
+  //mut methods:
   #add(left)                         mut method Void #add(mut Person left)=(..)
   #add(right)                        mut method Void #add(mut Person right)=(..)
   #add(that)                         mut method Void #add(mut Person that)=(..)
@@ -4193,7 +4633,9 @@ ListPerson={
   right(that)                        mut method Void right(Person that)=(..)
   set(that, val)                     mut method Void set(I that, Person val)native{..}=(..)
   Iterator={
+    //class methods:
     #apply(start, end, list)           class method mut This #apply(I start, I end, fwd mut This1 list)
+    //read methods:
     #elem#default(that)                read method Person #elem#default(I that)=(..)
     #elem#imm(that)                    read method Person #elem#imm(I that)=(..)
     #elem#read(that)                   read method read Person #elem#read(I that)=(..)
@@ -4203,6 +4645,7 @@ ListPerson={
     end()                              read method I end()
     list()                             read method read This1 list()
     start()                            read method I start()
+    //mut methods:
     #elem#mut(that)                    mut method mut Person #elem#mut(I that)=(..)
     #list()                            mut method mut This1 #list()
     #update#default(that, val)         mut method Person #update#default(I that, Person val)=(..)
@@ -4213,14 +4656,17 @@ ListPerson={
   }
 MapSPerson={
   [HasToS]
+  //class methods:
   #apply()                           @Public class method mut This #apply()=(..)
   #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
   #shortCircutSquare()               @Public class method Bool #shortCircutSquare()=(..)
   #squareBuilder()                   @Public class method mut This #squareBuilder()=(..)
   empty()                            @Public class method mut This empty()=(..)
+  //imm methods:
   #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
   immNorm()                          @Public method This immNorm()=(..)
+  //read methods:
   #elem#default(that)                @Public read method Entry #elem#default(I that)=(..)
   #elem#imm(that)                    @Public read method Entry #elem#imm(I that)=(..)
   #elem#read(that)                   @Public read method read Entry #elem#read(I that)=(..)
@@ -4240,6 +4686,7 @@ MapSPerson={
   val(key)                           @Public read method OVal val(S key)=(..)
   val(that)                          @Public read method Person val(I that)=(..)
   vals()                             @Public read method read This vals()=(..)
+  //mut methods:
   #apply(that)                       @Public mut method mut This #apply(Void that)=(..)
   #elem#mut(that)                    @Public mut method mut Entry #elem#mut(I that)=(..)
   #entry(that)                       @Public mut method mut Entry #entry(I that)=(..)
@@ -4254,29 +4701,36 @@ MapSPerson={
   remove(key)                        @Public mut method Void remove(S key)=(..)
   @Public Entry={
     [HasToS]
+    //class methods:
     #apply(key, val)                   class method mut This #apply(fwd imm S key, fwd mut Person val)=(..)
     #immK(key, val)                    class method This #immK(S key, Person val)=(..)
     readEntry(key, val)                class method read This readEntry(S key, read Person val)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
     norm()                             method This norm()=(..)
     with(key)                          method This with(S key)=(..)
     with(val)                          method This with(Person val)=(..)
+    //read methods:
     immClone()                         read method This immClone()=(..)
     key()                              read method S key()=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     toS()                              read method S toS()=(..)
     val()                              read method read Person val()=(..)
+    //mut methods:
     #val()                             mut method mut Person #val()=(..)
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     }
   @Public OVal={
     [HasToS]
+    //class methods:
     #apply()                           class method mut This #apply()=(..)
     #apply(that)                       class method mut This #apply(fwd mut Person that)native{..}=(..)
     equals(a, b)                       class method Bool equals(read Person a, read Person b)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    //read methods:
     #bang0()                           read method Bool #bang0()=(..)
     #if()                              read method Bool #if()native{..}=(..)
     #in1(that)                         read method Bool #in1(read Person that)=(..)
@@ -4287,22 +4741,26 @@ MapSPerson={
     toS()                              read method S toS()=(..)
     val()                              read method read Person val()native{..}=(..)
     val(orElse)                        read method read Person val(read Person orElse)=(..)
+    //mut methods:
     #val()                             mut method mut Person #val()native{..}=(..)
     #val(orElse)                       mut method mut Person #val(mut Person orElse)=(..)
     }
   }
 MatrixPerson={
   [HasToS]
+  //class methods:
   #apply(default)                    @Public class method mut This #apply(Person default)=(..)
   #apply(mutDefault)                 @Public class method mut This #apply(mut Person mutDefault)=(..)
   #apply(that)                       @Public class method mut This #apply(mut ListPerson that)=(..)
   #immK(that)                        @Public class method This #immK(ListPerson that)=(..)
   dimensions()                       @Public@Cache.Lazy class method Collection.Dimensions dimensions()=(..)
   elemToS(row, col, val)             @Public class method S elemToS(I row, I col, read Person val)=(..)
+  //imm methods:
   #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
   with(row, col, val)                @Public method This with(I row, I col, Person val)=(..)
   with(that, val)                    @Public method This with(Coord that, Person val)=(..)
+  //read methods:
   #elem#default(that)                @Public read method Person #elem#default(I that)=(..)
   #elem#imm(that)                    @Public read method Person #elem#imm(I that)=(..)
   #elem#read(that)                   @Public read method read Person #elem#read(I that)=(..)
@@ -4319,6 +4777,7 @@ MatrixPerson={
   val(row, col)                      @Public read method Person val(I row, I col)=(..)
   val(that)                          @Public read method Person val(Coord that)=(..)
   vals()                             @Public read method read This vals()=(..)
+  //mut methods:
   #elem#mut(that)                    @Public mut method mut Person #elem#mut(I that)=(..)
   #set(row, col, val)                @Public mut method Void #set(I row, I col, mut Person val)=(..)
   #set(that, val)                    @Public mut method Void #set(Coord that, mut Person val)=(..)
@@ -4333,26 +4792,32 @@ MatrixPerson={
   set(that, val)                     @Public mut method Void set(Coord that, Person val)=(..)
   @Public Coord={
     [HasToS]
+    //class methods:
     #apply(index)                      class method This #apply(I index)=(..)
     #apply(row, col)                   class method This #apply(I row, I col)=(..)
     #immK(row, col)                    class method This #immK(I row, I col)=(..)
     invariant(row, col)                class method Void invariant(I row, I col)=(..)
+    //imm methods:
     #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
     #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
     index()                            method I index()=(..)
     norm()                             method This norm()=(..)
     with(col)                          method This with(I col)=(..)
     with(row)                          method This with(I row)=(..)
+    //read methods:
     col()                              read method I col()=(..)
     immClone()                         read method This immClone()=(..)
     invariant()                        @Cache.Now read method Void invariant()native{..}=(..)
     readEquality(that)                 read method Bool readEquality(read This that)=(..)
     row()                              read method I row()=(..)
     toS()                              read method S toS()=(..)
+    //mut methods:
     capsuleClone()                     mut method capsule This capsuleClone()=(..)
     }
   @Public Iterator={
+    //class methods:
     #apply()                           class method This #apply()=(..)
+    //imm methods:
     #elem#default(that)                method Coord #elem#default(I that)=(..)
     #hasElem(that)                     method Collection.IteratorCompose #hasElem(I that)=(..)
     #iterator()                        method This #iterator()=(..)
@@ -4361,11 +4826,14 @@ MatrixPerson={
   }
 OptPerson={
   [HasToS]
+  //class methods:
   #apply()                           class method mut This #apply()
   #apply(that)                       class method mut This #apply(fwd mut Person that)native{..}=(..)
   equals(a, b)                       class method Bool equals(read Person a, read Person b)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+  //read methods:
   #bang0()                           read method Bool #bang0()=(..)
   #if()                              read method Bool #if()native{..}=(..)
   #in1(that)                         read method Bool #in1(read Person that)=(..)
@@ -4376,51 +4844,63 @@ OptPerson={
   toS()                              read method S toS()=(..)
   val()                              read method read Person val()native{..}=(..)
   val(orElse)                        read method read Person val(read Person orElse)=(..)
+  //mut methods:
   #val()                             mut method mut Person #val()native{..}=(..)
   #val(orElse)                       mut method mut Person #val(mut Person orElse)=(..)
   }
 Person={
   [HasToS]
+  //class methods:
   #apply(name, location)             class method mut This #apply(fwd imm S name, fwd imm Point location)=(..)
   #immK(name, location)              class method This #immK(S name, Point location)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   norm()                             method This norm()=(..)
   with(location)                     method This with(Point location)=(..)
   with(name)                         method This with(S name)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   location()                         read method Point location()=(..)
   name()                             read method S name()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   location(that)                     mut method Void location(Point that)=(..)
   }
 Point={
   [HasToS]
+  //class methods:
   #apply(x, y)                       class method This #apply(fwd imm Num x, fwd imm Num y)=(..)
   #immK(x, y)                        class method This #immK(Num x, Num y)=(..)
+  //imm methods:
   #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
   norm()                             method This norm()=(..)
   with(x)                            method This with(Num x)=(..)
   with(y)                            method This with(Num y)=(..)
+  //read methods:
   immClone()                         read method This immClone()=(..)
   readEquality(that)                 read method Bool readEquality(read This that)=(..)
   toS()                              read method S toS()=(..)
   x()                                read method Num x()=(..)
   y()                                read method Num y()=(..)
+  //mut methods:
   capsuleClone()                     mut method capsule This capsuleClone()=(..)
   }
 SetPerson={
   [HasToS]
+  //class methods:
   #apply()                           @Public class method mut This #apply()=(..)
   #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
   #shortCircutSquare()               @Public class method Bool #shortCircutSquare()=(..)
   #squareBuilder()                   @Public class method mut This #squareBuilder()=(..)
   empty()                            @Public class method mut This empty()=(..)
+  //imm methods:
   #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
   #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
+  //read methods:
   #elem#default(that)                @Public read method Person #elem#default(I that)=(..)
   #elem#imm(that)                    @Public read method Person #elem#imm(I that)=(..)
   #elem#read(that)                   @Public read method Person #elem#read(I that)=(..)
@@ -4435,6 +4915,7 @@ SetPerson={
   toS()                              @Public read method S toS()=(..)
   val(that)                          @Public read method Person val(I that)=(..)
   vals()                             @Public read method read This vals()=(..)
+  //mut methods:
   #apply(that)                       @Public mut method mut This #apply(Void that)=(..)
   #squareAdd(that)                   @Public mut method Void #squareAdd(Person that)=(..)
   #vals()                            @Public mut method mut This #vals()=(..)
@@ -4458,15 +4939,19 @@ Would produce the following:
 <pre class="l42BigFolded"><![CDATA[
 KindInformation={
   [Message, HasToS, Message.Guard]
+  //class methods:
   #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
   #apply(that)                       class method mut This #apply(S that)=(..)
   #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+  //imm methods:
   #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
   extra()                            method S extra()=(..)
   with(cause)                        method This with(Message cause)=(..)
+  //read methods:
   cause()                            read method Message.OptMessage cause()
   text()                             read method S text()
   toS()                              read method S toS()=(..)
+  //mut methods:
   cause(that)                        mut method Void cause(Message.OptMessage that)
   text(that)                         mut method Void text(S that)
   }
