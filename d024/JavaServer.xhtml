@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <link rel="stylesheet" type="text/css" href="https://l42.is/css/style.css" media="all"/>
+    <script src="https://l42.is/js/ace.js"></script>
+    <script src="https://l42.is/js/utils.js"></script>
+    <link rel="shortcut icon" href="https://l42.is/css/favicon.ico"/>
+    <title>42 - Metaprogramming as default</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-M0E4M0XH2Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M0E4M0XH2Z');
+    </script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-212820693-1">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-212820693-1');
+    </script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=AW-10810288706"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-10810288706');
+    </script>
+  </head>
+  <body onload='doOnLoad();'>
+    <div id="wrapper">
+      <div id="headerwrap">
+        <div id="header">
+          <img style='float:left;'
+            src='https://l42.is/css/logoBlue.png' alt='42' width='120' height='120'/>
+          <h3 style='float:left;'>
+            <p style='font-size:150%; color:rgb(250,250,250);'>42 - The definitive answer to design, code and everything</p>
+            <p style='font-size:100%; color:rgb(250,250,250);'> --But you are not going to like it</p>
+          </h3>
+        </div>
+      </div>
+      <div id="contentwrap">
+        <div id="content">
+<p>
+
+<div class="index"><div class="wrapFloat"><div class="inFloat">
+<div class="rotate90"> Index of Content</div>
+</div><div class="inFloat">
+<ol>
+ <li><a href="#JavaServer"> Java Server </a></li>
+
+</ol>
+</div></div><div class="finishFloat"></div></div>
+
+</p><p id="JavaServer">
+</p><div style="break-after:page"></div><h1> Java Server </h1> <p>
+This library helps to create a bidirectional event based
+communication with Java.
+More detailed info can be seen in the tutorial
+<a href="tutorial_09InputOutput.xhtml">chapter 9</a>.
+
+</p><h2> Importing process and example usage </h2> <p>
+<pre class="l42Big"><![CDATA[
+reuse[L42.is/AdamsTowel]
+J0 = Load:{reuse [L42.is/JavaServer]}
+J = J0(slaveName=S"mySlave{}")
+Model = J.Handler:{
+  @J.Handler mut method Void fromJavaToL42(S msg) = void
+  }
+]]></pre>
+
+</p><h2> Overview </h2> <p>
+<pre class="l42BigFolded"><![CDATA[
+J={
+  //class methods:
+  #$of()                             @Public class method mut This #$of()=(..)
+  //read methods:
+  alive()                            @{
+    Is this Java process alive?
+    }@Public read method Bool alive()=(..)
+  //mut methods:
+  #apply(that)                       @Public mut method mut EventIterator #apply(mut S.List that)=(..)
+  askEvent(key, id, msg)             @{
+    Submits a synchronous event and waits for the answer.
+    }@Public mut method S.Opt askEvent(S key, S id, S msg)[Fail]=(..)
+  kill()                             @{
+    Submits the 'Kill' event on the Java slave and sets the alive flag to false.
+    }@Public mut method Void kill()=(..)
+  loadCode(fullName, code)           @{
+    Loads the following code into a Java class and creates an instance of it.
+    It then sets the alive flag to true.
+    }@Public mut method Void loadCode(S fullName, S code)[Fail]=(..)
+  nextEvent(keys)                    @{
+    Gets the next event from the Java slave.
+    More then one key can be specified; 
+    if multiple keys are specified, they must be separated by a single new line character.
+    }@Public mut method S.Opt nextEvent(S keys)[Fail]=(..)
+  submitEvent(key, id, msg)          @{
+    Submits a new event to the Java slave.
+    }@Public mut method Void submitEvent(S key, S id, S msg)[Fail]=(..)
+  @Public Event={
+    [HasToS]
+    //class methods:
+    #apply(key, id, msg)               class method This #apply(fwd imm S key, fwd imm S id, fwd imm S msg)=(..)
+    #immK(key, id, msg)                class method This #immK(S key, S id, S msg)=(..)
+    //imm methods:
+    #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+    #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+    #gtgt0(map)                        @{
+      This event get handled by the 'map'
+      }method Void #gtgt0(mut Handler.Map map)=(..)
+    norm()                             method This norm()=(..)
+    with(id)                           method This with(S id)=(..)
+    with(key)                          method This with(S key)=(..)
+    with(msg)                          method This with(S msg)=(..)
+    //read methods:
+    id()                               read method S id()=(..)
+    immClone()                         read method This immClone()=(..)
+    key()                              read method S key()=(..)
+    msg()                              read method S msg()=(..)
+    readEquality(that)                 read method Bool readEquality(read This that)=(..)
+    toS()                              read method S toS()=(..)
+    //mut methods:
+    capsuleClone()                     mut method capsule This capsuleClone()=(..)
+    }
+  @Public EventIterator={
+    //class methods:
+    #apply(that, streams)              class method mut This #apply(mut This1 that, mut S.List streams)=(..)
+    //read methods:
+    #hasElem(that)                     read method Collection.IteratorCompose #hasElem(I that)=(..)
+    #startIndex()                      read method I #startIndex()=(..)
+    keys()                             read method S keys()=(..)
+    streams()                          read method read S.List streams()=(..)
+    that()                             read method read This1 that()=(..)
+    //mut methods:
+    #elem#default(that)                mut method Event #elem#default(I that)=(..)
+    #elem#imm(that)                    mut method Event #elem#imm(I that)=(..)
+    #elem#read(that)                   mut method Event #elem#read(I that)=(..)
+    #iterator()                        mut method mut This #iterator()=(..)
+    #streams()                         mut method mut S.List #streams()=(..)
+    #that()                            mut method mut This1 #that()=(..)
+    #varIterator()                     mut method mut This #varIterator()=(..)
+    from(oRes)                         mut method Event from(S.Opt oRes)=(..)
+    from(res)                          mut method Event from(S res)=(..)
+    }
+  @Public Fail={
+    [Message, HasToS, Message.Guard]
+    //class methods:
+    #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
+    #apply(that)                       class method mut This #apply(S that)=(..)
+    #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+    //imm methods:
+    #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
+    with(cause)                        method This with(Message cause)=(..)
+    //read methods:
+    cause()                            read method Message.OptMessage cause()=(..)
+    text()                             read method S text()=(..)
+    toS()                              read method S toS()=(..)
+    //mut methods:
+    cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
+    text(that)                         mut method Void text(S that)=(..)
+    }
+  @Public Handler={
+    interface
+    #gtgt1(event)                      @{
+      Handles the event by delegating it to an appropriate instance method.
+      }@Public mut method Void #gtgt1(Event event)
+    @Public ClassOperators={
+      #apply()                           class method class This #apply()=(..)
+      #colon0(lifted)                    class method Trait #colon0(class Trait.Lifted lifted)[Fail]=(..)
+      #colon0(that)                      class method Library #colon0(Library that)[Fail]=(..)
+      #colon0(trait)                     class method Trait #colon0(Trait trait)[Fail]=(..)
+      }
+    @Public Fail={
+      [Message, HasToS, Message.Guard]
+      //class methods:
+      #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)=(..)
+      #apply(that)                       class method mut This #apply(S that)=(..)
+      #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+      //imm methods:
+      #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
+      with(cause)                        method This with(Message cause)=(..)
+      //read methods:
+      cause()                            read method Message.OptMessage cause()=(..)
+      text()                             read method S text()=(..)
+      toS()                              read method S toS()=(..)
+      //mut methods:
+      cause(that)                        mut method Void cause(Message.OptMessage that)=(..)
+      text(that)                         mut method Void text(S that)=(..)
+      }
+    @Public Map={
+      [HasToS]
+      //class methods:
+      #apply()                           @Public class method mut This #apply()=(..)
+      #apply(squareBuilder)              @Public class method mut This #apply(mut This squareBuilder)=(..)
+      #shortCircutSquare()               @Public class method Bool #shortCircutSquare()=(..)
+      #squareBuilder()                   @Public class method mut This #squareBuilder()=(..)
+      empty()                            @Public class method mut This empty()=(..)
+      //imm methods:
+      #bangequal0(that)                  @Public method Bool #bangequal0(This that)=(..)
+      #equalequal0(that)                 @Public method Bool #equalequal0(This that)=(..)
+      immNorm()                          @Public method This immNorm()=(..)
+      //read methods:
+      #elem#default(that)                @Public read method Entry #elem#default(I that)=(..)
+      #elem#imm(that)                    @Public read method Entry #elem#imm(I that)=(..)
+      #elem#read(that)                   @Public read method read Entry #elem#read(I that)=(..)
+      #hasElem(that)                     @Public read method Collection.IteratorCompose #hasElem(I that)=(..)
+      #iterator()                        @Public read method read This #iterator()=(..)
+      #startIndex()                      @Public read method I #startIndex()=(..)
+      entry(that)                        @Public read method read Entry entry(I that)=(..)
+      immEntry(that)                     @Public read method Entry immEntry(I that)=(..)
+      isEmpty()                          @Public read method Bool isEmpty()=(..)
+      isMutVal(that)                     @Public read method Bool isMutVal(I that)=(..)
+      key(that)                          @Public read method S key(I that)=(..)
+      readEquality(that)                 @Public read method Bool readEquality(read This that)=(..)
+      readVal(key)                       @Public read method read OVal readVal(S key)=(..)
+      readVal(that)                      @Public read method read This1 readVal(I that)=(..)
+      size()                             @Public read method I size()=(..)
+      toS()                              @Public read method S toS()=(..)
+      val(key)                           @Public read method OVal val(S key)=(..)
+      val(that)                          @Public read method This1 val(I that)=(..)
+      vals()                             @Public read method read This vals()=(..)
+      //mut methods:
+      #apply(that)                       @Public mut method mut This #apply(Void that)=(..)
+      #elem#mut(that)                    @Public mut method mut Entry #elem#mut(I that)=(..)
+      #entry(that)                       @Public mut method mut Entry #entry(I that)=(..)
+      #put(key, val)                     @Public mut method Void #put(S key, mut This1 val)=(..)
+      #squareAdd(key, mutVal)            @Public mut method Void #squareAdd(S key, mut This1 mutVal)=(..)
+      #squareAdd(key, val)               @Public mut method Void #squareAdd(S key, This1 val)=(..)
+      #val(key)                          @Public mut method mut OVal #val(S key)=(..)
+      #val(that)                         @Public mut method mut This1 #val(I that)=(..)
+      #vals()                            @Public mut method mut This #vals()=(..)
+      #varIterator()                     @Public mut method mut This #varIterator()=(..)
+      put(key, val)                      @Public mut method Void put(S key, This1 val)=(..)
+      remove(key)                        @Public mut method Void remove(S key)=(..)
+      @Public Entry={
+        [HasToS]
+        //class methods:
+        #apply(key, val)                   class method mut This #apply(fwd imm S key, fwd mut This2 val)=(..)
+        #immK(key, val)                    class method This #immK(S key, This2 val)=(..)
+        readEntry(key, val)                class method read This readEntry(S key, read This2 val)=(..)
+        //imm methods:
+        #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+        #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+        norm()                             method This norm()=(..)
+        with(key)                          method This with(S key)=(..)
+        with(val)                          method This with(This2 val)=(..)
+        //read methods:
+        immClone()                         read method This immClone()=(..)
+        key()                              read method S key()=(..)
+        readEquality(that)                 read method Bool readEquality(read This that)=(..)
+        toS()                              read method S toS()=(..)
+        val()                              read method read This2 val()=(..)
+        //mut methods:
+        #val()                             mut method mut This2 #val()=(..)
+        capsuleClone()                     mut method capsule This capsuleClone()=(..)
+        }
+      @Public OVal={
+        [HasToS]
+        //class methods:
+        #apply()                           class method mut This #apply()=(..)
+        #apply(that)                       class method mut This #apply(fwd mut This2 that)native{..}=(..)
+        equals(a, b)                       class method Bool equals(read This2 a, read This2 b)=(..)
+        //imm methods:
+        #bangequal0(that)                  method Bool #bangequal0(This that)=(..)
+        #equalequal0(that)                 method Bool #equalequal0(This that)=(..)
+        //read methods:
+        #bang0()                           read method Bool #bang0()=(..)
+        #if()                              read method Bool #if()native{..}=(..)
+        #in1(that)                         read method Bool #in1(read This2 that)=(..)
+        allEq(that)                        read method Bool allEq(read This that)=(..)
+        contains(that)                     read method Bool contains(read This2 that)=(..)
+        isPresent()                        read method Bool isPresent()=(..)
+        readEquality(that)                 read method Bool readEquality(read This that)=(..)
+        toS()                              read method S toS()=(..)
+        val()                              read method read This2 val()native{..}=(..)
+        val(orElse)                        read method read This2 val(read This2 orElse)=(..)
+        //mut methods:
+        #val()                             mut method mut This2 #val()native{..}=(..)
+        #val(orElse)                       mut method mut This2 #val(mut This2 orElse)=(..)
+        }
+      }
+    }
+  }
+J0={
+  #apply(slaveName)                  class method Library #apply(S slaveName)[Trait.InvalidName]=(..)
+  }
+Model={
+  [J.Handler]
+  #gtgt1(event)                      @{
+    Handles the event by delegating it to an appropriate instance method.
+    }mut method Void #gtgt1(J.Event event)=(..)
+  fromJavaToL42(msg)                 @J.Handler mut method Void fromJavaToL42(S msg)=(..)
+  }
+]]></pre>
+
+More in the details:
+<br/>
+The loaded Java code will be able to see any <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[*.jar]]></span><it style="font-style: bold; color:green;">&#187;</it>
+present in the 42 project folder.
+<br/>
+The loaded Java code need to represent a class with a constructor
+taking in input an <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Event]]></span><it style="font-style: bold; color:green;">&#187;</it> instance.
+Directly after creating such class and loading the code, a new instance of such a class is created,
+with an <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Event]]></span><it style="font-style: bold; color:green;">&#187;</it> instance able to talk back to 42.
+The <it style="font-style: bold; color:green;">&#171;</it><span class="code"><![CDATA[Event]]></span><it style="font-style: bold; color:green;">&#187;</it> interface is as follows:
+ 
+<pre class="java"><![CDATA[
+package is.L42.platformSpecific.javaEvents;
+
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
+
+public interface Event{
+  /**
+   * registerEvent(key,c) registers an event handler for an asynchronous event.
+   * Any time an event key,id,msg is submitted for the specified 'key',
+   * the BiConsumer<id,msg> 'c' is called in response.
+   * All events for the same key are processed in order.
+   * Registering a new event handler for a key also unregisters any former
+   * event handler for that same key.
+   * Keys for events and askEvents are handled independently, so there is no
+   * conflict if the same key is used in both environments for different purposes.
+   * */
+  void registerEvent(String key,BiConsumer<String,String> c);
+  /**
+   * registerEvent(key,id,c) acts similar to
+   * registerEvent(key,c), but only registers an handler 
+   * for a specific combination of key and id.
+   * An event handler for a key,id combination does not unregister
+   * any event handler, but take precedence over an handler for the same key.
+   * A common pattern is to first call registerEvent("Channel",..)
+   * with a fallback operation to perform on any unrecognized id,
+   * then call registerEvent("Channel","id1",..) ..registerEvent("Channel","idn",..)
+   * to handle specialized actions for certain ids.
+   * In this example, if the event "Channel","id1","hi" is submitted,
+   * only the specialized action is called.
+   * If the event "Channel","pizza","hi" is submitted, then the fallback action
+   * is called.
+   * */
+  void registerEvent(String key,String id,Consumer<String> c);
+  /**
+   * Unregisters any former event handler for the key.
+   * */
+  void resetEvent(String key);
+
+  /**
+   * registerAskEvent(key,c) registers an event handler for a synchronous event, producing a String result.
+   * Any time an event key,id,msg is submitted for the specified 'key',
+   * the BiFunction<id,msg> 'f' is called in response.
+   * 42 will wait until the function is completed and will receive the message.
+   * Registering a new event handler for a key also unregisters any former
+   * event handler for that same key.
+   * Keys for events and askEvents are handled independently, so there is no
+   * conflict if the same key is used in both environments for different purposes.
+   * */  
+  void registerAskEvent(String key,BiFunction<String,String,String> f);
+  /**
+   * registerAskEvent(key,id,f) works as registerEvent(key,id,c)
+   * but it works in a synchronous manner.
+   * */
+  void registerAskEvent(String key,String id, Function<String,String> f);
+
+  /**
+   * Unregisters any former askEvent handler for the key.
+   * */
+  void resetAskEvent(String key);
+  
+  /**
+   * Submits an event. If an event handler for this key has been registered,
+   * this event is going to be processed by Java, otherwise it
+   * is going to be processed by 42.
+   * */
+  void submitEvent(String key,String id,String msg);
+
+  /**
+   * The key of the special event representing the end of the event stream.
+   * On default it is "##End##\n"
+   * */
+  void setEnd(String idMsg);
+
+  /**
+   * The key of the special event representing that no new events
+   * have been produced up to the timeout.
+   * On default it is "##Empty##\n"
+   * */
+  void setEmpty(String idMsg);
+  
+  /**
+   * The default result for an askEvent with no associated handler function.
+   * On default it is ""
+   * */
+  void setDefaultAsk(String answer);
+
+  /**
+   * 42 will receive at least one event any 'timeout' milliseconds.
+   * On default it is 1000.
+   * */
+  void setTimeout(int timeout);
+  }
+]]></pre>
+        </p>
+        </div>
+      </div>
+      <div id="footerwrap">
+        <div id="footer">
+          <ul style='padding: 10px;'>
+            <li style='display:inline;'>
+            <a href="mailto:marco.servetto@gmail.com" rel="me">Contact Us</a> |</li>
+            <li style='display:inline;'>
+            <a href= "http://ecs.victoria.ac.nz/mailman/listinfo/team42">Mailing list</a> |</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+	
+  </body>
+</html>
+
+
