@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <link rel="stylesheet" type="text/css" href="https://l42.is/css/style.css" media="all"/>
+    <script src="https://l42.is/js/ace.js"></script>
+    <script src="https://l42.is/js/utils.js"></script>
+    <link rel="shortcut icon" href="https://l42.is/css/favicon.ico"/>
+    <title>42 - Metaprogramming as default</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-M0E4M0XH2Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M0E4M0XH2Z');
+    </script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-212820693-1">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-212820693-1');
+    </script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=AW-10810288706"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-10810288706');
+    </script>
+  </head>
+  <body onload='doOnLoad();'>
+    <div id="wrapper">
+      <div id="headerwrap">
+        <div id="header">
+          <img style='float:left;'
+            src='https://l42.is/css/logoBlue.png' alt='42' width='120' height='120'/>
+          <h3 style='float:left;'>
+            <p style='font-size:150%; color:rgb(250,250,250);'>42 - The definitive answer to design, code and everything</p>
+            <p style='font-size:100%; color:rgb(250,250,250);'> --But you are not going to like it</p>
+          </h3>
+        </div>
+      </div>
+      <div id="contentwrap">
+        <div id="content">
+<p>
+
+<div class="index"><div class="wrapFloat"><div class="inFloat">
+<div class="rotate90"> Index of Content</div>
+</div><div class="inFloat">
+<ol>
+ <li><a href="#Time"> Time </a></li>
+</ol>
+</div></div><div class="finishFloat"></div></div>
+
+</p><p id="Time">
+</p><div style="break-after:page"></div><h1> Time </h1> <p>
+</p><h2> Importing time and example usage </h2> <p>
+The time module enables retrieval of the unix universal time and automatic conversion of
+that time into a timezone with a preferred format.
+<pre class="l42Big"><![CDATA[
+reuse [L42.is/AdamsTowel]
+Time = Load:{reuse[L42.is/Time]}
+Main=(
+  t = Time.Real.#$of()
+  current = t.currentTime()
+  date = t.dateTime(zoneId=S"Australia/Sydney",pattern=S"yyyy/MM/dd HH:mm:ss OOOO")
+  Debug(current)
+  Debug(date)
+  )
+]]></pre>
+</p><h2> Overview under AdamsTowel </h2> <p>
+<pre class="l42BigFolded"><![CDATA[
+interface
+currentTime()                      mut method Math.Long currentTime()[Fail]
+dateTime(zoneId, pattern)          mut method S dateTime(S zoneId, S pattern)[Fail]
+Fail={
+  [Message, HasToS, Message.Guard]
+  //class methods:
+  #apply(text, cause)                class method mut This #apply(S text, Message.OptMessage cause)
+  #apply(that)                       class method mut This #apply(S that)=(..)
+  #from(stringLiteral)               class method This #from(S.StringBuilder stringLiteral)=(..)
+  //imm methods:
+  #whoopsed(atPos)                   method This #whoopsed(Library atPos)=(..)
+  with(cause)                        method This with(Message cause)=(..)
+  //read methods:
+  cause()                            read method Message.OptMessage cause()
+  text()                             read method S text()
+  toS()                              read method S toS()=(..)
+  //mut methods:
+  cause(that)                        mut method Void cause(Message.OptMessage that)
+  text(that)                         mut method Void text(S that)
+  }
+Real={
+  [This1]
+  //class methods:
+  #$of()                             @{
+     Capability factory.
+    Provides an object to call the function methods on
+    }@Public class method mut This #$of()=(..)
+  //mut methods:
+  currentTime()                      @{
+     Capability method. 
+    returns unix universal time
+    }@Public mut method Math.Long currentTime()[Fail]=(..)
+  dateTime(zoneId, pattern)          @{
+     Capability method.
+    This method returns a string following a format pattern and a zoneId.
+    The method accepts as zoneIds at least the following constants:
+      {
+      Australia/Darwin
+      Australia/Sydney
+      America/Argentina/Buenos_Aires
+      Africa/Cairo
+      America/Anchorage
+      America/Sao_Paulo
+      Asia/Dhaka
+      Africa/Harare
+      America/St_Johns
+      America/Chicago
+      Asia/Shanghai
+      Africa/Addis_Ababa
+      Europe/Paris
+      America/Indiana/Indianapolis
+      Asia/Kolkata
+      Asia/Tokyo
+      Pacific/Apia
+      Asia/Yerevan
+      Pacific/Auckland
+      Asia/Karachi
+      America/Phoenix
+      America/Puerto_Rico
+      America/Los_Angeles
+      Pacific/Guadalcanal
+      Asia/Ho_Chi_Minh
+      }
+      
+    However, other constants, like Europe/Rome may be available
+    An example of an accepted pattern is "yyyy/MM/dd HH:mm:ss OOOO"
+    }@Public mut method S dateTime(S zoneId, S pattern)[Fail]=(..)
+  }
+]]></pre>
+        </p>
+        </div>
+      </div>
+      <div id="footerwrap">
+        <div id="footer">
+          <ul style='padding: 10px;'>
+            <li style='display:inline;'>
+            <a href="mailto:marco.servetto@gmail.com" rel="me">Contact Us</a> |</li>
+            <li style='display:inline;'>
+            <a href= "http://ecs.victoria.ac.nz/mailman/listinfo/team42">Mailing list</a> |</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+	
+  </body>
+</html>
+
